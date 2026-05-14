@@ -3,22 +3,42 @@ import type { Project } from "@/content/projects";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const statusColors: Record<string, string> = {
-  live: "text-green-500",
-  "in-development": "text-amber-500",
-  archived: "text-muted",
+const statusGradients: Record<string, string> = {
+  live:
+    "transparent padding-box, linear-gradient(to right, #4ade80, #059669) border-box",
+  "in-development":
+    "transparent padding-box, linear-gradient(to right, #fbbf24, #ea580c) border-box",
+  archived:
+    "transparent padding-box, linear-gradient(to right, #a3a3a3, #525252) border-box",
+};
+
+const statusText: Record<string, string> = {
+  live: "text-green-400",
+  "in-development": "text-amber-400",
+  archived: "text-neutral-400",
 };
 
 export function CaseStudyCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-6 transition-colors hover:border-accent/50">
-      <div className="flex items-start justify-between mb-4">
+    <div
+      className={cn(
+        "rounded-lg border p-6 transition-colors hover:border-amber-500/50",
+        "border-border/80 border-b-[rgba(246,186,4,0.3)]",
+        "bg-[linear-gradient(to_right_bottom_in_oklab,_rgba(246,186,4,0.15)_0%,_rgba(0,0,0,0)_100%)]"
+      )}
+    >
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <h3 className="text-xl font-semibold">{project.title}</h3>
         <span
-          className={cn("text-xs font-medium", statusColors[project.status])}
+          className={cn(
+            "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
+            "border border-transparent shrink-0",
+            statusText[project.status]
+          )}
+          style={{ background: statusGradients[project.status] }}
         >
           ● {project.status}
         </span>
-        <h3 className="text-xl font-semibold">{project.title}</h3>
       </div>
 
       {project.caseStudy && (

@@ -3,27 +3,36 @@ import { TechBadge } from "@/components/ui/TechBadge";
 import type { Project } from "@/content/projects";
 import { ExternalLink } from "lucide-react";
 
-const statusColors: Record<string, string> = {
-  live: "text-green-500",
-  "in-development": "text-amber-500",
-  archived: "text-muted",
+const statusGradients: Record<string, string> = {
+  live:
+    "transparent padding-box, linear-gradient(to right, #4ade80, #059669) border-box",
+  "in-development":
+    "transparent padding-box, linear-gradient(to right, #fbbf24, #ea580c) border-box",
+  archived:
+    "transparent padding-box, linear-gradient(to right, #a3a3a3, #525252) border-box",
+};
+
+const statusText: Record<string, string> = {
+  live: "text-green-400",
+  "in-development": "text-amber-400",
+  archived: "text-neutral-400",
 };
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/50">
       <div className="flex items-start justify-between gap-4 mb-2">
-        <div>
-          <span
-            className={cn(
-              "text-xs font-medium",
-              statusColors[project.status]
-            )}
-          >
-            ● {project.status}
-          </span>
-          <h3 className="text-lg font-semibold mt-1">{project.title}</h3>
-        </div>
+        <h3 className="text-lg font-semibold">{project.title}</h3>
+        <span
+          className={cn(
+            "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium shrink-0",
+            "border border-transparent",
+            statusText[project.status]
+          )}
+          style={{ background: statusGradients[project.status] }}
+        >
+          ● {project.status}
+        </span>
       </div>
       <p className="text-sm text-muted mb-4">{project.description}</p>
       <div className="flex items-center justify-between">

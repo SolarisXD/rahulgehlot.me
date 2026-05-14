@@ -12,14 +12,14 @@ const typeColors: Record<string, string> = {
 export default function Experience() {
   return (
     <div>
-      <SectionHeader label="Work" heading="Where I've worked" />
+      <SectionHeader label="Work" heading="Where I've worked" accent />
       <div className="relative pl-6 border-l-2 border-accent/30">
         {experience.map((entry, i) => (
           <div key={i} className="relative pb-10 last:pb-0">
             {/* Dot on the timeline */}
             <div className="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-accent border-2 border-background" />
 
-            <div className="rounded-lg border border-border bg-card p-5">
+            <div className="rounded-lg border border-border/80 border-b-[rgba(246,186,4,0.3)] bg-[linear-gradient(to_right_bottom_in_oklab,_rgba(246,186,4,0.12)_0%,_rgba(0,0,0,0)_100%)] p-5">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
                 <div>
                   <h3 className="font-semibold">{entry.role}</h3>

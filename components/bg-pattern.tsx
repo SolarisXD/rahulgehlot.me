@@ -56,7 +56,7 @@ const BGPattern = ({
 	variant = 'grid',
 	mask = 'none',
 	size = 24,
-	dotSize = 2,
+	dotSize = 1,
 	fill = '#252525',
 	className,
 	style,
@@ -67,7 +67,7 @@ const BGPattern = ({
 
 	return (
 		<div
-			className={cn('fixed inset-0 pointer-events-none', maskClasses[mask], className)}
+			className={cn('absolute inset-0 pointer-events-none', maskClasses[mask], className)}
 			style={{
 				backgroundImage,
 				backgroundSize: bgSize,

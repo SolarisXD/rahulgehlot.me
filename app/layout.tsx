@@ -48,14 +48,21 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased relative min-h-screen font-sans`}
       >
+        {/* Prevent scroll restoration — always start at top on reload */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "history.scrollRestoration='manual';window.scrollTo(0,0);",
+          }}
+        />
         {/* Base dotted pattern — sections can layer their own for different effects */}
         <BGPattern
           variant="dots"
-          mask="fade-edges"
-          size={32}
-          dotSize={2}
-          fill="#3b82f6"
-          className="opacity-20"
+          mask="none"
+          size={24}
+          dotSize={1.2}
+          fill="var(--theme-dot)"
+          className="opacity-100 z-[-1]"
         />
         <ThemeProvider
           attribute="class"

@@ -1,6 +1,6 @@
 export const copy = {
   hero: {
-    greeting: "Hi, I'm DTxSD.",
+    greeting: "Hi, I'm Rahul.",
     roles: [
       "I build web apps that ship.",
       "I build AI tools that reason.",

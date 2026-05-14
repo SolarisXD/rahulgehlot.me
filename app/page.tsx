@@ -12,15 +12,31 @@ import Skills from "@/components/sections/Skills";
 import MicroOpinions from "@/components/sections/MicroOpinions";
 import Contact from "@/components/sections/Contact";
 import FloatingChat from "@/components/chat/FloatingChat";
+import { BGPattern } from "@/components/bg-pattern";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-[960px] px-4 sm:px-6">
-        <section id="hero" className="py-20 sm:py-28">
-          <Hero />
-        </section>
+
+      {/* Full-width Hero Container */}
+      <div className="relative w-full bg-[#17282E] pt-16 lg:pt-0 overflow-hidden">
+        <BGPattern
+          variant="dots"
+          mask="none"
+          size={24}
+          dotSize={1.2}
+          fill="rgba(255,255,255,0.15)"
+          className="opacity-100 absolute inset-0 z-0"
+        />
+        <div className="mx-auto max-w-[860px] px-4 sm:px-6 relative z-10">
+          <section id="hero" className="py-20 sm:py-28">
+            <Hero />
+          </section>
+        </div>
+      </div>
+
+      <main className="mx-auto max-w-[860px] px-4 sm:px-6">
         <section id="about" className="py-20 sm:py-28">
           <About />
         </section>

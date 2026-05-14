@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="py-8 text-center text-sm text-muted">
       <p>
-        © 2026 DTxSD &nbsp;·&nbsp;
+        © 2026 Rahul Gehlot &nbsp;·&nbsp;
         <a
           href="https://github.com/..."
           target="_blank"
@@ -20,8 +20,6 @@ export default function Footer() {
         >
           LinkedIn
         </a>
-        &nbsp;·&nbsp;
-        <span className="text-muted">Built with Next.js + Gemini</span>
       </p>
     </footer>
   );

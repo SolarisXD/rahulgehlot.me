@@ -7,22 +7,24 @@
 
 /* Light theme (default, also applies when class="light" on <html>) */
 :root {
-  --theme-bg: #ffffff;
-  --theme-fg: #171717;
-  --theme-card: #f7f7f7;
-  --theme-border: #e3e3e3;
-  --theme-muted: #8f8f8f;
+  --theme-bg: #ebeded;
+  --theme-fg: #1f1f1f;
+  --theme-card: #f0f2f2;
+  --theme-border: #d6d8da;
+  --theme-muted: #8e9096;
   --theme-accent: #3b82f6;
+  --theme-dot: #ced0d2;
 }
 
 /* Dark theme — applied when next-themes adds class="dark" to <html> */
 :root.dark {
-  --theme-bg: #0a0a0a;
+  --theme-bg: #1b1b1e;
   --theme-fg: #ededed;
-  --theme-card: #141414;
-  --theme-border: #262626;
-  --theme-muted: #737373;
+  --theme-card: #222226;
+  --theme-border: #2e2e32;
+  --theme-muted: #9ca3af;
   --theme-accent: #3b82f6;
+  --theme-dot: #28292c;
 }
 
 /* ── Tailwind theme — registers runtime vars as Tailwind utilities ── */
@@ -57,13 +59,27 @@ body {
   color: white;
 }
 
-/* ── Section scroll offset (fixed navbar is 64px) ── */
+/* ── Section scroll offset (mobile: 64px header) ── */
 section[id] {
   scroll-margin-top: 5rem;
+}
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 2rem;
+  }
 }
 
 /* ── Hero role crossfade ── */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Navbar entrance ── */
+@keyframes nav-fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-nav-in {
+  animation: nav-fade-in 0.4s ease-out;
 }
