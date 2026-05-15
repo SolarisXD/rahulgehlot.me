@@ -4,7 +4,7 @@ export default function Footer() {
       <p>
         © 2026 Rahul Gehlot &nbsp;·&nbsp;
         <a
-          href="https://github.com/..."
+          href="https://github.com/SolarisXD"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"
@@ -13,7 +13,7 @@ export default function Footer() {
         </a>
         &nbsp;·&nbsp;
         <a
-          href="https://linkedin.com/in/..."
+          href="https://linkedin.com/in/rahulgehlot"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-foreground transition-colors"

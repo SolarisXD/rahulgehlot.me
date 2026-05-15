@@ -84,13 +84,7 @@ export default function Hero() {
             </span>
           </button>
 
-          {/* Secondary CTA */}
-          <button
-            onClick={() => window.dispatchEvent(new Event("open-chat"))}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 transition-all text-sm font-medium text-white group"
-          >
-            {copy.hero.secondaryCta}
-          </button>
+
         </div>
       </div>
     </div>

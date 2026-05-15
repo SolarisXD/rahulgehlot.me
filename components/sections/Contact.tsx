@@ -5,7 +5,7 @@ import { Mail } from "lucide-react";
 export default function Contact() {
   return (
     <div>
-      <SectionHeader label="Contact" heading={copy.contact.heading} />
+      <SectionHeader label="Contact" heading={copy.contact.heading} icon={<Mail size={18} />} />
       <p className="text-base text-foreground/80 max-w-xl mb-6">
         {copy.contact.body}
       </p>
@@ -18,7 +18,7 @@ export default function Contact() {
           {copy.contact.emailLabel}
         </a>
         <a
-          href="https://github.com/..."
+          href="https://github.com/SolarisXD"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50 transition-colors"
@@ -29,7 +29,7 @@ export default function Contact() {
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/..."
+          href="https://linkedin.com/in/rahulgehlot"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50 transition-colors"

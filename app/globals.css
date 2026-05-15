@@ -37,6 +37,14 @@
   --color-accent: var(--theme-accent);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  @keyframes gradient-rotate {
+  from {
+    --gradient-angle: 0deg;
+    }
+  to {
+    --gradient-angle: 360deg;
+    }
+  }
 }
 
 /* ── Base styles ── */
@@ -67,6 +75,37 @@ section[id] {
   section[id] {
     scroll-margin-top: 2rem;
   }
+}
+
+/* ── Animated Gradient Border ── */
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border-component {
+  position: relative;
+}
+
+.gradient-border-auto {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-hover {
+  animation: none;
+}
+
+.gradient-border-hover:hover {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-stop-hover {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-stop-hover:hover {
+  animation: none;
 }
 
 /* ── Hero role crossfade ── */

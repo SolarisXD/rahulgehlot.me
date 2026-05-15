@@ -20,7 +20,7 @@ export default function Home() {
       <Navbar />
 
       {/* Full-width Hero Container */}
-      <div className="relative w-full bg-[#17282E] pt-16 lg:pt-0 overflow-hidden">
+      <div className="relative w-full bg-[radial-gradient(ellipse_at_50%_40%,_rgba(251,146,60,0.04)_0%,_rgba(34,211,238,0.03)_35%,_#ebeded_70%)] dark:bg-[radial-gradient(ellipse_at_50%_40%,_rgba(251,146,60,0.06)_0%,_rgba(34,211,238,0.04)_35%,_#1b1b1e_70%)] pt-16 lg:pt-0 overflow-hidden">
         <BGPattern
           variant="dots"
           mask="none"

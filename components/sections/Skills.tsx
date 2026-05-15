@@ -105,6 +105,7 @@ export default function Skills() {
         </div>
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white">Skills</h2>
+          <p className="text-sm text-slate-500 dark:text-foreground/50">My Gear</p>
         </div>
       </div>
 

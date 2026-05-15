@@ -8,6 +8,7 @@ export type Project = {
   id: string;
   title: string;
   description: string;
+  period: string;
   stack: string[];
   github?: string;
   demo?: string;
@@ -21,10 +22,11 @@ export const projects: Project[] = [
   {
     id: 'hisaab-pro',
     title: 'Hisaab Pro',
-    description: 'Offline-first double-entry accounting for small businesses — 9 business modules, AES-256 encrypted SQLite, GST-ready invoicing, and a 350-test suite.',
+    description: 'Offline-first double-entry accounting with 9 core business modules — automated ledger transactions, GST-ready invoicing, and 6 financial reports (Balance Sheets, P&L, aging schedules). AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Automated payroll from daily attendance data with 350+ Jest tests across 18 files.',
+    period: 'Jan 2026 - Apr 2026',
     stack: ['Node.js', 'Express.js', 'SQLite', 'JavaScript', 'Jest'],
-    github: 'https://github.com/SolarisXD/...',
-    demo: 'https://...',
+    github: 'https://github.com/SolarisXD/Hisaab-Pro',
+    demo: 'https://hisaab-pro.vercel.app',
     status: 'live',
     tags: ['full-stack', 'desktop', 'tools'],
     featured: true,
@@ -37,10 +39,11 @@ export const projects: Project[] = [
   {
     id: 'skillence',
     title: 'Skillence',
-    description: 'AI-powered career platform — PyTorch recommendation model mapping 692 skills to 894 occupations with ~1ms inference. Campus placement engine with zero LLM dependency.',
+    description: 'Full-stack career platform with a 3-stage recommendation pipeline mapping 692 skills to 894 occupations (~1ms inference). PyTorch-trained ML models with custom NumPy inference layer for zero-crash deployment. Automated campus placement engine with 4-variable algorithmic scoring. Job market analytics processing 30,000+ postings with ML salary prediction across 25+ countries.',
+    period: 'Jul 2025 - Mar 2026',
     stack: ['React 19', 'FastAPI', 'PyTorch', 'NumPy', 'Gemini API', 'Azure AI'],
-    github: 'https://github.com/SolarisXD/...',
-    demo: 'https://...',
+    github: 'https://github.com/SolarisXD/Skillence',
+    demo: 'https://skillence-pi.vercel.app',
     status: 'live',
     tags: ['AI', 'full-stack', 'ML'],
     featured: true,
@@ -53,10 +56,10 @@ export const projects: Project[] = [
   {
     id: 'swaphub',
     title: 'SwapHub',
-    description: 'Campus marketplace for students to buy, sell, donate, and rent items — full-stack with Express REST APIs, MongoDB/Mongoose, and Passport.js session auth.',
+    description: 'Campus marketplace for students to buy, sell, donate, and rent items. Full-stack with Express REST APIs, MongoDB/Mongoose data persistence, and Passport.js session auth with secure password hashing. Modular React components with product grids, image upload, client-side validation, and category carousels.',
+    period: 'Feb 2024 - May 2024',
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS', 'Passport.js'],
-    github: 'https://github.com/SolarisXD/...',
-    demo: 'https://...',
+    github: 'https://github.com/SolarisXD/SwapHub',
     status: 'live',
     tags: ['full-stack'],
     featured: false,
@@ -65,10 +68,34 @@ export const projects: Project[] = [
     id: 'portfolio',
     title: 'This portfolio',
     description: 'Interactive portfolio with an embedded RAG chatbot — Gemini 1.5 Flash, Supabase pgvector, hybrid search, Langfuse tracing. All free tier.',
+    period: 'Ongoing',
     stack: ['Next.js', 'Gemini', 'pgvector', 'Langfuse', 'Tailwind'],
-    github: 'https://github.com/SolarisXD/...',
+    github: '#',
     status: 'in-development',
     tags: ['AI', 'full-stack'],
     featured: false,
   },
+  {
+    id: 'image-captioning',
+    title: 'Image Captioning',
+    description: 'Encoder-decoder model using ResNet50 + LSTM trained on 1,500 Flickr images. Flask web app with OpenCV processing for real-time AI-generated image captions.',
+    period: 'Feb 2024 - May 2024',
+    stack: ['Python', 'Flask', 'OpenCV', 'TensorFlow', 'ResNet50', 'LSTM'],
+    github: 'https://github.com/SolarisXD/Image-Captioning',
+    status: 'archived',
+    tags: ['AI', 'ML', 'computer-vision'],
+    featured: false,
+  },
+  {
+    id: 'pyrush',
+    title: 'PyRush',
+    description: '2D platformer with a Mario Maker-inspired level editor — users create, save, and play 100+ custom levels boosting engagement by 40%. Advanced enemy AI, camera tracking, and animation systems with 15% faster level loads.',
+    period: 'Aug 2023 - Nov 2023',
+    stack: ['Python', 'Pygame'],
+    github: 'https://github.com/SolarisXD/PyRush',
+    status: 'archived',
+    tags: ['game-dev', 'python'],
+    featured: false,
+  },
 ];
+

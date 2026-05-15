@@ -30,7 +30,7 @@ export default function Education() {
                 className="rounded-2xl border border-slate-200/70 bg-white p-6 transition-all hover:border-slate-300 dark:border-white/5 dark:bg-[#1F2023]"
               >
                 <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-foreground/40">
-                  <span className="font-mono text-cyan-700 dark:text-cyan-300">
+                  <span className="font-mono text-amber-600 dark:text-amber-300">
                     {edu.period}
                   </span>
                   <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-foreground/20" />
@@ -51,42 +51,17 @@ export default function Education() {
                     </span>
                   </div>
                 )}
-                
+
                 {edu.highlights && edu.highlights.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {edu.highlights.map((highlight, index) => {
-                      const initials = highlight
-                        .split(" ")
-                        .map((part) => part[0])
-                        .slice(0, 2)
-                        .join("")
-                        .toUpperCase();
-                      const badgeClasses = [
-                        "bg-amber-100 text-amber-700",
-                        "bg-emerald-100 text-emerald-700",
-                        "bg-sky-100 text-sky-700",
-                        "bg-violet-100 text-violet-700",
-                        "bg-rose-100 text-rose-700",
-                      ];
-                      const darkBadgeClasses = [
-                        "dark:bg-amber-500/15 dark:text-amber-300",
-                        "dark:bg-emerald-500/15 dark:text-emerald-300",
-                        "dark:bg-sky-500/15 dark:text-sky-300",
-                        "dark:bg-violet-500/15 dark:text-violet-300",
-                        "dark:bg-rose-500/15 dark:text-rose-300",
-                      ];
-                      const badgeClass = badgeClasses[index % badgeClasses.length];
-                      const darkBadgeClass = darkBadgeClasses[index % darkBadgeClasses.length];
-
-                      return (
-                        <span
-                          key={highlight}
-                          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
-                        >
-                          <span>{highlight}</span>
-                        </span>
-                      );
-                    })}
+                    {edu.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
+                      >
+                        <span>{highlight}</span>
+                      </span>
+                    ))}
                   </div>
                 )}
                 {edu.linkLabel && edu.linkUrl && (

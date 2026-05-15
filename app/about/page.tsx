@@ -17,9 +17,6 @@ export default function AboutPage() {
           <span className="text-sm font-medium text-foreground">About</span>
         </div>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-1 text-xs font-semibold px-2 py-1.5 rounded-md border border-border bg-white dark:bg-card hover:bg-muted/50 transition-colors hidden sm:flex">
-            <span role="img" aria-label="UK flag">🇬🇧</span> EN
-          </button>
           <ResumeDropdown />
           <ThemeToggle variant="icon" defaultTheme="dark" />
         </div>
@@ -31,7 +28,7 @@ export default function AboutPage() {
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
           <div className="w-24 h-24 shrink-0 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-400 to-purple-500 p-1 shadow-md">
             <div className="w-full h-full rounded-full bg-orange-400 border-2 border-background flex items-center justify-center text-white font-bold text-3xl">
-              DT
+              RG
             </div>
           </div>
           <div className="text-center sm:text-left flex-1">
@@ -39,7 +36,7 @@ export default function AboutPage() {
             <p className="text-sm font-medium text-muted-foreground mb-3 flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1">
               Builder <span className="text-[#006d77]">•</span> Applied AI Operator
               <span className="inline-flex items-center gap-1 bg-[#006d77]/10 text-[#006d77] px-2 py-0.5 rounded-full text-xs font-bold border border-[#006d77]/20">
-                <Star size={10} className="fill-current" /> Top Rated
+                <Star size={10} className="fill-current" /> B.Tech CSE
               </span>
             </p>
             <div className="flex items-center justify-center sm:justify-start gap-4 text-sm text-muted-foreground">
@@ -52,19 +49,17 @@ export default function AboutPage() {
         {/* Quote Section */}
         <div className="bg-[#006d77]/5 border-l-4 border-[#006d77] p-5 rounded-r-lg mb-10">
           <p className="text-lg italic font-medium text-[#006d77] dark:text-[#4fd1c5]">
-            "Companies use AI to filter candidates, I just gave candidates AI to bypass the filters."
+            &ldquo;B.Tech CSE at VIT Bhopal. I build full-stack web apps and ML systems&mdash;sometimes separately, increasingly together.&rdquo;
           </p>
         </div>
 
         {/* Intro Text */}
         <div className="prose prose-sm dark:prose-invert max-w-none mb-12 text-muted-foreground leading-relaxed">
           <p>
-            B.Tech CSE student at VIT (graduating 2026, CGPA 8.60). I build production web apps and AI-powered tools. 
-            For the past year I've been taking on freelance projects — I find local businesses without websites on Google Maps, 
-            build a working demo without being asked, and pitch via WhatsApp. Most say yes.
+            B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems &mdash; sometimes separately, increasingly together.
           </p>
           <p>
-            Right now I'm building Hisaab Pro — accounting software for small businesses that can't afford Tally.
+            Hisaab Pro is an offline-first double-entry accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero. I write a lot of tests &mdash; Hisaab Pro has 350+ Jest tests across 18 files, not because someone told me to, but because client financial data has no room for silent bugs.
           </p>
         </div>
 
@@ -75,8 +70,8 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { role: "Freelance Full Stack Developer", company: "Self-Employed", date: "2023 - Present" },
-              { role: "AI Integrations Engineer Intern", company: "TechCorp", date: "Summer 2023" },
+              { role: "Freelance Developer", company: "Hisaab Pro clients \u2014 Remote", date: "2026" },
+              { role: "AI-Powered Career Platform (Capstone)", company: "Skillence \u2014 VIT Bhopal", date: "Jul 2025 - Mar 2026" },
             ].map((exp, i) => (
               <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/30 transition-colors">
                 <div>
@@ -98,11 +93,11 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { name: "Hisaab Pro", desc: "SaaS Accounting Software for small Indian businesses" },
-              { name: "AI Resume Bypass", desc: "CLI tool that optimizes resumes against ATS filters" },
-              { name: "Skillence", desc: "LMS platform for college clubs to host internal courses" },
+              { name: "Hisaab Pro", desc: "Offline-first double-entry accounting shipped to real clients", href: "https://github.com/SolarisXD/Hisaab-Pro" },
+              { name: "Skillence", desc: "Career platform with ML recommendations & campus placement engine", href: "https://github.com/SolarisXD/Skillence" },
+              { name: "SwapHub", desc: "Campus marketplace to buy, sell, donate, and rent items", href: "https://github.com/SolarisXD/SwapHub" },
             ].map((proj, i) => (
-              <a href="#" key={i} className="flex items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/50 hover:shadow-md transition-all group">
+              <a href={proj.href} key={i} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/50 hover:shadow-md transition-all group">
                 <div>
                   <h3 className="font-semibold text-foreground group-hover:text-[#006d77] transition-colors">{proj.name}</h3>
                   <p className="text-sm text-muted-foreground">{proj.desc}</p>
@@ -119,11 +114,11 @@ export default function AboutPage() {
             <MapPin size={20} /> Education
           </h2>
           <div className="p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm">
-            <h3 className="font-semibold text-foreground">B.Tech Computer Science and Engineering</h3>
-            <p className="text-sm text-muted-foreground">Vellore Institute of Technology (VIT)</p>
+            <h3 className="font-semibold text-foreground">B.Tech Computer Science &mdash; AI-ML Specialisation</h3>
+            <p className="text-sm text-muted-foreground">VIT Bhopal University</p>
             <div className="mt-3 flex items-center gap-3">
-              <span className="text-xs font-medium bg-[#006d77]/10 text-[#006d77] px-2.5 py-1 rounded-md border border-[#006d77]/20">CGPA: 8.60</span>
-              <span className="text-xs font-medium text-muted-foreground">Expected 2026</span>
+              <span className="text-xs font-medium bg-[#006d77]/10 text-[#006d77] px-2.5 py-1 rounded-md border border-[#006d77]/20">CGPA: 8.67</span>
+              <span className="text-xs font-medium text-muted-foreground">Graduating July 2026</span>
             </div>
           </div>
         </section>
@@ -135,8 +130,9 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3">
             {[
-              { q: "Are you available for freelance work?", a: "Yes, I am actively taking on freelance web development and AI integration projects." },
-              { q: "What stack do you prefer?", a: "I build primarily with Next.js, Tailwind CSS, TypeScript, and Postgres. I integrate AI using OpenAI/Anthropic SDKs." },
+              { q: "Are you available for freelance or full-time work?", a: "Yes. Open to internships, freelance projects, and full-time roles after graduating July 2026. I build full-stack web apps and ML systems." },
+              { q: "What's your preferred stack?", a: "Backend: Node.js, Express, FastAPI, SQLite, MongoDB. Frontend: React, Next.js, Tailwind CSS. ML: PyTorch (training), custom NumPy inference (production), Gemini API for AI features." },
+              { q: "Do you write tests?", a: "Absolutely. Hisaab Pro has 350+ Jest tests across 18 files. I write tests because silently wrong business logic is worse than visible crashes — especially for financial data." },
             ].map((faq, i) => (
               <details key={i} className="group p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex items-center justify-between font-semibold cursor-pointer text-foreground">
@@ -157,16 +153,16 @@ export default function AboutPage() {
             <Mail size={20} /> Contact & Social
           </h2>
           <div className="flex flex-wrap gap-3">
-            <a href="#" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
+            <a href="https://github.com/SolarisXD" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
               <GitBranch size={16} /> GitHub
             </a>
-            <a href="#" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
+            <a href="https://linkedin.com/in/rahulgehlot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
               <Briefcase size={16} /> LinkedIn
             </a>
-            <a href="#" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
-              <Globe size={16} /> Twitter
+            <a href="https://rahulgehlot.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
+              <Globe size={16} /> Portfolio
             </a>
-            <a href="#" className="flex items-center gap-2 px-5 py-2.5 bg-[#006d77] text-white border border-[#006d77] rounded-full text-sm font-medium hover:bg-[#005860] shadow-sm transition-all">
+            <a href="mailto:rahulgehlot6044@gmail.com" className="flex items-center gap-2 px-5 py-2.5 bg-[#006d77] text-white border border-[#006d77] rounded-full text-sm font-medium hover:bg-[#005860] shadow-sm transition-all">
               <Mail size={16} /> Email Me
             </a>
           </div>

@@ -18,10 +18,19 @@ const statusText: Record<string, string> = {
   archived: "text-neutral-400",
 };
 
+const statusBorder: Record<string, string> = {
+  live: "#4ade80",
+  "in-development": "#fbbf24",
+  archived: "#a3a3a3",
+};
+
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/50">
-      <div className="flex items-start justify-between gap-4 mb-2">
+    <div className={cn(
+      "rounded-lg border border-slate-200/70 p-5 transition-colors hover:border-accent/50 dark:border-white/5",
+      project.status === 'archived' ? 'bg-transparent' : 'bg-white dark:bg-[#1F2023]'
+    )}>
+      <div className="flex items-start justify-between gap-4 mb-1">
         <h3 className="text-lg font-semibold">{project.title}</h3>
         <span
           className={cn(
@@ -29,11 +38,14 @@ export function ProjectCard({ project }: { project: Project }) {
             "border border-transparent",
             statusText[project.status]
           )}
-          style={{ background: statusGradients[project.status] }}
+          style={{ background: statusGradients[project.status], borderColor: statusBorder[project.status] }}
         >
           ● {project.status}
         </span>
       </div>
+      {project.period && (
+        <p className="text-xs font-mono text-amber-600 dark:text-amber-300 mb-3">{project.period}</p>
+      )}
       <p className="text-sm text-muted mb-4">{project.description}</p>
       <div className="flex items-center justify-between">
         <div className="flex flex-wrap gap-1.5">

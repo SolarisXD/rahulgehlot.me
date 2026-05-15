@@ -2,6 +2,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { projects } from "@/content/projects";
+import { FolderGit2 } from "lucide-react";
 
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
@@ -13,6 +14,7 @@ export default function Projects() {
         label="Projects"
         heading="What I've built"
         accent
+        icon={<FolderGit2 size={18} />}
         rightContent={
           <a
             href="https://github.com/SolarisXD"

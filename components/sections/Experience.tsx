@@ -2,6 +2,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { experience } from "@/content/experience";
 import { cn } from "@/lib/utils";
+import { Briefcase } from "lucide-react";
 
 const typeColors: Record<string, string> = {
   freelance: "text-emerald-500 border-emerald-500/30",
@@ -12,12 +13,12 @@ const typeColors: Record<string, string> = {
 export default function Experience() {
   return (
     <div>
-      <SectionHeader label="Work" heading="Where I've worked" accent />
+      <SectionHeader label="Work" heading="Where I've worked" accent icon={<Briefcase size={18} />} />
       <div className="relative pl-6 border-l-2 border-accent/30">
         {experience.map((entry, i) => (
           <div key={i} className="relative pb-10 last:pb-0">
             {/* Dot on the timeline */}
-            <div className="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-accent border-2 border-background" />
+            <div className="absolute left-[-1.5rem] top-1 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-background bg-accent motion-safe:animate-pulse" />
 
             <div className="rounded-lg border border-border/80 border-b-[rgba(246,186,4,0.3)] bg-[linear-gradient(to_right_bottom_in_oklab,_rgba(246,186,4,0.12)_0%,_rgba(0,0,0,0)_100%)] p-5">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">

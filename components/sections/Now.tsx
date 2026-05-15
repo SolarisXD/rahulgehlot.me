@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { now, nowLastUpdated } from "@/content/now";
+import { Radio } from "lucide-react";
 
 export default function Now() {
   const formattedDate = new Date(nowLastUpdated + "T00:00:00Z").toLocaleDateString("en-US", {
@@ -13,6 +14,7 @@ export default function Now() {
       <SectionHeader
         label="now"
         heading="What I'm doing right now"
+        icon={<Radio size={18} />}
       />
       <div className="space-y-3">
         {now.map((item) => (
