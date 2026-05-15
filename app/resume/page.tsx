@@ -19,7 +19,7 @@ export default function ResumePage() {
       <header className="w-full px-6 md:px-10 py-6 flex items-center justify-between border-b border-border shrink-0 bg-background/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={16} /> DTxSD
+            <ArrowLeft size={16} /> Rahul
           </Link>
           <span className="text-muted-foreground/50">/</span>
           <span className="text-sm font-medium text-foreground">PDF Resume</span>

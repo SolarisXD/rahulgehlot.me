@@ -131,7 +131,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-semibold text-sm tracking-tight hover:text-accent transition-colors"
         >
-          DTxSD
+          Rahul
         </button>
         <div className="flex items-center gap-2">
           <ResumeDropdown />

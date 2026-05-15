@@ -52,7 +52,7 @@ export function ResumeDropdown() {
             </div>
             <div className="flex flex-col text-left">
               <span className="font-medium">Digital Resume</span>
-              <span className="text-[11px] text-[#006d77]/80 leading-tight">Interactive @dtxsd format</span>
+              <span className="text-[11px] text-[#006d77]/80 leading-tight">Interactive @Rahul format</span>
             </div>
           </Link>
         </div>

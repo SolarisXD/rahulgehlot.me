@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, MapPin, Briefcase, ChevronRight, CheckCircle2, ChevronDown, Mail, Star, ExternalLink, GitBranch, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
 import { ResumeDropdown } from "@/components/ui/resume-dropdown";
+import { certifications } from "@/content/education";
 
 export default function AboutPage() {
   return (
@@ -11,7 +12,7 @@ export default function AboutPage() {
       <header className="w-full px-6 md:px-10 py-6 mb-10 flex items-center justify-between border-b border-border">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft size={16} /> DTxSD
+            <ArrowLeft size={16} /> Rahul
           </Link>
           <span className="text-muted-foreground/50">/</span>
           <span className="text-sm font-medium text-foreground">About</span>
@@ -71,7 +72,6 @@ export default function AboutPage() {
           <div className="space-y-3">
             {[
               { role: "Freelance Developer", company: "Hisaab Pro clients \u2014 Remote", date: "2026" },
-              { role: "AI-Powered Career Platform (Capstone)", company: "Skillence \u2014 VIT Bhopal", date: "Jul 2025 - Mar 2026" },
             ].map((exp, i) => (
               <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/30 transition-colors">
                 <div>
@@ -83,6 +83,21 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="mb-12">
+          <h2 className="flex items-center gap-2 text-xl font-bold text-[#006d77] dark:text-[#4fd1c5] mb-4">
+            <MapPin size={20} /> Education
+          </h2>
+          <div className="p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm">
+            <h3 className="font-semibold text-foreground">B.Tech Computer Science &mdash; AI-ML Specialisation</h3>
+            <p className="text-sm text-muted-foreground">VIT Bhopal University</p>
+            <div className="mt-3 flex items-center gap-3">
+              <span className="text-xs font-medium bg-[#006d77]/10 text-[#006d77] px-2.5 py-1 rounded-md border border-[#006d77]/20">CGPA: 8.67</span>
+              <span className="text-xs font-medium text-muted-foreground">Graduating July 2026</span>
+            </div>
           </div>
         </section>
 
@@ -108,18 +123,32 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Education */}
+        {/* Certifications */}
         <section className="mb-12">
           <h2 className="flex items-center gap-2 text-xl font-bold text-[#006d77] dark:text-[#4fd1c5] mb-4">
-            <MapPin size={20} /> Education
+            <CheckCircle2 size={20} /> Certifications
           </h2>
-          <div className="p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm">
-            <h3 className="font-semibold text-foreground">B.Tech Computer Science &mdash; AI-ML Specialisation</h3>
-            <p className="text-sm text-muted-foreground">VIT Bhopal University</p>
-            <div className="mt-3 flex items-center gap-3">
-              <span className="text-xs font-medium bg-[#006d77]/10 text-[#006d77] px-2.5 py-1 rounded-md border border-[#006d77]/20">CGPA: 8.67</span>
-              <span className="text-xs font-medium text-muted-foreground">Graduating July 2026</span>
-            </div>
+          <div className="space-y-3">
+            {certifications.map((cert) => {
+              const Card = cert.link ? "a" : "div";
+              return (
+                <Card
+                  key={cert.name}
+                  href={cert.link}
+                  target={cert.link ? "_blank" : undefined}
+                  rel={cert.link ? "noopener noreferrer" : undefined}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/40 transition-colors"
+                >
+                  <div>
+                    <h3 className="font-semibold text-foreground">{cert.name}</h3>
+                    <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                  </div>
+                  <div className="mt-2 sm:mt-0 text-xs font-medium text-muted-foreground">
+                    {cert.year}
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
