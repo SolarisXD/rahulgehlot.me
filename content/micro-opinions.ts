@@ -1,15 +1,15 @@
 export const microOpinions: string[] = [
-  "A working demo beats a proposal every time. I send the demo first.",
+  "If the accounting ledger silently processes a transaction twice, no one knows until it's too late. That's why I wrote 350 tests for it.",
 
-  "CGPA tells you how well someone performs in a controlled environment. GitHub tells you what they do when no one's grading them.",
+  "A pure NumPy inference layer is more work than serving the PyTorch model directly. It's also the reason production didn't crash.",
 
-  "If I can't explain why I chose a library in one sentence, I probably shouldn't be using it.",
+  "CGPA tells you how well someone performs in a controlled environment. The test suite tells you how seriously they take the uncontrolled one.",
 
-  "'Move fast and break things' is fine until it's someone's financial data. Then you encrypt the database file, add audit logs, and move carefully.",
+  "The best decision I made on Skillence was designing the campus placement engine with zero LLM dependency. LLMs are expensive, slow, and unpredictable. Algorithmic scoring is none of those things.",
 
-  "The best portfolio project is the one you built because something annoyed you — not the one that looked good on a checklist.",
+  "'Just use the ORM' is fine until you need to understand why your queries are slow. I read the SQL.",
 
-  "I don't add features until I've watched someone fail to use the existing ones.",
+  "I don't trust a feature I haven't written a test for. Especially when it touches money.",
 
-  "Documentation is a gift to the version of yourself that opens this project six months from now.",
+  "A 692-skill vocabulary mapped against 894 occupations at 1ms inference isn't magic. It's knowing when to stop using the heavy tool and write the lightweight one.",
 ];

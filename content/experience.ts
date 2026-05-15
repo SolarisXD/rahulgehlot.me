@@ -11,17 +11,16 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Freelance Web Developer",
-    org: "Self-employed",
-    location: "Remote",
-    period: "2024 – present",
-    type: "freelance",
+    role: 'Freelance Developer',
+    org: 'Hisaab Pro clients',
+    location: 'Remote',
+    period: '2026',
+    type: 'freelance',
     bullets: [
-      "Built a Node.js + Playwright scraper to extract local business leads from Google Maps and flag targets with no website",
-      "Demo-first strategy: built a working site before first contact, pitched via WhatsApp with live link attached",
-      "Delivered full-stack Next.js + Vercel sites; handed off with GitHub repo and domain transfer",
-      "Built custom outreach tooling to automate lead qualification from Justdial and Google search results",
+      'Deployed Hisaab Pro to small business clients',
+      'Iterated across 2+ product versions based on client feedback — added payroll automation and client-side PDF export',
+      'Supported real-world deployment with offline-first architecture ensuring data integrity on USB drive removal',
     ],
-    stack: ["Next.js", "Node.js", "Tailwind", "Playwright", "Vercel"],
-  },
+    stack: ['Node.js', 'Express.js', 'SQLite', 'Jest'],
+  }
 ];

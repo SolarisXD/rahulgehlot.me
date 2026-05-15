@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="w-full h-full rounded-full bg-orange-400 border-4 border-background overflow-hidden relative">
             {/* If you add an actual image, use Next/Image here. Fallback to initials for now */}
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-300 to-orange-500 text-white font-bold text-5xl shadow-inner">
-              DT
+              RG
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function Hero() {
         <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] mb-6 flex flex-col w-full">
           <div className="relative w-full h-[3.5rem] sm:h-[4.5rem] md:h-[5rem] mb-2 flex">
             <GooeyText
-              texts={["Creative Builder", "UI Engineer", "AI Integrator", "Product Maker"]}
+              texts={copy.hero.roles}
               morphTime={1.5}
               cooldownTime={2.5}
               className="w-full h-full"
@@ -78,10 +78,18 @@ export default function Hero() {
             className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-300/50 bg-cyan-300/20 hover:bg-cyan-300/30 transition-all text-sm font-medium text-white group"
           >
             <GitFork size={16} className="text-cyan-300" />
-            view-projects
+            {copy.hero.primaryCta}
             <span className="flex items-center gap-1 text-yellow-400 ml-1 opacity-90 group-hover:opacity-100 transition-opacity">
               <Star size={14} className="fill-yellow-400 stroke-yellow-400" /> 10
             </span>
+          </button>
+
+          {/* Secondary CTA */}
+          <button
+            onClick={() => window.dispatchEvent(new Event("open-chat"))}
+            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 transition-all text-sm font-medium text-white group"
+          >
+            {copy.hero.secondaryCta}
           </button>
         </div>
       </div>

@@ -29,14 +29,14 @@ export default function Home() {
           fill="rgba(255,255,255,0.15)"
           className="opacity-100 absolute inset-0 z-0"
         />
-        <div className="mx-auto max-w-[860px] px-4 sm:px-6 relative z-10">
+        <div className="mx-auto max-w-[960px] px-4 sm:px-6 relative z-10">
           <section id="hero" className="py-20 sm:py-28">
             <Hero />
           </section>
         </div>
       </div>
 
-      <main className="mx-auto max-w-[860px] px-4 sm:px-6">
+      <main className="mx-auto max-w-[960px] px-4 sm:px-6">
         <section id="about" className="py-20 sm:py-28">
           <About />
         </section>

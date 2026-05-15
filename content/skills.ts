@@ -6,36 +6,25 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    domain: "Frontend",
-    note: "what I reach for first",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    domain: 'Frontend',
+    note: 'what I reach for first',
+    items: ['React', 'React 19', 'Next.js', 'TailwindCSS', 'REST APIs'],
   },
   {
-    domain: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "PostgreSQL", "MongoDB"],
+    domain: 'Backend',
+    items: ['Node.js', 'Express.js', 'FastAPI', 'SQLite', 'MongoDB', 'MySQL'],
   },
   {
-    domain: "AI / ML",
-    note: "increasingly where I spend my time",
-    items: [
-      "Gemini API",
-      "RAG pipelines",
-      "pgvector",
-      "Langfuse",
-      "Python",
-      "PyTorch",
-    ],
+    domain: 'AI / ML',
+    note: 'where I spend most of my thinking',
+    items: ['PyTorch', 'NumPy', 'scikit-learn', 'Pandas', 'Gemini API', 'Azure AI'],
   },
   {
-    domain: "Tools & infra",
-    items: [
-      "Git",
-      "Vercel",
-      "Supabase",
-      "Electron",
-      "Playwright",
-      "Figma",
-      "Docker",
-    ],
+    domain: 'Languages',
+    items: ['JavaScript', 'Python', 'C++'],
+  },
+  {
+    domain: 'Tools',
+    items: ['Git', 'GitHub', 'Jest', 'VS Code'],
   },
 ];

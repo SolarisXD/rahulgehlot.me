@@ -6,38 +6,38 @@ import { Briefcase, FolderGit2, Mail, Bot } from "lucide-react";
 export default function About() {
   return (
     <div className="flex flex-col items-center text-center w-full max-w-3xl mx-auto space-y-12">
-      
+
       {/* Block 1 (Header/Intro) */}
       <div className="space-y-2">
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-semibold">
-            B.Tech CSE student
+            B.Tech CSE student at VIT Bhopal
           </span>{" "}
-          at VIT (graduating 2026, CGPA 8.60).
+          (AI-ML, graduating July 2026, CGPA 8.67).
         </p>
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
-          I build production web apps and AI-powered tools.
+          I build full-stack web apps and machine learning systems.
         </p>
       </div>
 
-      {/* Block 2 (The Hustle/Context) */}
+      {/* Block 2 (The Details/Context) */}
       <div className="max-w-2xl">
         <p className="text-sm md:text-base font-medium text-muted-foreground/50 leading-relaxed">
-          For the past year I've been taking on freelance projects — I find local businesses without websites on Google Maps, build a working demo without being asked, and pitch via WhatsApp. Most say yes.
+          Sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.
         </p>
       </div>
 
-      {/* Block 3 (The Now/Impact) */}
+      {/* Block 3 (The Impact/Tests) */}
       <div className="space-y-3">
         <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
-          Right now I'm building Hisaab Pro.
+          I write a lot of tests.
         </h3>
         <p className="text-xl md:text-2xl font-medium text-muted-foreground/80">
-          Accounting software for small businesses that can't afford Tally.
+          Hisaab Pro has 350+ Jest tests across 18 files.
         </p>
-        <p className="text-xl md:text-2xl font-bold pt-1">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-            And this site, which has a chatbot that can answer questions about my projects and how I think.
+        <p className="text-xl md:text-2xl font-bold pt-1 max-w-2xl mx-auto">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 leading-snug">
+            Not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.
           </span>
         </p>
       </div>
@@ -53,8 +53,8 @@ export default function About() {
         <a href="#contact" className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border bg-background/50 hover:bg-white/5 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground">
           <Mail size={16} /> Let's talk
         </a>
-        <button 
-          onClick={() => window.dispatchEvent(new Event("open-chat"))} 
+        <button
+          onClick={() => window.dispatchEvent(new Event("open-chat"))}
           className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 hover:opacity-90 transition-opacity text-sm font-bold text-white shadow-[0_0_20px_rgba(34,211,238,0.2)]"
         >
           <Bot size={16} /> Ask me

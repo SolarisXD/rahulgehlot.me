@@ -2,46 +2,47 @@ export const copy = {
   hero: {
     greeting: "Hi, I'm Rahul.",
     roles: [
-      "I build web apps that ship.",
-      "I build AI tools that reason.",
-      "I find problems before they find me.",
+      "Product Builder",
+      "Hisaab-Pro Creator",
+      "Applied AI Architect",
+      "Developer",
+      "Problem Solver",
     ],
     primaryCta: "See my work",
-    secondaryCta: "Ask the bot →",
   },
 
   about: [
-    `B.Tech CSE student at VIT (graduating 2026, CGPA 8.60). I build production web apps and AI-powered tools. For the past year I've been taking on freelance projects — I find local businesses without websites on Google Maps, build a working demo without being asked, and pitch via WhatsApp. Most say yes.`,
+    `B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems — sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.`,
 
-    `Right now I'm building Hisaab Pro — accounting software for small businesses that can't afford Tally. And this site, which has a chatbot that can answer questions about my projects and how I think.`,
+    `I write a lot of tests. Hisaab Pro has 350+ Jest tests across 18 files — not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.`,
   ],
 
   process: [
     {
       number: "01",
-      title: "Find the problem first",
-      body: "I don't start building until I understand why something needs to exist. For freelance projects that means talking to the business owner. For personal projects it means sitting with the problem long enough to actually be annoyed by it.",
+      title: "Understand the failure mode first",
+      body: "Before writing code, I figure out what the worst possible outcome looks like. For Hisaab Pro it was silent data corruption on a client's books. For Skillence it was backend crashes under inference load. The architecture follows from the failure mode, not the feature list.",
     },
     {
       number: "02",
-      title: "Build a working demo before asking anyone",
-      body: "My freelance pitch is a working site, not a proposal. I research the business, build a demo with their actual branding and content, and send it. They can see exactly what they're getting before deciding anything.",
+      title: "Write tests before they're required",
+      body: "I don't write tests because someone told me to. I write them because I've worked on enough systems to know that silent bugs in business logic are worse than visible crashes. Hisaab Pro has 350+ tests. Every payroll and ledger path is covered.",
     },
     {
       number: "03",
-      title: "Ship early, improve with evidence",
-      body: "I push to production early and watch what breaks. Logs, traces, and real user behaviour tell me what to fix next — not gut feeling.",
+      title: "Replace the heavy tool when it costs you",
+      body: "I used PyTorch to train the Skillence model. I replaced it with a pure NumPy inference layer for production because PyTorch's runtime overhead was causing crashes. The right tool for training isn't always the right tool for serving.",
     },
     {
       number: "04",
-      title: "Make the decision trail readable",
-      body: "Good code has obvious decisions. I comment the non-obvious ones and document architectural choices in README files that assume no prior context.",
+      title: "Ship with real data, then iterate",
+      body: "Hisaab Pro was deployed to real clients and went through two product versions. Real-world feedback (payroll edge cases, PDF exports, USB removal crashes) shaped every iteration. Controlled environments don't teach you what clients do.",
     },
   ],
 
   contact: {
     heading: "Get in touch",
-    body: "Open to freelance projects and full-time roles after June 2026. If you have something in mind, I respond same day.",
-    emailLabel: "Send me a message",
+    body: "Open to internships, freelance projects, and full-time roles after July 2026. If you've got a problem that needs an ML system or a full-stack product, I respond same day.",
+    emailLabel: "rahulgehlot6044@gmail.com",
   },
 };

@@ -70,15 +70,6 @@ export default function Navbar() {
           showNav ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
       >
-        {/* Logo */}
-        <div className="absolute top-10 left-10">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-semibold text-sm tracking-tight hover:text-accent transition-colors"
-          >
-            DTxSD
-          </button>
-        </div>
 
         {/* Timeline Nav */}
         <nav className="relative flex flex-col py-4">

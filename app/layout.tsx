@@ -16,15 +16,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yoursite.dev"),
-  title: "DTxSD — Full-stack & AI developer",
+  metadataBase: new URL("https://rahulgehlot.vercel.app"),
+  title: "Rahul Gehlot — Full-stack & AI Developer",
   description:
-    "B.Tech CSE at VIT. I build production web apps and AI tools. Open to freelance.",
+    "B.Tech CSE at VIT Bhopal. I build full-stack web apps and machine learning systems. Open to freelance and internships.",
   openGraph: {
-    title: "DTxSD — Full-stack & AI developer",
+    title: "Rahul Gehlot — Full-stack & AI Developer",
     description:
-      "Building Hisaab Pro and freelance web projects. Ask the chatbot about my work.",
-    url: "https://yoursite.dev",
+      "Building Hisaab Pro, Skillence, and full-stack systems. Ask the chatbot about my work.",
+    url: "https://rahulgehlot.vercel.app",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },

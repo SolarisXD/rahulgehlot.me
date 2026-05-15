@@ -23,8 +23,8 @@ export const now: NowItem[] = [
     value: "Whether RAG or fine-tuning is the right call for domain-specific tasks",
   },
   {
-    label: "Available for",
-    value: "Freelance web projects. Reply time: same day.",
+    label: 'Available for',
+    value: 'Internships and freelance projects. I respond same day.',
   },
 ];
 
