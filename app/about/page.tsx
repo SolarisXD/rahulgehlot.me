@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Briefcase, ChevronRight, CheckCircle2, ChevronDown, Mail, Star, ExternalLink, GitBranch, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
@@ -28,8 +29,13 @@ export default function AboutPage() {
         {/* Header / Profile */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
           <div className="w-24 h-24 shrink-0 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-400 to-purple-500 p-1 shadow-md">
-            <div className="w-full h-full rounded-full bg-orange-400 border-2 border-background flex items-center justify-center text-white font-bold text-3xl">
-              RG
+            <div className="w-full h-full rounded-full border-2 border-background overflow-hidden relative">
+              <Image
+                src="/profic_pic.png"
+                alt="Rahul Gehlot"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="text-center sm:text-left flex-1">

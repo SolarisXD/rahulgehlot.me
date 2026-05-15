@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BadgeCheck, Star, GitFork } from "lucide-react";
 import Link from "next/link";
 import { copy } from "@/content/copy";
@@ -22,11 +23,14 @@ export default function Hero() {
         {/* Outer glowing ring */}
         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-400 to-purple-500 p-1 shadow-[0_0_40px_rgba(34,211,238,0.2)] transition-transform duration-500 group-hover:scale-[1.02]">
           {/* Inner image container */}
-          <div className="w-full h-full rounded-full bg-orange-400 border-4 border-background overflow-hidden relative">
-            {/* If you add an actual image, use Next/Image here. Fallback to initials for now */}
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-orange-300 to-orange-500 text-white font-bold text-5xl shadow-inner">
-              RG
-            </div>
+          <div className="w-full h-full rounded-full border-4 border-background overflow-hidden relative">
+            <Image
+              src="/profic_pic.png"
+              alt="Rahul Gehlot"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
 

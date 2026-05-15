@@ -10,6 +10,7 @@ import Projects from "@/components/sections/Projects";
 import StackDecisions from "@/components/sections/StackDecisions";
 import Skills from "@/components/sections/Skills";
 import MicroOpinions from "@/components/sections/MicroOpinions";
+import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import FloatingChat from "@/components/chat/FloatingChat";
 import { BGPattern } from "@/components/bg-pattern";
@@ -63,6 +64,9 @@ export default function Home() {
         </section>
         <section id="thinking" className="py-20 sm:py-28">
           <MicroOpinions />
+        </section>
+        <section id="blog" className="py-20 sm:py-28">
+          <Blog />
         </section>
         <section id="contact" className="py-20 sm:py-28">
           <Contact />

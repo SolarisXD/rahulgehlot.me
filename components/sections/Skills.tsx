@@ -204,7 +204,7 @@ export default function Skills() {
                       >
                         {iconSrc ? (
                           useRawIcon ? (
-                            <img src={iconSrc} alt="" className="h-4 w-4" loading="lazy" />
+                            <img src={iconSrc} alt="" className="h-4 w-4" loading="lazy" suppressHydrationWarning />
                           ) : (
                             <span
                               className="h-4 w-4"
