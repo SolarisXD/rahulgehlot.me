@@ -83,11 +83,6 @@ export default function Education() {
                           key={highlight}
                           className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
                         >
-                          <span
-                            className={`flex h-5 min-w-[20px] items-center justify-center rounded-full text-[10px] font-bold ${badgeClass} ${darkBadgeClass}`}
-                          >
-                            {initials}
-                          </span>
                           <span>{highlight}</span>
                         </span>
                       );

@@ -1,7 +1,7 @@
 export type EducationEntry = {
   institution: string;
   degree: string;
-  field: string;
+  field?: string;
   period: string;
   grade?: string;
   summary?: string;
@@ -35,8 +35,20 @@ export const education: EducationEntry[] = [
       'Deep Learning',
       'Computer Vision',
       'Natural Language Processing',
-      'Operating Systems', 
+      'Operating Systems',
     ],
+  },
+  {
+    institution: "K.S. Lodha Public Sr. Sec. School, Falna",
+    degree: 'Higher Senior Secondary Education (XIIth)',
+    period: 'July 2021',
+    grade: 'CGPA 8.84 / 10.0',
+  },
+  {
+    institution: "St. Paul's Sr. Sec. School, Falna",
+    degree: 'Higher Secondary Education (Xth)',
+    period: 'May 2019',
+    grade: 'CGPA 9.46 / 10.0',
   },
 ];
 
