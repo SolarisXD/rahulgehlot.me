@@ -4,6 +4,10 @@ export type EducationEntry = {
   field: string;
   period: string;
   grade?: string;
+  summary?: string;
+  linkLabel?: string;
+  linkUrl?: string;
+  quote?: string;
   highlights?: string[];
 };
 
@@ -12,21 +16,26 @@ export type Certification = {
   issuer: string;
   year: string;
   link?: string;
+  badge?: string;
 };
 
 export const education: EducationEntry[] = [
   {
-    institution: 'VIT Bhopal',
+    institution: 'VIT Bhopal University',
     degree: 'B.Tech',
     field: 'Computer Science & Engineering (AI-ML Specialisation)',
-    period: 'October 2022 – July 2026',
+    period: 'July 2026',
     grade: 'CGPA 8.67 / 10.0',
     highlights: [
-      'AI & Machine Learning specialisation',
-      'PyTorch, NumPy, scikit-learn, Pandas',
-      'Data Structures & Algorithms',
+      'Data Structures',
+      'Computer Networks',
+      'Algorithms',
       'Database Management Systems',
-      'Full-stack Web Development',
+      'Machine Learning',
+      'Deep Learning',
+      'Computer Vision',
+      'Natural Language Processing',
+      'Operating Systems', 
     ],
   },
 ];
@@ -36,11 +45,13 @@ export const certifications: Certification[] = [
     name: 'Blockchain Developer Certification',
     issuer: 'IBM Career Education Program',
     year: '2024',
+    link: 'https://courses.ibmcep.cognitiveclass.ai/certificates/604dc8a488ff46ad83b5ae72dbf0b5bb',
   },
   {
     name: 'Adobe UI & UX — Graphic Design',
     issuer: 'Ethnus via Codemithra',
     year: '2024',
+    link: 'https://drive.google.com/file/d/1wdYV4wxlgb92Duawd3zZ2H7sh54xPZqT/view',
   },
   {
     name: 'HTML, CSS & JavaScript for Web Developers',

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { BGPattern } from "@/components/bg-pattern";
@@ -49,12 +50,9 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased relative min-h-screen font-sans`}
       >
         {/* Prevent scroll restoration — always start at top on reload */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "history.scrollRestoration='manual';window.scrollTo(0,0);",
-          }}
-        />
+        <Script id="scroll-restoration" strategy="beforeInteractive">
+          {"history.scrollRestoration='manual';window.scrollTo(0,0);"}
+        </Script>
         {/* Base dotted pattern — sections can layer their own for different effects */}
         <BGPattern
           variant="dots"
