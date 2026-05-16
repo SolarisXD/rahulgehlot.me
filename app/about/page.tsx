@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Briefcase, ChevronRight, CheckCircle2, ChevronDown, Mail, Star, ExternalLink, GitBranch, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
 import { ResumeDropdown } from "@/components/ui/resume-dropdown";
 import { certifications } from "@/content/education";
+
+export const metadata: Metadata = {
+  title: "About Rahul Gehlot — Full-stack & AI Developer",
+  openGraph: {
+    title: "About Rahul Gehlot — Full-stack & AI Developer",
+    description:
+      "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems — Hisaab Pro, Skillence, and more.",
+    images: [{ url: "/og?subtitle=About+Rahul+Gehlot", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og?subtitle=About+Rahul+Gehlot"],
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -195,7 +210,7 @@ export default function AboutPage() {
             <a href="https://linkedin.com/in/rahulgehlot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
               <Briefcase size={16} /> LinkedIn
             </a>
-            <a href="https://rahulgehlot.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
+            <a href="https://rahulgehlot.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-card border border-border rounded-full text-sm font-medium hover:border-[#006d77] hover:text-[#006d77] shadow-sm transition-all">
               <Globe size={16} /> Portfolio
             </a>
             <a href="mailto:rahulgehlot6044@gmail.com" className="flex items-center gap-2 px-5 py-2.5 bg-[#006d77] text-white border border-[#006d77] rounded-full text-sm font-medium hover:bg-[#005860] shadow-sm transition-all">

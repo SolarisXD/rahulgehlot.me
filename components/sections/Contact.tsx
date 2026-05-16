@@ -1,17 +1,127 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { copy } from "@/content/copy";
-import { Mail } from "lucide-react";
+import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+
+type FormState = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [state, setState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    setState("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setState("error");
+        setErrorMsg(data.error || "Something went wrong.");
+        return;
+      }
+
+      setState("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setState("error");
+      setErrorMsg("Network error. Email me directly at rahulgehlot6044@gmail.com");
+    }
+  }
+
   return (
     <div>
       <SectionHeader label="Contact" heading={copy.contact.heading} icon={<Mail size={18} />} />
       <p className="text-base text-foreground/80 max-w-xl mb-6">
         {copy.contact.body}
       </p>
+
+      {/* ─── Contact form ─────────────────────────────────── */}
+      <form onSubmit={handleSubmit} className="space-y-4 mb-8 max-w-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            disabled={state === "loading" || state === "success"}
+            className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50"
+          />
+          <input
+            type="email"
+            placeholder="Your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            disabled={state === "loading" || state === "success"}
+            className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50"
+          />
+        </div>
+        <textarea
+          placeholder="Your message"
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          disabled={state === "loading" || state === "success"}
+          className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 resize-y disabled:opacity-50"
+        />
+        <button
+          type="submit"
+          disabled={state === "loading" || state === "success" || !name.trim() || !email.trim() || !message.trim()}
+          className="inline-flex items-center gap-2 rounded-lg bg-accent text-white px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          {state === "loading" ? (
+            <Loader2 size={16} className="animate-spin" />
+          ) : state === "success" ? (
+            <CheckCircle2 size={16} />
+          ) : (
+            <Send size={16} />
+          )}
+          {state === "loading"
+            ? "Sending..."
+            : state === "success"
+              ? "Sent!"
+              : "Send message"}
+        </button>
+
+        {/* Status messages */}
+        {state === "success" && (
+          <p className="flex items-center gap-2 text-sm text-emerald-500">
+            <CheckCircle2 size={16} />
+            Message sent! I&rsquo;ll respond within a day.
+          </p>
+        )}
+        {state === "error" && (
+          <p className="flex items-center gap-2 text-sm text-red-500">
+            <AlertCircle size={16} />
+            {errorMsg}
+          </p>
+        )}
+      </form>
+
+      {/* ─── Social links ──────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-4">
         <a
-          href="mailto:hello@yoursite.dev"
+          href="mailto:rahulgehlot6044@gmail.com"
           className="inline-flex items-center gap-2 rounded-lg bg-accent text-white px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
         >
           <Mail size={16} />

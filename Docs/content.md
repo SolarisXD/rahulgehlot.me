@@ -12,7 +12,7 @@ name: 'Rahul Gehlot'
 email: 'rahulgehlot6044@gmail.com'
 github: 'https://github.com/SolarisXD'
 linkedin: 'https://linkedin.com/in/rahulgehlot'
-site: 'https://rahulgehlot.vercel.app'    // update when new domain set
+site: 'https://rahulgehlot.me'
 ```
 
 ---

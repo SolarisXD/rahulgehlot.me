@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { BGPattern } from "@/components/bg-pattern";
+import FloatingChat from "@/components/chat/FloatingChat";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rahulgehlot.vercel.app"),
+  metadataBase: new URL("https://rahulgehlot.me"),
   title: "Rahul Gehlot",
   description:
     "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems — Hisaab Pro, Skillence, and more. Open to freelance work and internships.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "Rahul Gehlot — Full-stack & AI Developer",
     description:
       "Full-stack & AI developer building Hisaab Pro (expense tracking), Skillence (skill assessment), and intelligent systems. Explore projects, chat with the AI bot, or connect for freelance & internships.",
-    url: "https://rahulgehlot.vercel.app",
+    url: "https://rahulgehlot.me",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
@@ -69,6 +70,7 @@ export default function RootLayout({
           enableSystem={false}
         >
           {children}
+          <FloatingChat />
         </ThemeProvider>
       </body>
     </html>

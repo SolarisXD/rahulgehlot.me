@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Blog — Rahul Gehlot",
+  openGraph: {
+    title: "Blog — Rahul Gehlot",
+    description: "Articles about building with AI, full-stack decisions, and more.",
+    images: [{ url: "/og?subtitle=Blog", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og?subtitle=Blog"],
+  },
+};
 
 export default function BlogPage() {
   return (
