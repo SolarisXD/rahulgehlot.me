@@ -14,6 +14,7 @@ import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import FloatingChat from "@/components/chat/FloatingChat";
 import { BGPattern } from "@/components/bg-pattern";
+import { Reveal } from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -38,39 +39,39 @@ export default function Home() {
       </div>
 
       <main className="mx-auto max-w-[980px] px-4 sm:px-6">
-        <section id="about" className="py-20 sm:py-28">
+        <Reveal><section id="about" className="py-20 sm:py-28">
           <About />
-        </section>
-        <section id="now" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="now" className="py-20 sm:py-28">
           <Now />
-        </section>
-        <section id="experience" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="experience" className="py-20 sm:py-28">
           <Experience />
-        </section>
-        <section id="education" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="education" className="py-20 sm:py-28">
           <Education />
-        </section>
-        <section id="process" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="process" className="py-20 sm:py-28">
           <Process />
-        </section>
-        <section id="projects" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="projects" className="py-20 sm:py-28">
           <Projects />
-        </section>
-        <section id="stack" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="stack" className="py-20 sm:py-28">
           <StackDecisions />
-        </section>
-        <section id="skills" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="skills" className="py-20 sm:py-28">
           <Skills />
-        </section>
-        <section id="thinking" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="thinking" className="py-20 sm:py-28">
           <MicroOpinions />
-        </section>
-        <section id="blog" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="blog" className="py-20 sm:py-28">
           <Blog />
-        </section>
-        <section id="contact" className="py-20 sm:py-28">
+        </section></Reveal>
+        <Reveal><section id="contact" className="py-20 sm:py-28">
           <Contact />
-        </section>
+        </section></Reveal>
       </main>
       <Footer />
       <FloatingChat />

@@ -25,7 +25,7 @@ export default function Hero() {
           {/* Inner image container */}
           <div className="w-full h-full rounded-full border-4 border-background overflow-hidden relative">
             <Image
-              src="/profic_pic.png"
+              src="/profile_pic.png"
               alt="Rahul Gehlot"
               fill
               sizes="(max-width: 768px) 160px, 192px"
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="flex flex-col items-center md:items-start text-center md:text-left z-10 pt-2 md:pt-4 w-full">
 
         {/* Greeting */}
-        <p className="text-xl text-white/80 font-medium mb-3">
+        <p className="text-xl text-foreground/80 dark:text-white/80 font-medium mb-3">
           Hi, I'm <Link href="/about" className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-400 font-bold hover:opacity-80 transition-opacity">@Rahul</Link>,
         </p>
 
@@ -60,27 +60,27 @@ export default function Hero() {
               textClassName="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-400 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 whitespace-nowrap pb-2"
             />
           </div>
-          <span className="text-white">
+          <span className="text-foreground dark:text-white">
             who ships web apps
           </span>
-          <span className="text-white mt-2 inline-block">
-            with Next.js <span className="text-white/60 font-light mx-1">+</span> AI <span className="text-white/60 font-light mx-1">+</span> Polish
+          <span className="text-foreground dark:text-white mt-2 inline-block">
+            with Next.js <span className="text-foreground/60 dark:text-white/60 font-light mx-1">+</span> AI <span className="text-foreground/60 dark:text-white/60 font-light mx-1">+</span> Polish
           </span>
         </h1>
 
         {/* Badges row */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-          <span className="px-4 py-1.5 rounded-full border border-white/20 bg-black/20 backdrop-blur-sm text-sm font-medium text-white shadow-sm">
+          <span className="px-4 py-1.5 rounded-full border border-foreground/20 dark:border-white/20 bg-black/10 dark:bg-black/20 backdrop-blur-sm text-sm font-medium text-foreground dark:text-white shadow-sm">
             Full-Stack
           </span>
-          <span className="px-4 py-1.5 rounded-full border border-white/20 bg-black/20 backdrop-blur-sm text-sm font-medium text-white shadow-sm">
+          <span className="px-4 py-1.5 rounded-full border border-foreground/20 dark:border-white/20 bg-black/10 dark:bg-black/20 backdrop-blur-sm text-sm font-medium text-foreground dark:text-white shadow-sm">
             AI Integrator
           </span>
 
           {/* Action pill / Github pill */}
           <button
             onClick={handlePrimaryCta}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-300/50 bg-cyan-300/20 hover:bg-cyan-300/30 transition-all text-sm font-medium text-white group"
+            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-300/50 bg-cyan-300/20 hover:bg-cyan-300/30 transition-all text-sm font-medium text-foreground dark:text-white group"
           >
             <GitFork size={16} className="text-cyan-300" />
             {copy.hero.primaryCta}

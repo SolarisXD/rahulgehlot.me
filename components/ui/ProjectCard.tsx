@@ -27,7 +27,7 @@ const statusBorder: Record<string, string> = {
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <div className={cn(
-      "rounded-lg border border-slate-200/70 p-5 transition-colors hover:border-accent/50 dark:border-white/5",
+      "rounded-lg border border-slate-200/70 p-5 transition-colors hover:border-accent/50 dark:border-white/5 h-full flex flex-col",
       project.status === 'archived' ? 'bg-transparent' : 'bg-white dark:bg-[#1F2023]'
     )}>
       <div className="flex items-start justify-between gap-4 mb-1">
@@ -46,8 +46,8 @@ export function ProjectCard({ project }: { project: Project }) {
       {project.period && (
         <p className="text-xs font-mono text-amber-600 dark:text-amber-300 mb-3">{project.period}</p>
       )}
-      <p className="text-sm text-muted mb-4">{project.description}</p>
-      <div className="flex items-center justify-between">
+      <p className="text-sm text-muted mb-4 flex-1">{project.description}</p>
+      <div className="flex items-center justify-between mt-auto">
         <div className="flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((tech) => (
             <TechBadge key={tech} label={tech} />

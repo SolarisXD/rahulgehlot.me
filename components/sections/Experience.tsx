@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { experience } from "@/content/experience";
@@ -14,9 +16,20 @@ export default function Experience() {
   return (
     <div>
       <SectionHeader label="Work" heading="Where I've worked" accent icon={<Briefcase size={18} />} />
-      <div className="relative pl-6 border-l-2 border-accent/30">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        className="relative pl-6 border-l-2 border-accent/30"
+      >
         {experience.map((entry, i) => (
-          <div key={i} className="relative pb-10 last:pb-0">
+          <motion.div
+            key={i}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="relative pb-10 last:pb-0"
+          >
             {/* Dot on the timeline */}
             <div className="absolute left-[-1.5rem] top-1 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-background bg-accent motion-safe:animate-pulse" />
 
@@ -59,9 +72,9 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

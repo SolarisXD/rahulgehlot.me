@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: "Rahul Gehlot — Full-stack & AI Developer",
   description:
     "B.Tech CSE at VIT Bhopal. I build full-stack web apps and machine learning systems. Open to freelance and internships.",
+  icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
   openGraph: {
     title: "Rahul Gehlot — Full-stack & AI Developer",
     description:

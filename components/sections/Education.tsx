@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { education, certifications } from "@/content/education";
 import { GraduationCap, ExternalLink } from "lucide-react";
 
@@ -23,10 +25,18 @@ export default function Education() {
           <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-[0.2em]">
             Education
           </h3>
-          <div className="space-y-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+            className="space-y-4"
+          >
             {education.map((edu, i) => (
-              <div
+              <motion.div
                 key={i}
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
                 className="rounded-2xl border border-slate-200/70 bg-white p-6 transition-all hover:border-slate-300 dark:border-white/5 dark:bg-[#1F2023]"
               >
                 <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-foreground/40">
@@ -51,7 +61,6 @@ export default function Education() {
                     </span>
                   </div>
                 )}
-
                 {edu.highlights && edu.highlights.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-2">
                     {edu.highlights.map((highlight) => (
@@ -77,12 +86,12 @@ export default function Education() {
                 )}
                 {edu.quote && (
                   <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm italic text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-foreground/60">
-                    “{edu.quote}”
+                    &ldquo;{edu.quote}&rdquo;
                   </div>
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className="space-y-4">

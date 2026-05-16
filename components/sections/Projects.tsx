@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
@@ -42,18 +44,43 @@ export default function Projects() {
         }
       />
 
-      <div className="space-y-4 mb-6">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        className="space-y-4 mb-6"
+      >
         {featured.map((project) => (
-          <CaseStudyCard key={project.id} project={project} />
+          <motion.div
+            key={project.id}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <CaseStudyCard project={project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {standard.length > 0 && (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          className="grid gap-4 sm:grid-cols-2 items-stretch"
+        >
           {standard.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <motion.div
+              key={project.id}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="h-full"
+            >
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

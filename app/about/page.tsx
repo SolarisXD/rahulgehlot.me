@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div className="w-24 h-24 shrink-0 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-400 to-purple-500 p-1 shadow-md">
             <div className="w-full h-full rounded-full border-2 border-background overflow-hidden relative">
               <Image
-                src="/profic_pic.png"
+                src="/profile_pic.png"
                 alt="Rahul Gehlot"
                 fill
                 sizes="96px"
