@@ -60,6 +60,7 @@ export const projects: Project[] = [
     period: 'Feb 2024 - May 2024',
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS', 'Passport.js'],
     github: 'https://github.com/SolarisXD/SwapHub',
+    demo: 'https://swaphubx.vercel.app/',
     status: 'live',
     tags: ['full-stack'],
     featured: false,
