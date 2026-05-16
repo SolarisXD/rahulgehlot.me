@@ -38,7 +38,7 @@ export const JAILBREAK_PATTERNS: RegExp[] = [
 export function checkJailbreak(input: string): string | null {
   for (const pattern of JAILBREAK_PATTERNS) {
     if (pattern.test(input)) {
-      return `Matched security pattern: ${pattern}`;
+      return "Message blocked by security filter";
     }
   }
   return null;
