@@ -28,6 +28,7 @@ export default function Hero() {
               src="/profic_pic.png"
               alt="Rahul Gehlot"
               fill
+              sizes="(max-width: 768px) 160px, 192px"
               className="object-cover"
               priority
             />

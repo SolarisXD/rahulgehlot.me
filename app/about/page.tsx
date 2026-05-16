@@ -34,6 +34,7 @@ export default function AboutPage() {
                 src="/profic_pic.png"
                 alt="Rahul Gehlot"
                 fill
+                sizes="96px"
                 className="object-cover"
               />
             </div>
