@@ -141,18 +141,29 @@ function renderInline(text: string): React.ReactNode {
             {t.value}
           </code>
         );
-      case "link":
+      case "link": {
+        const isAnchor = t.href?.startsWith("#");
         return (
           <a
             key={i}
             href={t.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={isAnchor ? undefined : "_blank"}
+            rel={isAnchor ? undefined : "noopener noreferrer"}
+            onClick={
+              isAnchor
+                ? (e) => {
+                    e.preventDefault();
+                    const el = document.querySelector(t.href!);
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }
+                : undefined
+            }
             className="underline decoration-1 underline-offset-2 text-[#3b82f6] dark:text-[#60a5fa] hover:text-[#2563eb] dark:hover:text-[#93c5fd] transition-colors cursor-pointer font-medium"
           >
             {t.value}
           </a>
         );
+      }
       default:
         return t.value;
     }

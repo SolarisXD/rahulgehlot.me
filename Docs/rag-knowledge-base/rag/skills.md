@@ -1,8 +1,12 @@
 # Skills & Technical Depth
 
+## Spoken Languages
+
+Rahul speaks Hindi (native) and English (professional proficiency).
+
 ## Programming Languages
 
-Rahul's primary languages are JavaScript and Python. He also knows C++.
+Rahul's primary programming languages are JavaScript and Python. He also knows C++.
 
 JavaScript is his day-to-day language for web development — frontend with React/Next.js and backend with Node.js/Express. Python is his language for machine learning work — PyTorch, NumPy, scikit-learn, Pandas, and FastAPI.
 
