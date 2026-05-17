@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { BGPattern } from "@/components/bg-pattern";
@@ -56,18 +55,24 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={cn("font-mono", jetbrainsMono.variable)}
     >
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased relative min-h-screen font-sans`}
       >
         {/* Prevent scroll restoration — always start at top on reload */}
-        <Script id="scroll-restoration" strategy="beforeInteractive">
-          {"history.scrollRestoration='manual';window.scrollTo(0,0);"}
-        </Script>
+        <script
+          id="scroll-restoration"
+          dangerouslySetInnerHTML={{
+            __html: "history.scrollRestoration='manual';window.scrollTo(0,0);",
+          }}
+        />
         {/* Unique Cyber-System Greeting */}
-        <Script id="console-greeting" strategy="afterInteractive">
-          {`
+        <script
+          id="console-greeting"
+          dangerouslySetInnerHTML={{
+            __html: `
             var head = "color:#3B82F6; font-family:monospace; font-weight:bold; font-size:14px;";
             var label = "color:#6B7280; font-family:monospace; font-size:12px;";
             var value = "color:#3B82F6; font-family:monospace; font-size:12px; font-weight:bold;";
@@ -89,8 +94,9 @@ export default function RootLayout({
               var sigStyle = "color:#C25B26; font-family:monospace; font-size:14px; font-weight:bold;";
               console.log("%c" + " ".repeat(45) + "Signed, DTxSD", sigStyle);
             }, 2000);
-          `}
-        </Script>
+          `,
+          }}
+        />
         {/* Base dotted pattern — sections can layer their own for different effects */}
         <BGPattern
           variant="dots"

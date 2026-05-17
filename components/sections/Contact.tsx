@@ -1,92 +1,303 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { copy } from "@/content/copy";
-import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Mail,
+  Send,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+} from "lucide-react";
+import {
+  validateName,
+  validateEmail,
+  validateMessage,
+} from "@/lib/validation";
 
 type FormState = "idle" | "loading" | "success" | "error";
+
+interface FieldErrors {
+  name: string | null;
+  email: string | null;
+  message: string | null;
+}
+
+const COOLDOWN_S = 60;
+const STORAGE_KEY = "contact_cooldown_until";
+
+/** Read the persisted cooldown expiry timestamp (ms). */
+function readCooldown(): number | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Persist cooldown so it survives refresh. */
+function saveCooldown(until: number | null) {
+  try {
+    if (until === null) {
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(until));
+    }
+  } catch {
+    // ignore
+  }
+}
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
+  // Silent cooldown — no UI change, just blocks submission
+  const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
+
+  // Shown only when user tries to submit during cooldown
+  const [cooldownWarning, setCooldownWarning] = useState<number | null>(null);
+
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // ── Restore cooldown from localStorage on mount ──────────
+  useEffect(() => {
+    const saved = readCooldown();
+    if (!saved) return;
+    if (saved > Date.now()) {
+      queueMicrotask(() => setCooldownUntil(saved));
+    } else {
+      saveCooldown(null);
+    }
+  }, []);
+
+  // ── Live countdown ticker for the warning message ────────
+  useEffect(() => {
+    if (cooldownWarning === null) {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      return;
+    }
+
+    timerRef.current = setInterval(() => {
+      const remaining = Math.max(0, Math.ceil((cooldownUntil! - Date.now()) / 1000));
+      if (remaining <= 0) {
+        clearInterval(timerRef.current!);
+        timerRef.current = null;
+        setCooldownUntil(null);
+        setCooldownWarning(null);
+        saveCooldown(null);
+      } else {
+        setCooldownWarning(remaining);
+      }
+    }, 500); // update twice a second for smoothness
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [cooldownWarning, cooldownUntil]);
+
+  // ── Track touched fields for inline errors ───────────────
+  const [touched, setTouched] = useState<Set<string>>(new Set());
+
+  const fieldErrors: FieldErrors = {
+    name: touched.has("name") ? validateName(name).error : null,
+    email: touched.has("email") ? validateEmail(email).error : null,
+    message: touched.has("message") ? validateMessage(message).error : null,
+  };
+
+  const hasVisibleError =
+    fieldErrors.name !== null ||
+    fieldErrors.email !== null ||
+    fieldErrors.message !== null;
+
+  const isLoadingOrSent = state === "loading" || state === "success";
+
+  // ── Field-level validation on blur ───────────────────────
+  function handleBlur(field: string) {
+    setTouched((prev) => new Set(prev).add(field));
+  }
+
+  // ── Submit ───────────────────────────────────────────────
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    setTouched(new Set(["name", "email", "message"]));
+
+    const vName = validateName(name);
+    const vEmail = validateEmail(email);
+    const vMsg = validateMessage(message);
+    if (!vName.valid || !vEmail.valid || !vMsg.valid) return;
+
+    // ── Cooldown check ──────────────────────────────────
+    if (cooldownUntil && cooldownUntil > Date.now()) {
+      const remaining = Math.max(1, Math.ceil((cooldownUntil - Date.now()) / 1000));
+      setCooldownWarning(remaining);
+      return;
+    }
 
     setState("loading");
     setErrorMsg("");
+    setCooldownWarning(null);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+        }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setState("error");
-        setErrorMsg(data.error || "Something went wrong.");
+        if (res.status === 429) {
+          // Server says cooldown — use server's remaining time
+          const retry = data.retryAfter ?? COOLDOWN_S;
+          const until = Date.now() + retry * 1000;
+          saveCooldown(until);
+          setCooldownUntil(until);
+          setCooldownWarning(retry);
+        } else {
+          setState("error");
+          setErrorMsg(data.error || "Something went wrong.");
+        }
         return;
       }
 
-      setState("success");
+      // ── Success — start silent cooldown ───────────────
       setName("");
       setEmail("");
       setMessage("");
+      setTouched(new Set());
+
+      const until = Date.now() + COOLDOWN_S * 1000;
+      saveCooldown(until);
+      setCooldownUntil(until);
+      setState("success");
+
+      // Auto-dismiss success after 3s
+      setTimeout(() => setState("idle"), 3000);
     } catch {
       setState("error");
-      setErrorMsg("Network error. Email me directly at rahulgehlot6044@gmail.com");
+      setErrorMsg(
+        "Network error. Email me directly at rahulgehlot6044@gmail.com"
+      );
     }
   }
 
+  // ── Render ───────────────────────────────────────────────
   return (
     <div>
-      <SectionHeader label="Contact" heading={copy.contact.heading} icon={<Mail size={18} />} />
+      <SectionHeader
+        label="Contact"
+        heading={copy.contact.heading}
+        icon={<Mail size={18} />}
+      />
       <p className="text-base text-foreground/80 max-w-xl mb-6">
         {copy.contact.body}
       </p>
 
-      {/* ─── Contact form ─────────────────────────────────── */}
+      {/* ─── Cooldown warning — only shows when user tries too fast ── */}
+      {cooldownWarning !== null && (
+        <div className="mb-4 inline-flex rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-foreground">
+          <p className="flex items-center gap-2">
+            <Clock size={16} className="shrink-0 text-amber-500" />
+            Please wait{" "}
+            <span className="font-semibold tabular-nums">{cooldownWarning}s</span>{" "}
+            before sending another message
+          </p>
+        </div>
+      )}
+
+      {/* ─── Contact form ───────────────────────────────── */}
       <form onSubmit={handleSubmit} className="space-y-4 mb-8 max-w-lg">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            disabled={state === "loading" || state === "success"}
-            className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50"
-          />
-          <input
-            type="email"
-            placeholder="Your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            disabled={state === "loading" || state === "success"}
-            className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50"
-          />
+          {/* Name field */}
+          <div>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onBlur={() => handleBlur("name")}
+              required
+              disabled={isLoadingOrSent}
+              aria-invalid={fieldErrors.name !== null}
+              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50 aria-invalid:border-red-500 aria-invalid:focus:ring-red-500/50"
+            />
+            {fieldErrors.name && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
+                <AlertCircle size={12} />
+                {fieldErrors.name}
+              </p>
+            )}
+          </div>
+
+          {/* Email field */}
+          <div>
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => handleBlur("email")}
+              required
+              disabled={isLoadingOrSent}
+              aria-invalid={fieldErrors.email !== null}
+              className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50 aria-invalid:border-red-500 aria-invalid:focus:ring-red-500/50"
+            />
+            {fieldErrors.email && (
+              <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
+                <AlertCircle size={12} />
+                {fieldErrors.email}
+              </p>
+            )}
+          </div>
         </div>
-        <textarea
-          placeholder="Your message"
-          rows={4}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          disabled={state === "loading" || state === "success"}
-          className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 resize-y disabled:opacity-50"
-        />
+
+        {/* Message field */}
+        <div>
+          <textarea
+            placeholder="Your message"
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onBlur={() => handleBlur("message")}
+            required
+            disabled={isLoadingOrSent}
+            aria-invalid={fieldErrors.message !== null}
+            className="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/50 resize-y disabled:opacity-50 aria-invalid:border-red-500 aria-invalid:focus:ring-red-500/50"
+          />
+          {fieldErrors.message && (
+            <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
+              <AlertCircle size={12} />
+              {fieldErrors.message}
+            </p>
+          )}
+        </div>
+
         <button
           type="submit"
-          disabled={state === "loading" || state === "success" || !name.trim() || !email.trim() || !message.trim()}
+          disabled={
+            isLoadingOrSent ||
+            !name.trim() ||
+            !email.trim() ||
+            !message.trim() ||
+            hasVisibleError
+          }
           className="inline-flex items-center gap-2 rounded-lg bg-accent text-white px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
           {state === "loading" ? (
@@ -118,7 +329,7 @@ export default function Contact() {
         )}
       </form>
 
-      {/* ─── Social links ──────────────────────────────────── */}
+      {/* ─── Social links ────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-4">
         <a
           href="mailto:rahulgehlot6044@gmail.com"
@@ -153,4 +364,3 @@ export default function Contact() {
     </div>
   );
 }
-

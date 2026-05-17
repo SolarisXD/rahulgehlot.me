@@ -1,11 +1,12 @@
 import { Resend } from "resend";
+import {
+  checkCooldown,
+  recordSubmission,
+  COOLDOWN_SECONDS,
+} from "@/lib/rate-limit";
+import { validateName, validateEmail, validateMessage } from "@/lib/validation";
 
 export const runtime = "nodejs";
-
-// Basic email validation
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
 
 export async function POST(req: Request) {
   try {
@@ -24,34 +25,50 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, email, message } = body;
 
-    // ─── Validation ─────────────────────────────────────────
-    if (!name || typeof name !== "string" || name.trim().length === 0) {
-      return Response.json({ error: "Name is required" }, { status: 400 });
-    }
-    if (name.length > 100) {
+    // ─── Field-level validation ─────────────────────────────
+    const nameResult = validateName(name ?? "");
+    if (!nameResult.valid) {
       return Response.json(
-        { error: "Name must be under 100 characters" },
+        { field: "name", error: nameResult.error },
         { status: 400 }
       );
     }
 
-    if (!email || typeof email !== "string" || !isValidEmail(email)) {
-      return Response.json({ error: "A valid email is required" }, { status: 400 });
-    }
-    if (email.length > 200) {
+    const emailResult = validateEmail(email ?? "");
+    if (!emailResult.valid) {
       return Response.json(
-        { error: "Email must be under 200 characters" },
+        { field: "email", error: emailResult.error },
         { status: 400 }
       );
     }
 
-    if (!message || typeof message !== "string" || message.trim().length === 0) {
-      return Response.json({ error: "Message is required" }, { status: 400 });
-    }
-    if (message.length > 5000) {
+    const messageResult = validateMessage(message ?? "");
+    if (!messageResult.valid) {
       return Response.json(
-        { error: "Message must be under 5000 characters" },
+        { field: "message", error: messageResult.error },
         { status: 400 }
+      );
+    }
+
+    // ─── Cooldown check ─────────────────────────────────────
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
+
+    const { allowed, retryAfter } = checkCooldown(ip);
+
+    if (!allowed) {
+      return Response.json(
+        {
+          field: "form",
+          error: `Please wait ${retryAfter}s before sending another message.`,
+          retryAfter,
+        },
+        {
+          status: 429,
+          headers: { "X-Retry-After": String(retryAfter) },
+        }
       );
     }
 
@@ -79,16 +96,28 @@ export async function POST(req: Request) {
     if (error) {
       console.error("[contact] Resend error:", error);
       return Response.json(
-        { error: "Failed to send message. Please email me directly at rahulgehlot6044@gmail.com" },
+        {
+          error:
+            "Failed to send message. Please email me directly at rahulgehlot6044@gmail.com",
+        },
         { status: 500 }
       );
     }
 
-    return Response.json({ success: true });
+    // ─── Record this submission for cooldown ─────────────────
+    recordSubmission(ip);
+
+    return Response.json({
+      success: true,
+      retryAfter: COOLDOWN_SECONDS,
+    });
   } catch (err) {
     console.error("[contact] Unexpected error:", err);
     return Response.json(
-      { error: "Something went wrong. Please email me directly at rahulgehlot6044@gmail.com" },
+      {
+        error:
+          "Something went wrong. Please email me directly at rahulgehlot6044@gmail.com",
+      },
       { status: 500 }
     );
   }
