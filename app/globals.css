@@ -122,3 +122,34 @@ section[id] {
 .animate-nav-in {
   animation: nav-fade-in 0.4s ease-out;
 }
+
+/* ── Custom scrollbar for chat ── */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border-radius: 999px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-muted);
+}
+
+/* ── Typing cursor animation ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: text-bottom;
+  will-change: opacity;
+}
