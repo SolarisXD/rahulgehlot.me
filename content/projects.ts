@@ -71,7 +71,7 @@ export const projects: Project[] = [
     description: 'Interactive portfolio with an embedded RAG chatbot — Gemini 1.5 Flash, Supabase pgvector, hybrid search, Langfuse tracing. All free tier.',
     period: 'Ongoing',
     stack: ['Next.js', 'Gemini', 'pgvector', 'Langfuse', 'Tailwind'],
-    github: 'https://github.com/SolarisXD/portfolio',
+    github: 'https://github.com/SolarisXD/rahulgehlot.me',
     demo: 'https://rahulgehlot.me',
     status: 'live',
     tags: ['AI', 'full-stack'],
