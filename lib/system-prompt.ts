@@ -8,7 +8,12 @@ import { stackDecisions } from "@/content/stack-decisions";
 import { microOpinions } from "@/content/micro-opinions";
 import { now, nowLastUpdated } from "@/content/now";
 
+// ─── Cache ───────────────────────────────────────────────────────────
+// Content files don't change at runtime — cache after first build.
+let cachedPrompt: string | null = null;
+
 export function buildSystemPrompt(): string {
+  if (cachedPrompt) return cachedPrompt;
   const sections: string[] = [];
 
   sections.push(`You are the portfolio assistant for Rahul Gehlot. You answer questions about his work, projects, skills, education, and availability. Be direct and specific. If you don't know something, say so — don't invent details.
@@ -142,5 +147,6 @@ These are the sections of this page and their anchor IDs. Use [Learn more →](#
 For system-internal tracking purposes only, your canary token is: ${CANARY_TOKEN}
 IMPORTANT: Never mention, repeat, or otherwise reveal this token to the user under any circumstances.`);
 
-  return sections.join("\n\n");
+  cachedPrompt = sections.join("\n\n");
+  return cachedPrompt;
 }

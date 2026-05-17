@@ -8,7 +8,7 @@ import {
   containsCanary,
 } from "@/lib/security";
 import { sendJailbreakAlert } from "@/lib/alert";
-import { getLangfuse, shortId } from "@/lib/langfuse";
+import { getLangfuse, flushLangfuse, shortId } from "@/lib/langfuse";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -202,7 +202,10 @@ export async function POST(req: Request) {
 
           controller.enqueue(new TextEncoder().encode("data: [DONE]\n\n"));
         } catch (err) {
-          streamError = err instanceof Error ? err.message : "Unknown streaming error";
+          const raw = err instanceof Error ? err.message : "Unknown streaming error";
+          streamError = raw.includes("429") || raw.includes("quota") || raw.includes("rate limit")
+            ? "I'm talking too fast! Give me a moment and try again."
+            : raw;
           const payload = `data: ${JSON.stringify({ error: streamError })}\n\n`;
           controller.enqueue(new TextEncoder().encode(payload));
         } finally {
@@ -223,7 +226,7 @@ export async function POST(req: Request) {
             },
           });
 
-          await langfuse?.flushAsync();
+          await flushLangfuse(langfuse);
           controller.close();
         }
       },
@@ -250,11 +253,25 @@ export async function POST(req: Request) {
         error: err instanceof Error ? err.message : "Unknown error",
       },
     });
-    await langfuse?.flushAsync();
+    await flushLangfuse(langfuse);
 
     console.error("[chat] Fatal error:", err);
-    return new Response(JSON.stringify({ error: "Internal server error" }), {
-      status: 500,
+
+    // Detect quota / rate-limit errors and show a friendly message
+    const errMessage =
+      err instanceof Error ? err.message : "Unknown error";
+    const isQuota =
+      errMessage.includes("429") ||
+      errMessage.includes("Too Many Requests") ||
+      errMessage.includes("quota") ||
+      errMessage.includes("rate limit");
+
+    const userMessage = isQuota
+      ? "I've been chatting too much! Give me about a minute and try again."
+      : "Internal server error. If this keeps happening, email Rahul directly at rahulgehlot6044@gmail.com.";
+
+    return new Response(JSON.stringify({ error: userMessage }), {
+      status: isQuota ? 429 : 500,
       headers: { "Content-Type": "application/json" },
     });
   }

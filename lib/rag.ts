@@ -3,6 +3,23 @@ import { createClient } from "@supabase/supabase-js";
 
 const EMBEDDING_MODEL = "gemini-embedding-2";
 
+// ─── Module-level cached clients ─────────────────────────────────────
+// Creating clients on every request adds 100-500ms overhead.
+// Hoisting them here means they're created once and reused.
+let _ai: GoogleGenAI | null = null;
+let _supabase: ReturnType<typeof createClient> | null = null;
+
+function getAI(): GoogleGenAI {
+  if (!_ai) _ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
+  return _ai;
+}
+
+function getSupabase(): ReturnType<typeof createClient> {
+  if (!_supabase)
+    _supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_KEY!);
+  return _supabase;
+}
+
 export interface RAGResult {
   source: string;
   title: string;
@@ -24,10 +41,8 @@ export function isRAGAvailable(): boolean {
 /**
  * Embed a single text string using Gemini.
  */
-async function embedText(
-  ai: GoogleGenAI,
-  text: string
-): Promise<number[]> {
+async function embedText(text: string): Promise<number[]> {
+  const ai = getAI();
   const response = await ai.models.embedContent({
     model: EMBEDDING_MODEL,
     contents: text,
@@ -49,18 +64,13 @@ export async function searchKnowledgeBase(
   query: string,
   topK = 5
 ): Promise<RAGResult[]> {
-  const apiKey = process.env.GOOGLE_AI_API_KEY!;
-  const supabaseUrl = process.env.SUPABASE_URL!;
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY!;
-
-  const ai = new GoogleGenAI({ apiKey });
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = getSupabase();
 
   // 1. Embed the query
-  const embedding = await embedText(ai, query);
+  const embedding = await embedText(query);
 
   // 2. Vector search — cosine similarity
-  const { data: vectorResults, error: vectorError } = await supabase.rpc(
+  const { data: vectorResults, error: vectorError } = await (supabase.rpc as any)(
     "match_content_chunks",
     {
       query_embedding: embedding,

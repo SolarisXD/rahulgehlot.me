@@ -33,6 +33,21 @@ export function getLangfuse(): Langfuse | null {
 }
 
 /**
+ * Flush Langfuse with a timeout so auth errors don't block the response.
+ */
+export async function flushLangfuse(client: Langfuse | null): Promise<void> {
+  if (!client) return;
+  await Promise.race([
+    client.flushAsync(),
+    new Promise<void>((_, reject) =>
+      setTimeout(() => reject(new Error("Langfuse flush timeout")), 2000)
+    ),
+  ]).catch(() => {
+    // Silently ignore — observability failure shouldn't affect the user
+  });
+}
+
+/**
  * Generate a short unique ID for traces / spans.
  */
 export function shortId(): string {
