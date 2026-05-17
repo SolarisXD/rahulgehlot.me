@@ -86,10 +86,14 @@ function pickRandom<T>(arr: T[], n: number): T[] {
 }
 
 // ─── Inline formatter ─────────────────────────────────────────────
-// Renders **bold**, *italic*, `code`, [links](url) as React elements.
+// Renders **bold**, *italic*, `code`, [links](url), bare URLs, and
+// email addresses as React elements.
 
 function renderInline(text: string): React.ReactNode {
-  const pattern = /(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))/g;
+  // Order matters: markdown syntax first, then bare URLs/emails so
+  // [text](url) isn't double-matched.
+  const pattern =
+    /(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(https?:\/\/[^\s<]+)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
   const tokens: { type: string; value: string; href?: string }[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -106,6 +110,15 @@ function renderInline(text: string): React.ReactNode {
       tokens.push({ type: "code", value: match[6]! });
     } else if (match[7]) {
       tokens.push({ type: "link", value: match[8]!, href: match[9]! });
+    } else if (match[10]) {
+      // Bare URL — trim trailing punctuation
+      let url = match[10]!;
+      url = url.replace(/[.,;:!?)]+$/, "");
+      tokens.push({ type: "link", value: url, href: url });
+    } else if (match[11]) {
+      // Email address
+      const email = match[11]!;
+      tokens.push({ type: "link", value: email, href: `mailto:${email}` });
     }
     lastIndex = match.index + match[0].length;
   }
@@ -135,7 +148,7 @@ function renderInline(text: string): React.ReactNode {
             href={t.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 text-accent hover:text-accent/80 transition-colors"
+            className="underline decoration-1 underline-offset-2 text-[#3b82f6] dark:text-[#60a5fa] hover:text-[#2563eb] dark:hover:text-[#93c5fd] transition-colors cursor-pointer font-medium"
           >
             {t.value}
           </a>

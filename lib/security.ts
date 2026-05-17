@@ -33,12 +33,12 @@ export const JAILBREAK_PATTERNS: RegExp[] = [
 
 /**
  * Check a user message for jailbreak patterns.
- * Returns a reason string if detected, null otherwise.
+ * Returns the source of the matched regex if detected, null otherwise.
  */
 export function checkJailbreak(input: string): string | null {
   for (const pattern of JAILBREAK_PATTERNS) {
     if (pattern.test(input)) {
-      return "Message blocked by security filter";
+      return pattern.source;
     }
   }
   return null;

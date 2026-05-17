@@ -7,6 +7,7 @@ import {
   checkJailbreak,
   containsCanary,
 } from "@/lib/security";
+import { sendJailbreakAlert } from "@/lib/alert";
 import { getLangfuse, shortId } from "@/lib/langfuse";
 
 export const runtime = "nodejs";
@@ -86,6 +87,19 @@ export async function POST(req: Request) {
     // ─── Security: jailbreak / prompt injection check ───────────
     const jailbreakReason = checkJailbreak(lastMessage.content);
     if (jailbreakReason) {
+      // Fire-and-forget: email alert about the attempt (don't block the 400 response)
+      const ip =
+        req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+        req.headers.get("x-real-ip") ||
+        "unknown";
+      const userAgent = req.headers.get("user-agent") || "unknown";
+      sendJailbreakAlert({
+        message: lastMessage.content,
+        ip,
+        userAgent,
+        matchedPattern: jailbreakReason,
+      });
+
       return new Response(
         JSON.stringify({ error: "Your message was blocked by the security filter." }),
         { status: 400, headers: { "Content-Type": "application/json" } }
