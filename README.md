@@ -243,4 +243,13 @@ Five key decisions that shaped this portfolio and the projects it showcases:
 
 ## License
 
-Personal project. Not licensed for reuse.
+MIT — see [LICENSE](./LICENSE).
+
+Covers the code, components, utilities, and architecture. If you fork this, replace the following with your own:
+
+- `content/` — all portfolio data, bio, projects, experience, skills
+- `public/` — images, resume PDF, favicon
+- `app/layout.tsx` — metadata, site name
+- `app/about/page.tsx` — personal information
+
+The MIT license does not cover these personal assets.
