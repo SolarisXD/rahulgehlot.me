@@ -5,6 +5,7 @@ import { ArrowLeft, MapPin, Briefcase, ChevronRight, CheckCircle2, ChevronDown, 
 import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
 import { ResumeDropdown } from "@/components/ui/resume-dropdown";
 import { certifications } from "@/content/education";
+import { skillsContent } from "@/content/skills";
 
 export const metadata: Metadata = {
   title: "About Rahul Gehlot — Full-stack & AI Developer",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen text-foreground font-sans selection:bg-[#006d77]/20">
-      
+
       {/* Top Bar */}
       <header className="w-full px-6 md:px-10 py-6 mb-10 flex items-center justify-between border-b border-border">
         <div className="flex items-center gap-3">
@@ -40,7 +41,7 @@ export default function AboutPage() {
       </header>
 
       <main className="max-w-3xl mx-auto px-4 pb-24">
-        
+
         {/* Header / Profile */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-10">
           <div className="w-24 h-24 shrink-0 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-400 to-purple-500 p-1 shadow-md">
@@ -133,6 +134,7 @@ export default function AboutPage() {
               { name: "Hisaab Pro", desc: "Offline-first double-entry accounting shipped to real clients", href: "https://github.com/SolarisXD/Hisaab-Pro" },
               { name: "Skillence", desc: "Career platform with ML recommendations & campus placement engine", href: "https://github.com/SolarisXD/Skillence" },
               { name: "SwapHub", desc: "Campus marketplace to buy, sell, donate, and rent items", href: "https://github.com/SolarisXD/SwapHub" },
+              { name: "rahulgehlot.me", desc: "Personal portfolio website using NextJs, RAG, Langfuse", href: "https://github.com/SolarisXD/rahulgehlot.me" },
             ].map((proj, i) => (
               <a href={proj.href} key={i} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm hover:border-[#006d77]/50 hover:shadow-md transition-all group">
                 <div>
@@ -171,6 +173,28 @@ export default function AboutPage() {
                 </Card>
               );
             })}
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section className="mb-12">
+          <h2 className="flex items-center gap-2 text-xl font-bold text-[#006d77] dark:text-[#4fd1c5] mb-4">
+            <CheckCircle2 size={20} /> Skills
+          </h2>
+
+          <div className="p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm space-y-4">
+            {skillsContent.techStack.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{group.title}</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <span key={item.label} className="text-xs font-medium px-2.5 py-1 bg-[#006d77]/10 text-[#006d77] dark:text-[#4fd1c5] rounded-full border border-[#006d77]/20">
+                      {item.label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

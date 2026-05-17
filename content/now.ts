@@ -15,8 +15,12 @@ export const now: NowItem[] = [
     value: "LLM evaluation frameworks — Langfuse, RAGAS",
   },
   {
+    label: "Preparing",
+    value: "JLPT N5 in July 2026"
+  },
+  {
     label: "Reading",
-    value: "The Pragmatic Programmer",
+    value: "Cracking the Coding Interview by Gayle Laakmann McDowell",
   },
   {
     label: "Thinking about",
@@ -28,4 +32,4 @@ export const now: NowItem[] = [
   },
 ];
 
-export const nowLastUpdated = "2026-05-08";
+export const nowLastUpdated = "2026-05-17";

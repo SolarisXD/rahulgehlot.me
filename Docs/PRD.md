@@ -1,6 +1,5 @@
 # Portfolio — Final PRD
 **Owner:** DTxSD  
-**Reference:** https://santifer.io  
 **Version:** Final (supersedes all previous drafts)  
 **Date:** 2026-05-08
 

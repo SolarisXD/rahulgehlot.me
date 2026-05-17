@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahulgehlot.me"),
   title: "Rahul Gehlot",
   description:
-    "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems — Hisaab Pro, Skillence, and more. Open to freelance work and internships.",
+    "Full-stack developer and ML engineer. Open to freelance work and internships.",
   icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
   openGraph: {
-    title: "Rahul Gehlot — Full-stack & AI Developer",
+    title: "Rahul Gehlot",
     description:
-      "Full-stack & AI developer building Hisaab Pro (expense tracking), Skillence (skill assessment), and intelligent systems. Explore projects, chat with the AI bot, or connect for freelance & internships.",
+      "Full-stack developer and ML engineer. I build functional systems that work well and last.",
     url: "https://rahulgehlot.me",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
