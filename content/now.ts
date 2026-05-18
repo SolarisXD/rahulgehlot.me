@@ -20,7 +20,7 @@ export const now: NowItem[] = [
   },
   {
     label: "Reading",
-    value: "Cracking the Coding Interview by Gayle Laakmann McDowell",
+    value: "Can't Hurt Me by David Goggins",
   },
   {
     label: "Thinking about",

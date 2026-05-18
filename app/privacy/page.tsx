@@ -6,6 +6,9 @@ import { ResumeDropdown } from "@/components/ui/resume-dropdown";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Rahul Gehlot",
+  alternates: {
+    canonical: "https://rahulgehlot.me/privacy",
+  },
   openGraph: {
     title: "Privacy Policy — Rahul Gehlot",
     description: "Privacy policy for Rahul Gehlot's personal portfolio.",

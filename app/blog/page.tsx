@@ -4,6 +4,9 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog — Rahul Gehlot",
+  alternates: {
+    canonical: "https://rahulgehlot.me/blog",
+  },
   openGraph: {
     title: "Blog — Rahul Gehlot",
     description: "Articles about building with AI, full-stack decisions, and more.",

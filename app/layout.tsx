@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { BGPattern } from "@/components/bg-pattern";
 import FloatingChat from "@/components/chat/FloatingChat";
+import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -28,12 +29,15 @@ const jetbrainsMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rahulgehlot.me"),
-  title: "Rahul Gehlot",
+  title: "Rahul Gehlot — Full-stack Developer & ML Engineer",
   description:
-    "Full-stack developer and ML engineer. Open to freelance work and internships.",
+    "Full-stack developer and ML engineer. B.Tech CSE at VIT Bhopal. I build full-stack web apps and ML systems. Open to freelance work and internships.",
   icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
+  alternates: {
+    canonical: "https://rahulgehlot.me",
+  },
   openGraph: {
-    title: "Rahul Gehlot",
+    title: "Rahul Gehlot — Full-stack Developer & ML Engineer",
     description:
       "Full-stack developer and ML engineer. I build functional systems that work well and last.",
     url: "https://rahulgehlot.me",
@@ -44,6 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og-image.png"],
   },
+  themeColor: "#1b1b1e",
 };
 
 export default function RootLayout({
@@ -114,6 +119,41 @@ export default function RootLayout({
           {children}
           <FloatingChat />
         </ThemeProvider>
+
+        <JsonLd
+          id="schema-person"
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Rahul Gehlot",
+            givenName: "Rahul",
+            familyName: "Gehlot",
+            url: "https://rahulgehlot.me",
+            image: "https://rahulgehlot.me/profile_pic.png",
+            description:
+              "Full-stack developer and ML engineer. I build functional systems that work well and last.",
+            jobTitle: "Full-stack Developer & ML Engineer",
+            alumniOf: {
+              "@type": "CollegeOrUniversity",
+              name: "VIT Bhopal University",
+            },
+            sameAs: [
+              "https://github.com/SolarisXD",
+              "https://linkedin.com/in/rahulgehlot",
+            ],
+          }}
+        />
+        <JsonLd
+          id="schema-website"
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            url: "https://rahulgehlot.me",
+            name: "Rahul Gehlot",
+            description:
+              "Full-stack developer and ML engineer. Open to freelance work and internships.",
+          }}
+        />
       </body>
     </html>
   );

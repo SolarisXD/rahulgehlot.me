@@ -4,11 +4,15 @@ import Link from "next/link";
 import { ArrowLeft, MapPin, Briefcase, ChevronRight, CheckCircle2, ChevronDown, Mail, Star, ExternalLink, GitBranch, Globe } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
 import { ResumeDropdown } from "@/components/ui/resume-dropdown";
+import { JsonLd } from "@/components/json-ld";
 import { certifications } from "@/content/education";
 import { skillsContent } from "@/content/skills";
 
 export const metadata: Metadata = {
   title: "About Rahul Gehlot — Full-stack & AI Developer",
+  alternates: {
+    canonical: "https://rahulgehlot.me/about",
+  },
   openGraph: {
     title: "About Rahul Gehlot — Full-stack & AI Developer",
     description:
@@ -244,6 +248,40 @@ export default function AboutPage() {
         </section>
 
       </main>
+
+      <JsonLd
+        id="schema-faq"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Are you available for freelance or full-time work?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Open to internships, freelance projects, and full-time roles after graduating July 2026. I build full-stack web apps and ML systems.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What's your preferred stack?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Backend: Node.js, Express, FastAPI, SQLite, MongoDB. Frontend: React, Next.js, Tailwind CSS. ML: PyTorch (training), custom NumPy inference (production), Gemini API for AI features.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you write tests?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Absolutely. Hisaab Pro has 350+ Jest tests across 18 files. I write tests because silently wrong business logic is worse than visible crashes — especially for financial data.",
+              },
+            },
+          ],
+        }}
+      />
     </div>
   );
 }
