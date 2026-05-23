@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
 
 export const runtime = "edge";
@@ -7,15 +8,17 @@ export async function GET(request: Request) {
     const { searchParams, origin } = new URL(request.url);
     const subtitle = searchParams.get("subtitle")?.slice(0, 100) || "";
 
-    // Load Inter font (700 + 800 weights)
+    // Load Inter font (500 + 800 weights)
     const fontCss = await fetch(
       "https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap"
     ).then((r) => r.text());
 
-    const fontUrl = fontCss.match(/src:\s*url\(([^)]+)\)/)?.[1];
-    if (!fontUrl) throw new Error("Could not resolve Inter font URL");
+    const fontUrls = [...fontCss.matchAll(/src:\s*url\(([^)]+)\)/g)].map((m) => m[1]);
+    if (fontUrls.length < 2) throw new Error("Could not resolve both Inter font weights");
 
-    const fontData = await fetch(fontUrl).then((r) => r.arrayBuffer());
+    const [fontData500, fontData800] = await Promise.all(
+      fontUrls.map((url) => fetch(url).then((r) => r.arrayBuffer()))
+    );
 
     // Absolute URL for the avatar image
     const avatarUrl = `${origin}/profile_pic.png`;
@@ -173,14 +176,20 @@ export async function GET(request: Request) {
         fonts: [
           {
             name: "Inter",
-            data: fontData,
+            data: fontData500,
+            weight: 500,
+            style: "normal",
+          },
+          {
+            name: "Inter",
+            data: fontData800,
             weight: 800,
             style: "normal",
           },
         ],
       }
     );
-  } catch (error) {
+  } catch {
     // Fallback: static OG image if generation fails
     return new Response(null, {
       status: 302,

@@ -54,6 +54,24 @@ export const education: EducationEntry[] = [
 
 export const certifications: Certification[] = [
   {
+    name: 'Claude Code 101',
+    issuer: 'Anthropic',
+    year: '2026',
+    link: 'https://verify.skilljar.com/c/zub2sc2odyc5',
+  },
+  {
+    name: 'Claude 101',
+    issuer: 'Anthropic',
+    year: '2026',
+    link: 'https://verify.skilljar.com/c/fmtf7brpn27d',
+  },
+  {
+    name: 'AI Fluency for Small Businesses',
+    issuer: 'Anthropic',
+    year: '2026',
+    link: 'https://verify.skilljar.com/c/hah6r3gpuf6b',
+  },
+  {
     name: 'Blockchain Developer Certification',
     issuer: 'IBM Career Education Program',
     year: '2024',

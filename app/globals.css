@@ -123,6 +123,21 @@ section[id] {
   animation: nav-fade-in 0.4s ease-out;
 }
 
+/* ── Custom scrollbar for code blocks ── */
+.code-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.code-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.code-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--theme-muted);
+  border-radius: 999px;
+}
+.code-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-muted);
+}
+
 /* ── Custom scrollbar for chat ── */
 .chat-scrollbar::-webkit-scrollbar {
   width: 5px;

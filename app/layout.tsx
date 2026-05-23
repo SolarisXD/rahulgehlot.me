@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { BGPattern } from "@/components/bg-pattern";
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og-image.png"],
   },
+};
+
+export const viewport: Viewport = {
   themeColor: "#1b1b1e",
 };
 
