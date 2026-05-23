@@ -299,7 +299,7 @@ This header forces me to articulate *why* the test exists before I write a singl
 
 *Open the Testing panel in VS Code (beaker icon). Expand the tree to show all 20 files with their `describe()` blocks collapsed underneath. The sheer number of suites visible at a glance communicates the scale better than a coverage percentage.*
 *Purpose: Shows the *scale* of the test suite (20 files, 99 describe blocks) without showing any code.*
-![VS Code Test Explorer](/Blogs/blog-why-475-tests/Test_Explorer.png)
+![VS Code Test Explorer](/Blogs/blog-why-475-tests/test_explorer.png)
 *SCREENSHOT 3 — VS Code test explorer showing all 20 test files with their describe blocks*
 
 ---
