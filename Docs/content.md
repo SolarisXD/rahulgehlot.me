@@ -31,7 +31,7 @@ Hi, I'm Rahul.
 "I find a problem and don't stop until it's gone."
 ```
 
-**Why these:** The first signals ML/AI depth. The second signals delivery. The third signals drive. All three are verifiable from the resume — Skillence is an AI system, Hisaab Pro shipped to clients, and the Jest test suite (350+) signals someone who finishes things properly.
+**Why these:** The first signals ML/AI depth. The second signals delivery. The third signals drive. All three are verifiable from the resume — Skillence is an AI system, Hisaab Pro shipped to clients, and the Jest test suite (475 tests) signals someone who finishes things properly.
 
 **CTA buttons:**
 ```
@@ -53,13 +53,13 @@ custom PyTorch model and a pure NumPy inference layer I wrote to cut backend
 deployment crashes to near-zero."
 
 Paragraph 2:
-"I write a lot of tests. Hisaab Pro has 350+ Jest tests across 18 files —
+"I write a lot of tests. Hisaab Pro has 475 Jest tests —
 not because someone told me to, but because client financial data has no room
 for silent bugs. That instinct follows me into everything I build."
 ```
 
 **What makes this work:**
-- Specific numbers (350+, 18 files, 8.67, 692 skills, 894 occupations)
+- Specific numbers (475 tests, 8.67, 692 skills, 894 occupations)
 - Two real projects with one specific technical decision each
 - The last paragraph turns a resume bullet into a point of view
 
@@ -180,7 +180,7 @@ export const certifications: Certification[] = [
 {
   id: 'hisaab-pro',
   title: 'Hisaab Pro',
-  description: 'Offline-first double-entry accounting for small businesses — 9 business modules, AES-256 encrypted SQLite, GST-ready invoicing, and a 350-test suite.',
+  description: 'Offline-first double-entry accounting for small businesses — 9 business modules, AES-256 encrypted SQLite, GST-ready invoicing, and a 475-test suite.',
   stack: ['Node.js', 'Express.js', 'SQLite', 'JavaScript', 'Jest'],
   github: 'https://github.com/SolarisXD/...',    // fill in exact repo URL
   demo: 'https://...',                            // product page link from resume
@@ -190,7 +190,7 @@ export const certifications: Certification[] = [
   caseStudy: {
     why: 'Small businesses still manage accounts in physical registers or pirated Tally copies. I wanted an offline-first alternative that works without internet, doesn\'t charge a subscription, and handles GST invoicing without a second tool.',
     decision: 'Used AES-256 encrypted SQLite (not plain SQLite) and Write-Ahead Logging — because client financial data at rest with no encryption is unacceptable, and WAL protects against corruption during USB drive removal in exactly the environments these businesses work in.',
-    outcome: 'Shipped to real clients across 2+ product versions. Built 350+ Jest tests across 18 files — not because it was required, but because silently wrong accounting is worse than no accounting at all.',
+    outcome: 'Shipped to real clients across 2+ product versions. Built 475 Jest tests — not because it was required, but because silently wrong accounting is worse than no accounting at all.',
   },
 }
 ```
@@ -302,7 +302,7 @@ export const stackDecisions: StackDecision[] = [
     reasoning: 'PyTorch carries significant overhead when you just need to run a trained model — loading the runtime, the model weights, the graph. A pure NumPy forward pass is faster to initialise, crash-resistant, and requires no PyTorch in the prod environment. Reduced backend crashes to near-zero.',
   },
   {
-    choice: '350+ Jest tests across 18 files for Hisaab Pro',
+    choice: '475 Jest tests for Hisaab Pro',
     alternative: 'Manual QA or fewer unit tests',
     reasoning: 'Silent wrong accounting is worse than a crash. A crash is visible. A ledger that silently processes a transaction twice is not. The test suite exists so any change that breaks payroll logic fails before it reaches a client\'s books.',
   },
@@ -322,7 +322,7 @@ These should sound like you. Replace any that don't.
 
 ```ts
 export const microOpinions: string[] = [
-  "If the accounting ledger silently processes a transaction twice, no one knows until it's too late. That's why I wrote 350 tests for it.",
+  "If the accounting ledger silently processes a transaction twice, no one knows until it's too late. That's why I wrote 475 tests for it.",
 
   "A pure NumPy inference layer is more work than serving the PyTorch model directly. It's also the reason production didn't crash.",
 
@@ -354,7 +354,7 @@ process: [
   {
     number: '02',
     title: 'Write tests before they\'re required',
-    body: 'I don\'t write tests because someone told me to. I write them because I\'ve worked on enough systems to know that silent bugs in business logic are worse than visible crashes. Hisaab Pro has 350+ tests. Every payroll and ledger path is covered.',
+    body: 'I don\'t write tests because someone told me to. I write them because I\'ve worked on enough systems to know that silent bugs in business logic are worse than visible crashes. Hisaab Pro has 475 tests. Every payroll and ledger path is covered.',
   },
   {
     number: '03',
@@ -395,7 +395,7 @@ Q: What are you graduating in?
 A: B.Tech in Computer Science & Engineering with an AI-ML specialisation from VIT Bhopal, July 2026. CGPA 8.67.
 
 Q: What is Hisaab Pro?
-A: Hisaab Pro is an offline-first double-entry accounting system for small businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, and 350+ Jest tests. It was shipped to real clients across 2 product versions.
+A: Hisaab Pro is an offline-first double-entry accounting system for small businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, and 475 Jest tests. It was shipped to real clients across 2 product versions.
 
 Q: What is Skillence?
 A: Skillence is a full-stack career platform I built as a capstone project. It has a PyTorch-trained recommendation model that maps 692 skills to 894 occupations. For production inference I replaced the PyTorch runtime with a pure NumPy forward pass — this cut crashes to near-zero and kept latency at ~1ms. It also has a campus placement engine built with zero LLM dependency, and a job market analytics dashboard processing 30,000+ job postings.
@@ -415,7 +415,7 @@ A: IBM Blockchain Developer Certification, Adobe UI & UX (Graphic Design) from E
 Q: Why did you write a custom NumPy inference layer instead of serving PyTorch directly?
 A: PyTorch carries significant runtime overhead when you just need forward-pass inference on a trained model. Loading the PyTorch runtime, the computation graph, and the model weights was causing production backend crashes. A pure NumPy forward pass is lighter, faster to initialise, and requires no PyTorch in the production environment. The tradeoff was more implementation work upfront — worth it for near-zero crashes.
 
-Q: Why 350+ tests for Hisaab Pro?
+Q: Why 475 tests for Hisaab Pro?
 A: Silent wrong accounting is worse than a crash. A crash is visible — someone reports it. A ledger that silently processes a payroll transaction twice isn't visible until the client reviews their books. The test suite exists so any code change that breaks that logic fails immediately, before it reaches anyone's real data.
 ```
 

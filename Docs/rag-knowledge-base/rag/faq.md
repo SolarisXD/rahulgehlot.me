@@ -5,6 +5,8 @@
 - **Email:** rahulgehlot6044@gmail.com
 - **GitHub:** github.com/SolarisXD
 - **LinkedIn:** linkedin.com/in/rahulgehlot
+- **Medium:** medium.com/@rahulgehlotxsd
+- **Dev.to:** dev.to/rahulgehlot
 - **Portfolio:** rahulgehlot.me
 
 Rahul responds same day to emails about work opportunities, collaboration, and project inquiries.
@@ -34,7 +36,7 @@ July 2026. B.Tech in Computer Science and Engineering with AI-ML specialisation 
 After graduation in July 2026, yes. Open to full-stack engineering, ML engineering, and AI product development roles.
 
 **What is Hisaab Pro?**
-An offline-first double-entry accounting system for retail businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, attendance tracking, and 350+ Jest tests. It was deployed to real clients across multiple product versions. Built with Node.js, Express.js, SQLite, and Jest. GitHub: github.com/SolarisXD/Hisaab-Pro.
+An offline-first double-entry accounting system for retail businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, attendance tracking, and 475 Jest tests. It was deployed to real clients across multiple product versions. Built with Node.js, Express.js, SQLite, and Jest. GitHub: github.com/SolarisXD/Hisaab-Pro.
 
 **What is Skillence?**
 An AI-powered career platform that maps 692 skills to 894 occupations using a trained PyTorch model (served via a custom NumPy inference layer in production). It includes a campus placement engine with zero LLM dependency, and a job market analytics dashboard processing 30,000+ job postings with salary data across 25+ countries. Built with React 19, FastAPI, PyTorch, NumPy, Gemini API, and Azure AI. GitHub: github.com/SolarisXD/Skillence.
@@ -48,8 +50,8 @@ Yes. Trained a PyTorch skill-to-occupation recommendation model for Skillence. B
 **Why did you write a custom NumPy inference layer for Skillence instead of serving PyTorch directly?**
 PyTorch runtime overhead was causing backend crashes under load. The trained model's forward pass is just matrix multiplications and activations — NumPy can do this without any of PyTorch's runtime overhead, faster and with near-zero crashes. The tradeoff was extra implementation work upfront. Worth it.
 
-**Why does Hisaab Pro have 350+ tests?**
-Because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice might not be noticed until the client reviews their books. Every payroll path, ledger transaction, and duplicate-processing case is covered. Not a requirement — a decision.
+**Why does Hisaab Pro have 475 tests?**
+Because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice might not be noticed until the client reviews their books. Every payroll path, ledger transaction, and duplicate-processing case is covered. Not a requirement — a decision. Read the full story behind this decision in the blog post: [Why I Wrote 475 Tests for a Desktop Accounting App](https://rahulgehlot.me/blog/blog-why-475-tests).
 
 **What are you currently working on?**
 Building this portfolio with a RAG chatbot (Gemini Flash, Supabase pgvector, Langfuse tracing). Also reflecting on Skillence's architecture — what worked and what he'd do differently. Learning LLM evaluation frameworks.
@@ -71,3 +73,6 @@ The chatbot knows Rahul's projects, decisions, tech stack, background, and how h
 
 **What should I do if I want to hire you?**
 Email rahulgehlot6044@gmail.com with a brief description of the role or project. He responds same day.
+
+**Do you write technical blog posts?**
+Yes! I write about technical decisions, testing, and engineering challenges on my portfolio blog, Medium, and Dev.to. My latest post is [Why I Wrote 475 Tests for a Desktop Accounting App](https://rahulgehlot.me/blog/blog-why-475-tests) (also syndicated on [Medium](https://medium.com/@rahulgehlotxsd/why-i-wrote-475-tests-for-a-desktop-accounting-app-b1051d34029c) and [Dev.to](https://dev.to/rahulgehlot/why-i-wrote-475-tests-for-a-desktop-accounting-app-4laj)). You can find all my posts at [rahulgehlot.me/blog](https://rahulgehlot.me/blog).

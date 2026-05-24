@@ -44,9 +44,9 @@ This document captures the key technical decisions Rahul has made across his pro
 
 ---
 
-## 350+ Jest tests across 18 files (Hisaab Pro)
+## 475 Jest tests (Hisaab Pro)
 
-**What:** Hisaab Pro's backend has 350+ unit and integration tests written with Jest, spread across 18 test files.
+**What:** Hisaab Pro's backend has 475 unit and integration tests written with Jest.
 
 **Why:** Silent wrong accounting is worse than a visible crash. If the application crashes, the client knows and reports it. If the payroll module silently processes a salary transaction twice, the client might not notice for weeks — and by then the books are wrong in ways that are hard to trace. The test suite makes it impossible to deploy a change that breaks payroll logic, ledger balancing, or transaction processing without it failing in CI first.
 

@@ -21,7 +21,7 @@ export const stackDecisions: StackDecision[] = [
     reasoning: 'PyTorch carries significant overhead when you just need to run a trained model — loading the runtime, the model weights, the graph. A pure NumPy forward pass is faster to initialise, crash-resistant, and requires no PyTorch in the prod environment. Reduced backend crashes to near-zero.',
   },
   {
-    choice: '350+ Jest tests across 18 files for Hisaab Pro',
+    choice: '475 Jest tests for Hisaab Pro',
     alternative: 'Manual QA or fewer unit tests',
     reasoning: 'Silent wrong accounting is worse than a crash. A crash is visible. A ledger that silently processes a transaction twice is not. The test suite exists so any change that breaks payroll logic fails before it reaches a client\'s books.',
   },

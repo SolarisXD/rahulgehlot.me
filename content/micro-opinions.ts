@@ -1,5 +1,5 @@
 export const microOpinions: string[] = [
-  "If the accounting ledger silently processes a transaction twice, no one knows until it's too late. That's why I wrote 350 tests for it.",
+  "If the accounting ledger silently processes a transaction twice, no one knows until it's too late. That's why I wrote 475 tests for it.",
 
   "A pure NumPy inference layer is more work than serving the PyTorch model directly. It's also the reason production didn't crash.",
 

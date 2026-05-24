@@ -20,13 +20,13 @@ Most engineering portfolios are a grid of screenshot cards with GitHub links. Th
 
 **Observability is built in, not bolted on.** Every chat request creates a Langfuse trace with spans for RAG search and Gemini generation. The system knows when it breaks and why.
 
-**350+ tests is not a flex. It is a requirement.** Hisaab Pro — the offline accounting system that shares this portfolio's DNA — has 350+ Jest tests across 18 files because silent financial bugs are worse than visible crashes. That philosophy carries into everything here.
+**475 tests is not a flex. It is a requirement.** Hisaab Pro — the offline accounting system that shares this portfolio's DNA — has 475 Jest tests because silent financial bugs are worse than visible crashes. That philosophy carries into everything here.
 
 ---
 
 ## Featured Projects
 
-**Hisaab Pro** — Offline-first double-entry accounting shipped to real small business clients. AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Payroll automation, GST invoicing, 6 financial reports. 350+ Jest tests. Two product versions. Real users.
+**Hisaab Pro** — Offline-first double-entry accounting shipped to real small business clients. AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Payroll automation, GST invoicing, 6 financial reports. 475 Jest tests. Two product versions. Real users.
 
 **Skillence** — Career platform mapping 692 skills to 894 occupations at ~1ms inference. PyTorch-trained model replaced with a custom pure NumPy inference layer for production because PyTorch's runtime overhead caused crashes. Campus placement engine with zero LLM dependency. 30,000+ job postings analyzed across 25+ countries.
 
@@ -235,7 +235,7 @@ Five key decisions that shaped this portfolio and the projects it showcases:
 
 - **Pure NumPy inference over PyTorch serving.** PyTorch runtime overhead caused backend crashes. A hand-written NumPy forward pass cut them to near-zero. More work upfront, zero crashes in production.
 
-- **350+ Jest tests.** Silent wrong accounting is worse than a crash. The test suite ensures any change that breaks payroll logic fails before it reaches a client's books.
+- **475 Jest tests.** Silent wrong accounting is worse than a crash. The test suite ensures any change that breaks payroll logic fails before it reaches a client's books.
 
 - **Gemini Flash over paid LLM APIs.** 1,500 req/day and 1M tokens/day on the free tier, no credit card required. For an unknown-traffic portfolio chatbot, starting free and upgrading when there is a reason to is the only rational default.
 

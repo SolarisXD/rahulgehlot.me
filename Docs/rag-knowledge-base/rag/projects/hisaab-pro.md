@@ -26,7 +26,7 @@ The system generates client-side PDF exports for invoices and reports. This was 
 
 **Write-Ahead Logging (WAL) mode.** WAL was chosen specifically because the businesses using Hisaab Pro often work in environments where USB drives get removed mid-operation — common in small retail contexts. WAL keeps the database consistent even during unclean shutdowns. Default SQLite journal mode doesn't give the same guarantee for that failure pattern.
 
-**350+ Jest tests across 18 files.** The test suite exists because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice doesn't get noticed until the client reviews their books — potentially weeks later. Every payroll path, ledger transaction, and duplicate-processing edge case is covered by tests. This wasn't a requirement; it was a design decision.
+**475 Jest tests.** The test suite exists because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice doesn't get noticed until the client reviews their books — potentially weeks later. Every payroll path, ledger transaction, and duplicate-processing edge case is covered by tests. This wasn't a requirement; it was a design decision. To read the detailed story behind this, check out the blog post: [Why I Wrote 475 Tests for a Desktop Accounting App](https://rahulgehlot.me/blog/blog-why-475-tests).
 
 **Iterated across 2+ product versions.** The first version was deployed to clients. Based on real-world feedback, Rahul added payroll automation, attendance-linked salary processing, and client-side PDF exports in subsequent versions. Real client deployment drove the iteration, not assumptions.
 

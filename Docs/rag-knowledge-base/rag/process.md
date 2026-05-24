@@ -2,13 +2,13 @@
 
 ## Design decisions start with failure modes
 
-Before writing code, Rahul thinks about what the worst possible outcome looks like. For Hisaab Pro, the failure mode was silent data corruption in a client's accounting books. That informed every major architectural choice: AES-256 encryption, WAL mode, append-only audit design, and 350+ tests. For Skillence, the failure mode was backend crashes under inference load — which led to the custom NumPy inference layer.
+Before writing code, Rahul thinks about what the worst possible outcome looks like. For Hisaab Pro, the failure mode was silent data corruption in a client's accounting books. That informed every major architectural choice: AES-256 encryption, WAL mode, append-only audit design, and 475 tests. For Skillence, the failure mode was backend crashes under inference load — which led to the custom NumPy inference layer.
 
 He doesn't design for the happy path. He designs for the failure path first, and the happy path takes care of itself.
 
 ## Tests before they're required
 
-Rahul writes tests because he understands what happens when you don't — not because it was required by a course or a manager. The 350+ Jest test suite on Hisaab Pro exists because financial logic that silently fails is worse than logic that visibly crashes. A crash gets reported and fixed. A payroll transaction that processes twice might not get noticed for weeks.
+Rahul writes tests because he understands what happens when you don't — not because it was required by a course or a manager. The 475 Jest test suite on Hisaab Pro exists because financial logic that silently fails is worse than logic that visibly crashes. A crash gets reported and fixed. A payroll transaction that processes twice might not get noticed for weeks.
 
 His view: if you can't test it, you don't really understand it.
 

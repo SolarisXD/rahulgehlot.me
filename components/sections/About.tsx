@@ -33,7 +33,7 @@ export default function About() {
           I write a lot of tests.
         </h3>
         <p className="text-xl md:text-2xl font-medium text-muted-foreground/80">
-          Hisaab Pro has 350+ Jest tests across 18 files.
+          Hisaab Pro has 475 Jest tests.
         </p>
         <p className="text-xl md:text-2xl font-bold pt-1 max-w-2xl mx-auto">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 leading-snug">

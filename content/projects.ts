@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     id: 'hisaab-pro',
     title: 'Hisaab Pro',
-    description: 'Offline-first double-entry accounting with 9 core business modules — automated ledger transactions, GST-ready invoicing, and 6 financial reports (Balance Sheets, P&L, aging schedules). AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Automated payroll from daily attendance data with 350+ Jest tests across 18 files.',
+    description: 'Offline-first double-entry accounting with 9 core business modules — automated ledger transactions, GST-ready invoicing, and 6 financial reports (Balance Sheets, P&L, aging schedules). AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Automated payroll from daily attendance data with 475 Jest tests.',
     period: 'Jan 2026 - Apr 2026',
     stack: ['Node.js', 'Express.js', 'SQLite', 'JavaScript', 'Jest'],
     github: 'https://github.com/SolarisXD/Hisaab-Pro',
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     caseStudy: {
       why: 'Small businesses still manage accounts in physical registers or pirated Tally copies. I wanted an offline-first alternative that works without internet, doesn\'t charge a subscription, and handles GST invoicing without a second tool.',
       decision: 'Used AES-256 encrypted SQLite (not plain SQLite) and Write-Ahead Logging — because client financial data at rest with no encryption is unacceptable, and WAL protects against corruption during USB drive removal in exactly the environments these businesses work in.',
-      outcome: 'Shipped to real clients across 2+ product versions. Built 350+ Jest tests across 18 files — not because it was required, but because silently wrong accounting is worse than no accounting at all.',
+      outcome: 'Shipped to real clients across 2+ product versions. Built 475 Jest tests — not because it was required, but because silently wrong accounting is worse than no accounting at all.',
     },
   },
   {
