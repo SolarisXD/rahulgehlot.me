@@ -143,6 +143,8 @@ export default function RootLayout({
             sameAs: [
               "https://github.com/SolarisXD",
               "https://linkedin.com/in/rahulgehlot",
+              "https://medium.com/@rahulgehlotxsd",
+              "https://dev.to/rahulgehlot"
             ],
           }}
         />

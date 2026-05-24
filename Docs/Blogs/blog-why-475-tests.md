@@ -2,6 +2,8 @@
 title: "Why I Wrote 475 Tests for a Desktop Accounting App"
 description: "When the books are wrong, the app doesn't crash. It just lies to you. That's what makes testing financial software different."
 date: "2026-05-15"
+medium: https://medium.com/@rahulgehlotxsd/why-i-wrote-475-tests-for-a-desktop-accounting-app-b1051d34029c
+devto: https://dev.to/rahulgehlot/why-i-wrote-475-tests-for-a-desktop-accounting-app-4laj
 ---
 
 # Why I Wrote 475 Tests for a Desktop Accounting App
@@ -22,8 +24,6 @@ This is the nightmare that keeps me up at night. And it's why **Hisaab Pro** —
 
 ---
 
-*Full browser window: sales chart, recent transactions, account balance cards.*
-*Purpose: Establishes "this is a real app real people use." Makes the stakes tangible.*
 ![Hisaab Pro Dashboard](/Blogs/blog-why-475-tests/Hisaab_Pro_Dashboard.png)
 *SCREENSHOT 1 — Hisaab Pro Dashboard*
 
@@ -297,8 +297,6 @@ Every test file begins with the same block:
 
 This header forces me to articulate *why* the test exists before I write a single line of code. It's not about coverage percentages. It's about guarantees.
 
-*Open the Testing panel in VS Code (beaker icon). Expand the tree to show all 20 files with their `describe()` blocks collapsed underneath. The sheer number of suites visible at a glance communicates the scale better than a coverage percentage.*
-*Purpose: Shows the *scale* of the test suite (20 files, 99 describe blocks) without showing any code.*
 ![VS Code Test Explorer](/Blogs/blog-why-475-tests/test_explorer.png)
 *SCREENSHOT 3 — VS Code test explorer showing all 20 test files with their describe blocks*
 
@@ -367,6 +365,6 @@ He doesn't know the tests exist. That's the point. He doesn't need to.
 
 ---
 
-*Hisaab Pro is open source at [github.com/spelldrake/hisaab-pro](https://github.com/spelldrake/hisaab-pro). The test suite lives at `tests/`. 475 tests. Zero bugs in production. That's the point.*
+*Hisaab Pro is open source at [github.com/spelldrake/hisaab-pro](https://github.com/SolarisXD/hisaab-pro). The test suite lives at `tests/`. 475 tests. Zero bugs in production. That's the point.*
 
 ---

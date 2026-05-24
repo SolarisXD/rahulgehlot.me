@@ -8,6 +8,8 @@ export type BlogPost = {
   date: string;
   readTime: string;
   content: string;
+  medium?: string;
+  devto?: string;
 };
 
 const BLOGS_DIR = path.join(process.cwd(), "Docs", "Blogs");
@@ -17,7 +19,7 @@ const BLOGS_DIR = path.join(process.cwd(), "Docs", "Blogs");
  */
 function parseFrontmatter(
   content: string,
-): { title: string; description: string; date: string; body: string } {
+): { title: string; description: string; date: string; medium?: string; devto?: string; body: string } {
   const lines = content.split("\n");
 
   // Check if file starts with ---
@@ -56,6 +58,8 @@ function parseFrontmatter(
     title: fields.title ?? extractTitle(body),
     description: fields.description ?? extractDescription(body),
     date: fields.date ?? "",
+    medium: fields.medium,
+    devto: fields.devto,
     body,
   };
 }
@@ -114,10 +118,10 @@ export function getAllPosts(): Omit<BlogPost, "content">[] {
       const slug = file.replace(/\.md$/, "");
       const fullPath = path.join(BLOGS_DIR, file);
       const content = fs.readFileSync(fullPath, "utf-8");
-      const { title, description, date, body } = parseFrontmatter(content);
+      const { title, description, date, body, medium, devto } = parseFrontmatter(content);
       const readTime = parseReadTime(body || content);
 
-      return { slug, title, description, date, readTime };
+      return { slug, title, description, date, readTime, medium, devto };
     })
     .sort((a, b) => {
       // Sort by date descending — files without dates go last
@@ -139,10 +143,10 @@ export function getPostBySlug(slug: string): BlogPost | null {
   try {
     if (!fs.existsSync(filePath)) return null;
     const content = fs.readFileSync(filePath, "utf-8");
-    const { title, description, date, body } = parseFrontmatter(content);
+    const { title, description, date, body, medium, devto } = parseFrontmatter(content);
     const readTime = parseReadTime(body || content);
 
-    return { slug, title, description, date, readTime, content: body || content };
+    return { slug, title, description, date, readTime, content: body || content, medium, devto };
   } catch {
     return null;
   }

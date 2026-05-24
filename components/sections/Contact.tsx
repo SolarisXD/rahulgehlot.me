@@ -360,6 +360,28 @@ export default function Contact() {
           </svg>
           LinkedIn
         </a>
+        <a
+          href="https://medium.com/@rahulgehlotxsd"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+          </svg>
+          Medium
+        </a>
+        <a
+          href="https://dev.to/rahulgehlot"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-accent/50 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 15.5H7.5V8.5H9v7m3.75-3.5h-1.5v2h2v1.5H9.75V8.5h4v1.5h-2.5v2h2.5v1.5zm6-.5v4h-1.5v-4h-1.25V10h4v1.5h-1.25z" />
+          </svg>
+          Dev.to
+        </a>
       </div>
     </div>
   );
