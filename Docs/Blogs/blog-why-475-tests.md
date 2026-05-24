@@ -365,6 +365,6 @@ He doesn't know the tests exist. That's the point. He doesn't need to.
 
 ---
 
-*Hisaab Pro is open source at [github.com/spelldrake/hisaab-pro](https://github.com/SolarisXD/hisaab-pro). The test suite lives at `tests/`. 475 tests. Zero bugs in production. That's the point.*
+*Hisaab Pro is open source at [github.com/SolarisXD/hisaab-pro](https://github.com/SolarisXD/hisaab-pro). The test suite lives at `tests/`. 475 tests. Zero bugs in production. That's the point.*
 
 ---

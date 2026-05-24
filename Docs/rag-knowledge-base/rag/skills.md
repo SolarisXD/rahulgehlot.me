@@ -40,7 +40,7 @@ He chose pgvector inside Supabase for the portfolio chatbot's vector database be
 
 ## Testing
 
-Jest is his testing framework. He wrote 350+ tests across 18 files for Hisaab Pro. This is an unusually high test coverage for a student project and reflects his view that silent bugs in business logic — especially financial logic — are worse than visible crashes.
+Jest is his testing framework. He wrote 475 tests for Hisaab Pro. This is an unusually high test coverage for a student project and reflects his view that silent bugs in business logic — especially financial logic — are worse than visible crashes.
 
 ## Tools
 
