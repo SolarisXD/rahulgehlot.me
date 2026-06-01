@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resume — Rahul Gehlot",
+  title: "Resume - Rahul Gehlot",
   alternates: {
     canonical: "https://rahulgehlot.me/resume",
   },
   openGraph: {
-    title: "Resume — Rahul Gehlot",
+    title: "Resume - Rahul Gehlot",
     description: "Full-stack & AI developer. B.Tech CSE at VIT Bhopal.",
     images: [{ url: "/og?subtitle=Resume", width: 1200, height: 630 }],
   },

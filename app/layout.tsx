@@ -29,7 +29,7 @@ const jetbrainsMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rahulgehlot.me"),
-  title: "Rahul Gehlot — Full-stack Developer & ML Engineer",
+  title: "Rahul Gehlot - Full-stack Developer & ML Engineer",
   description:
     "Full-stack developer and ML engineer. B.Tech CSE at VIT Bhopal. I build full-stack web apps and ML systems. Open to freelance work and internships.",
   icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     canonical: "https://rahulgehlot.me",
   },
   openGraph: {
-    title: "Rahul Gehlot — Full-stack Developer & ML Engineer",
+    title: "Rahul Gehlot - Full-stack Developer & ML Engineer",
     description:
       "Full-stack developer and ML engineer. I build functional systems that work well and last.",
     url: "https://rahulgehlot.me",
@@ -69,7 +69,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased relative min-h-screen font-sans`}
       >
-        {/* Prevent scroll restoration — always start at top on reload */}
+        {/* Prevent scroll restoration - always start at top on reload */}
         <script
           id="scroll-restoration"
           dangerouslySetInnerHTML={{
@@ -105,7 +105,7 @@ export default function RootLayout({
           `,
           }}
         />
-        {/* Base dotted pattern — sections can layer their own for different effects */}
+        {/* Base dotted pattern - sections can layer their own for different effects */}
         <BGPattern
           variant="dots"
           mask="none"

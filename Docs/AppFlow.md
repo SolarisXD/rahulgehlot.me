@@ -1,4 +1,4 @@
-# App Flow — Portfolio Experience
+# App Flow - Portfolio Experience
 
 ## 1. Goal of the flow
 

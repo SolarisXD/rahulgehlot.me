@@ -12,7 +12,7 @@ export const MESSAGE_MAX = 5000;
 
 /**
  * Common disposable / throwaway email domains.
- * Kept deliberately small — covers the most abused domains
+ * Kept deliberately small - covers the most abused domains
  * without needing a 5 000-entry blacklist.
  */
 const DISPOSABLE_DOMAINS = new Set([
@@ -65,7 +65,7 @@ export function validateName(value: string): ValidationResult {
 }
 
 /**
- * Basic email format regex (RFC 5322 simplified — sufficient for contact forms).
+ * Basic email format regex (RFC 5322 simplified - sufficient for contact forms).
  */
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -96,7 +96,7 @@ export function validateEmail(value: string): ValidationResult {
   if (domain && DISPOSABLE_DOMAINS.has(domain)) {
     return {
       valid: false,
-      error: "Temporary email addresses aren't accepted — use a real one",
+      error: "Temporary email addresses aren't accepted - use a real one",
     };
   }
 

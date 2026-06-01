@@ -2,7 +2,7 @@
 
 **Product builder. Applied AI architect. Someone who replaces PyTorch with NumPy for production because crashes matter more than convenience.**
 
-This is not a static portfolio. It is an interactive product that embeds a hybrid RAG chatbot into its own architecture — you can ask it questions about the person who built it, and it answers from a knowledge base he curated, using a pipeline he wrote, secured with jailbreak detection he implemented, traced with observability he configured, all on the free tier. Most portfolios are lists. This one is a working system.
+This is not a static portfolio. It is an interactive product that embeds a hybrid RAG chatbot into its own architecture - you can ask it questions about the person who built it, and it answers from a knowledge base he curated, using a pipeline he wrote, secured with jailbreak detection he implemented, traced with observability he configured, all on the free tier. Most portfolios are lists. This one is a working system.
 
 Visit [rahulgehlot.me](https://rahulgehlot.me), click the chat button, and see for yourself.
 
@@ -10,27 +10,27 @@ Visit [rahulgehlot.me](https://rahulgehlot.me), click the chat button, and see f
 
 ## What makes this different
 
-Most engineering portfolios are a grid of screenshot cards with GitHub links. This one is built like a product. The chatbot is not a widget bolted on at the end — it is the centerpiece. It demonstrates engineering judgment at every layer of the stack.
+Most engineering portfolios are a grid of screenshot cards with GitHub links. This one is built like a product. The chatbot is not a widget bolted on at the end - it is the centerpiece. It demonstrates engineering judgment at every layer of the stack.
 
 **The system prompt is not hardcoded.** It is assembled from the same TypeScript data files that render the UI. When a project entry or skill is updated, the chatbot's knowledge updates with it. No duplication, no drift.
 
 **The RAG pipeline uses hybrid search.** User queries are embedded via Gemini Embedding 2 and searched against Supabase pgvector (cosine similarity) while a parallel PostgreSQL full-text search (tsvector) runs against the same content. Results are merged via Reciprocal Rank Fusion. The top five chunks are injected into the LLM context. This means the chatbot answers from curated content, not from the model's training data.
 
-**Security is not an afterthought.** 17 regex patterns detect prompt injection attempts server-side. A canary token embedded in the system prompt is verified in every model output — if the token surfaces, the system prompt was leaked. Inputs are capped at 500 characters. Rate limiting runs at the edge (10 requests per 60 seconds per IP). Jailbreak attempts trigger email alerts via Resend.
+**Security is not an afterthought.** 17 regex patterns detect prompt injection attempts server-side. A canary token embedded in the system prompt is verified in every model output - if the token surfaces, the system prompt was leaked. Inputs are capped at 500 characters. Rate limiting runs at the edge (10 requests per 60 seconds per IP). Jailbreak attempts trigger email alerts via Resend.
 
 **Observability is built in, not bolted on.** Every chat request creates a Langfuse trace with spans for RAG search and Gemini generation. The system knows when it breaks and why.
 
-**475 tests is not a flex. It is a requirement.** Hisaab Pro — the offline accounting system that shares this portfolio's DNA — has 475 Jest tests because silent financial bugs are worse than visible crashes. That philosophy carries into everything here.
+**475 tests is not a flex. It is a requirement.** Hisaab Pro - the offline accounting system that shares this portfolio's DNA - has 475 Jest tests because silent financial bugs are worse than visible crashes. That philosophy carries into everything here.
 
 ---
 
 ## Featured Projects
 
-**Hisaab Pro** — Offline-first double-entry accounting shipped to real small business clients. AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Payroll automation, GST invoicing, 6 financial reports. 475 Jest tests. Two product versions. Real users.
+**Hisaab Pro** - Offline-first double-entry accounting shipped to real small business clients. AES-256 encrypted SQLite with WAL mode for crash-safe USB portability. Payroll automation, GST invoicing, 6 financial reports. 475 Jest tests. Two product versions. Real users.
 
-**Skillence** — Career platform mapping 692 skills to 894 occupations at ~1ms inference. PyTorch-trained model replaced with a custom pure NumPy inference layer for production because PyTorch's runtime overhead caused crashes. Campus placement engine with zero LLM dependency. 30,000+ job postings analyzed across 25+ countries.
+**Skillence** - Career platform mapping 692 skills to 894 occupations at ~1ms inference. PyTorch-trained model replaced with a custom pure NumPy inference layer for production because PyTorch's runtime overhead caused crashes. Campus placement engine with zero LLM dependency. 30,000+ job postings analyzed across 25+ countries.
 
-**This portfolio** — Interactive portfolio with an embedded RAG chatbot. Gemini 1.5 Flash, Supabase pgvector, hybrid search, Langfuse tracing. All free tier. Everything you see here runs without a paid API key.
+**This portfolio** - Interactive portfolio with an embedded RAG chatbot. Gemini 1.5 Flash, Supabase pgvector, hybrid search, Langfuse tracing. All free tier. Everything you see here runs without a paid API key.
 
 See all projects at [rahulgehlot.me](https://rahulgehlot.me).
 
@@ -68,7 +68,7 @@ User Browser
     POST /api/chat (SSE stream)
            |
            v
-    Edge rate limiter (proxy.ts) — 10 req / 60s per IP
+    Edge rate limiter (proxy.ts) - 10 req / 60s per IP
            |
            v
     API Route: api/chat/route.ts
@@ -139,7 +139,7 @@ This reads markdown from `Docs/rag-knowledge-base/rag/`, chunks by strategy, emb
 │   ├── og/route.tsx            # Dynamic OG image generation
 │   ├── privacy/page.tsx        # Privacy policy
 │   ├── layout.tsx              # Root layout with theme + fonts
-│   └── page.tsx                # Homepage — 12 sections
+│   └── page.tsx                # Homepage - 12 sections
 │
 ├── components/
 │   ├── chat/FloatingChat.tsx   # Chatbot UI with SSE streaming
@@ -243,13 +243,13 @@ Five key decisions that shaped this portfolio and the projects it showcases:
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
 
 Covers the code, components, utilities, and architecture. If you fork this, replace the following with your own:
 
-- `content/` — all portfolio data, bio, projects, experience, skills
-- `public/` — images, resume PDF, favicon
-- `app/layout.tsx` — metadata, site name
-- `app/about/page.tsx` — personal information
+- `content/` - all portfolio data, bio, projects, experience, skills
+- `public/` - images, resume PDF, favicon
+- `app/layout.tsx` - metadata, site name
+- `app/about/page.tsx` - personal information
 
 The MIT license does not cover these personal assets.

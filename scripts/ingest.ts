@@ -5,7 +5,7 @@
  * chunks them according to each file's strategy, embeds with Gemini, and upserts
  * into Supabase pgvector.
  *
- * Idempotent — safe to re-run after content changes.
+ * Idempotent - safe to re-run after content changes.
  *
  * Usage:
  *   npm run ingest
@@ -129,7 +129,7 @@ function chunkBySection(content: string, source: string): Chunk[] {
 }
 
 function chunkQAPairs(content: string, source: string): Chunk[] {
-  // Split by "**Q:" or "**Are you" etc — Q&A pairs in the FAQ
+  // Split by "**Q:" or "**Are you" etc - Q&A pairs in the FAQ
   const pairs = content.split(/\n(?=\*\*)/).filter((p) => p.trim());
   return pairs.map((pair, i) => {
     const firstLine = pair.split("\n")[0].replace(/\*\*/g, "").trim();
@@ -222,7 +222,7 @@ async function upsertChunks(
 
   for (const chunk of chunks) {
     if (chunk.embedding.length === 0) {
-      console.warn(`  ⚠ Skipping "${chunk.title}" — no embedding`);
+      console.warn(`  ⚠ Skipping "${chunk.title}" - no embedding`);
       skip++;
       continue;
     }
@@ -245,7 +245,7 @@ async function upsertChunks(
     }
   }
 
-  console.log(`\n✅ Done — ${success} upserted, ${skip} skipped`);
+  console.log(`\n✅ Done - ${success} upserted, ${skip} skipped`);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────

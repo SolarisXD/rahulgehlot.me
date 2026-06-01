@@ -69,7 +69,7 @@ export async function searchKnowledgeBase(
   // 1. Embed the query
   const embedding = await embedText(query);
 
-  // 2. Vector search — cosine similarity
+  // 2. Vector search - cosine similarity
   const { data: vectorResults, error: vectorError } = await (supabase.rpc as any)(
     "match_content_chunks",
     {

@@ -7,12 +7,12 @@ export type NowItem = {
 export const now: NowItem[] = [
   {
     label: "Building",
-    value: "Hisaab Pro — desktop accounting for small businesses",
+    value: "PulseSense - offline-first health companion with rule-based triage engine",
     link: "#projects",
   },
   {
     label: "Learning",
-    value: "LLM evaluation frameworks — Langfuse, RAGAS",
+    value: "LLM evaluation frameworks - Langfuse, RAGAS",
   },
   {
     label: "Preparing",

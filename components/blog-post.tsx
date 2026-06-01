@@ -64,11 +64,11 @@ const components: Components = {
     </blockquote>
   ),
   code: ({ className, children, ...props }) => {
-    const isInline = !className;
     const code = String(children).replace(/\n$/, "");
     const language = className?.replace("language-", "") ?? "";
+    const hasNewlines = code.includes("\n");
 
-    if (isInline) {
+    if (!className && !hasNewlines) {
       return (
         <code
           className="bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 px-1.5 py-0.5 rounded text-sm font-mono"
@@ -125,7 +125,7 @@ const components: Components = {
         text = children.map(child => typeof child === "string" || typeof child === "number" ? child : "").join("");
       }
     }
-    const isBlockLabel = /^(CODE SNIPPET|SCREENSHOT)\s*\d+\s*(—|⁻)/.test(text.trim());
+    const isBlockLabel = /^(CODE SNIPPET|SCREENSHOT)\s*\d+\s*(-|⁻)/.test(text.trim());
     return (
       <em
         className={`italic text-foreground/80 ${isBlockLabel ? "block text-center w-full my-2" : ""}`}

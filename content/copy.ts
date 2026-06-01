@@ -12,9 +12,9 @@ export const copy = {
   },
 
   about: [
-    `B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems — sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.`,
+    `B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems - sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.`,
 
-    `I write a lot of tests. Hisaab Pro has 475 Jest tests — not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.`,
+    `I write a lot of tests. Hisaab Pro has 475 Jest tests - not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.`,
   ],
 
   process: [

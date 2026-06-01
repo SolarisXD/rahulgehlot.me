@@ -18,27 +18,27 @@ Most bugs make noise. The app crashes. The button doesn't work. The text is misa
 
 Financial bugs don't make noise. They whisper.
 
-A sale disappears from the UI. The customer balance still shows ₹500. The shop owner shrugs — "probably a display glitch." Months later, the books don't reconcile. The auditor asks questions. Trust erodes.
+A sale disappears from the UI. The customer balance still shows ₹500. The shop owner shrugs - "probably a display glitch." Months later, the books don't reconcile. The auditor asks questions. Trust erodes.
 
-This is the nightmare that keeps me up at night. And it's why **Hisaab Pro** — a desktop accounting app for small Indian businesses — has 475 tests.
+This is the nightmare that keeps me up at night. And it's why **Hisaab Pro** - a desktop accounting app for small Indian businesses - has 475 tests.
 
 ---
 
 ![Hisaab Pro Dashboard](/Blogs/blog-why-475-tests/Hisaab_Pro_Dashboard.png)
-*SCREENSHOT 1 — Hisaab Pro Dashboard*
+*SCREENSHOT 1 - Hisaab Pro Dashboard*
 
 ---
 
-## The App — Three Lines
+## The App - Three Lines
 
 | Layer | Technology |
 |-------|-----------|
 | **Runtime** | Node.js + Express |
 | **Database** | SQLite (AES-256 encrypted, one file per financial year) |
-| **Frontend** | Vanilla JavaScript — no frameworks |
+| **Frontend** | Vanilla JavaScript - no frameworks |
 | **Deployment** | USB stick. Double-click `start.bat`. No installation, no cloud, no internet. |
 
-Ramesh runs a hardware store in Jaipur. He's 54. He doesn't know what a database is. His nephew set this up on a USB drive — he plugs it in, clicks a button, and expects the ₹50,000 in his cash account to be exactly what his customers have actually paid him.
+Ramesh runs a hardware store in Jaipur. He's 54. He doesn't know what a database is. His nephew set this up on a USB drive - he plugs it in, clicks a button, and expects the ₹50,000 in his cash account to be exactly what his customers have actually paid him.
 
 He shouldn't need to know that SQLite transactions exist. He shouldn't need to audit his own books. He should be able to delete a mistaken sale and trust the balance updates correctly.
 
@@ -54,7 +54,7 @@ If the power goes out, the database needs to survive. If someone yanks the USB m
 
 Here's what used to happen:
 
-A shop owner creates a sale for a customer — ₹5,000 on credit. The system records it: debit the customer account, credit the sales account. Double-entry. Balanced. Correct.
+A shop owner creates a sale for a customer - ₹5,000 on credit. The system records it: debit the customer account, credit the sales account. Double-entry. Balanced. Correct.
 
 A week later, the customer returns the goods. The shop owner deletes the sale. The sale disappears from the UI.
 
@@ -71,9 +71,9 @@ function deleteSale(id, isDecoy) {
     return true;
 }
 ```
-*CODE SNIPPET 1 — The buggy delete (before fix)*
+*CODE SNIPPET 1 - The buggy delete (before fix)*
 
-One line. The sale was "deleted" — but the customer's account balance was never rolled back. The associated ledger entries were still active. The cash account was still inflated.
+One line. The sale was "deleted" - but the customer's account balance was never rolled back. The associated ledger entries were still active. The cash account was still inflated.
 
 The sale looked gone. The money trail was still there. Phantom data.
 
@@ -124,11 +124,11 @@ function deleteSale(id, isDecoy) {
     return true;
 }
 ```
-*CODE SNIPPET 2 — The full delete with rollback (after fix)*
+*CODE SNIPPET 2 - The full delete with rollback (after fix)*
 
-*In the old buggy code, querying the account balance after deleting a sale would still show the old amount — the sale was gone from the UI but the money trail persisted in the database. In the current fixed code, the balance correctly rolls back and the ledger shows no trace of the deleted sale.*
+*In the old buggy code, querying the account balance after deleting a sale would still show the old amount - the sale was gone from the UI but the money trail persisted in the database. In the current fixed code, the balance correctly rolls back and the ledger shows no trace of the deleted sale.*
 
-This bug lived undetected for weeks. It was invisible — the UI showed nothing wrong. A schema migration had to be written to retroactively fix corrupted data:
+This bug lived undetected for weeks. It was invisible - the UI showed nothing wrong. A schema migration had to be written to retroactively fix corrupted data:
 
 ```sql
 UPDATE transactions SET is_deleted = 1
@@ -145,7 +145,7 @@ After the ghost balance incident, I got paranoid. I wrote this test:
 
 ```javascript
 // File: tests/double-entry.test.js (lines 830–887)
-// Arrange — create a valid sale first to establish baseline
+// Arrange - create a valid sale first to establish baseline
 const saleResponse = await request(app)
     .post('/api/v1/sales')
     .set('Cookie', cookies)
@@ -160,7 +160,7 @@ const countBefore = db.prepare(
 ).get().count;
 db.close();
 
-// Act — try to create a sale with a NEGATIVE amount
+// Act - try to create a sale with a NEGATIVE amount
 // The API should reject this, but will it leave ghost entries?
 const invalidSaleData = {
     customer_account_id: testCustomerId,
@@ -176,7 +176,7 @@ const failResponse = await request(app)
 
 expect(failResponse.status).toBe(400);
 
-// Assert — verify the transaction count is EXACTLY the same
+// Assert - verify the transaction count is EXACTLY the same
 // If even ONE extra row exists, the books are now corrupted
 const db2 = new Database(TEST_DB_PATH);
 db2.pragma(`key = '${TEST_DB_KEY}'`);
@@ -188,7 +188,7 @@ db2.close();
 // THIS is the assertion that matters
 expect(countAfter).toBe(countBefore);
 ```
-*CODE SNIPPET 3 — The partial commit test (centerpiece)*
+*CODE SNIPPET 3 - The partial commit test (centerpiece)*
 
 Notice what this test does differently. It doesn't just check the HTTP response (status 400). It opens a **separate database connection** and queries the raw transaction count.
 
@@ -196,7 +196,7 @@ Why? Because the API could return an error while still having committed partial 
 
 The test caught it on the first run: `countAfter` was `countBefore + 1`. The `sales` table insert was rolled back, but the `transactions` insert had already executed. The books were silently off by one orphaned row.
 
-*The test runner would show `expected 5, received 6` in red on `expect(countAfter).toBe(countBefore)` — the moment of discovery. Six words revealing a corrupted database that the API considered "successful."*
+*The test runner would show `expected 5, received 6` in red on `expect(countAfter).toBe(countBefore)` - the moment of discovery. Six words revealing a corrupted database that the API considered "successful."*
 
 Six words are the difference between "everything is fine" and "your books are wrong":
 
@@ -214,7 +214,7 @@ A power outage mid-sale. The user yanks the USB. `taskkill /F` on the wrong proc
 
 Without WAL (Write-Ahead Logging) mode + explicit transactions, the first database write persists but the second doesn't. Partial data. Corrupted books.
 
-You can't manually reproduce this — you'd need to SIGKILL at the exact nanosecond between two INSERTs. The test does it deterministically:
+You can't manually reproduce this - you'd need to SIGKILL at the exact nanosecond between two INSERTs. The test does it deterministically:
 
 ```javascript
 // File: tests/crash-simulation.test.js (lines 228–258)
@@ -240,19 +240,19 @@ test('partial writes should not persist after crash', () => {
     expect(writeCount).toBe(2);
 });
 ```
-*CODE SNIPPET 4 — Crash simulation test*
+*CODE SNIPPET 4 - Crash simulation test*
 
 Every connection now enforces `PRAGMA journal_mode = WAL`. Every multi-step operation wraps in `db.transaction()`. If the process dies mid-write, the database is unmodified.
 
 This is the kind of bug that only exists in theory until it happens to a real user at 2 AM during a thunderstorm. You can't test it by clicking around. You can only test it by writing code that simulates the impossible.
 
-### A Dozen More — Other Things Tests Caught
+### A Dozen More - Other Things Tests Caught
 
 | Bug | What was wrong |
 |-----|----------------|
-| **Invoice number reuse** | Deleting INV-05 freed its number; the next sale reused it. Audit trail had gaps — a tax auditor's red flag. Fix: rename deleted invoices to `INV-05-DEL-{timestamp}` |
+| **Invoice number reuse** | Deleting INV-05 freed its number; the next sale reused it. Audit trail had gaps - a tax auditor's red flag. Fix: rename deleted invoices to `INV-05-DEL-{timestamp}` |
 | **Silent 500s** | Half the API endpoints returned empty `{}` on error. Users saw blank screens. Some endpoints even leaked SQL syntax and column names in error messages. |
-| **Hardcoded encryption key** | If `config.json` was missing the `database_key`, the app silently used `'hisaab-pro-default-key-2026'` — a string in public source code. Anyone could decrypt any database. |
+| **Hardcoded encryption key** | If `config.json` was missing the `database_key`, the app silently used `'hisaab-pro-default-key-2026'` - a string in public source code. Anyone could decrypt any database. |
 | **Duplicate payroll** | Calling `generatePayroll()` twice for the same staff+month created two salary payments. Cash debited twice. No error. |
 | **Account balance drift** | Updating a sale amount only changed the `sales` table. The customer's `current_balance` wasn't re-synced. Balances drifted over time. |
 
@@ -264,7 +264,7 @@ Every single one of these was invisible in the UI. Every single one would have c
 
 *Purpose: The payoff. Scannable proof of the headline number.*
 ![Terminal 475 Tests Passed](/Blogs/blog-why-475-tests/Test_Status.png)
-*SCREENSHOT 2 — Terminal: "Tests: 2 skipped, 473 passed, 475 total" in green*
+*SCREENSHOT 2 - Terminal: "Tests: 2 skipped, 473 passed, 475 total" in green*
 
 I test in layers, not categories:
 
@@ -273,7 +273,7 @@ I test in layers, not categories:
 | **Accounting integrity** | ~130 | Double-entry (debit = credit), ledger balance, trial balance = 0 |
 | **Data safety** | ~110 | WAL mode, atomic rollback, crash recovery, backup/restore |
 | **Business constraints** | ~55 | No duplicate payroll, FK enforcement, no negative amounts |
-| **Input validation** | ~55 | Zod schemas — bad dates, negative values, XSS attempts |
+| **Input validation** | ~55 | Zod schemas - bad dates, negative values, XSS attempts |
 | **USB reliability** | ~85 | Cross-PC compatibility, drive letter changes, unsafe removal |
 | **Error handling** | ~45 | No silent failures, no empty errors, sanitized messages |
 
@@ -282,7 +282,7 @@ Every test file begins with the same block:
 ```javascript
 // File: tests/double-entry.test.js (lines 1–22)
 /**
- * Double-Entry Enforcement Tests — Hisaab Pro
+ * Double-Entry Enforcement Tests - Hisaab Pro
  *
  * Acceptance Criteria:
  * 1. Every transaction MUST create balanced journal entries (debit = credit)
@@ -293,32 +293,32 @@ Every test file begins with the same block:
  * Following AAA Pattern: Arrange → Act → Assert
  */
 ```
-*CODE SNIPPET 5 — Acceptance criteria header from test files*
+*CODE SNIPPET 5 - Acceptance criteria header from test files*
 
 This header forces me to articulate *why* the test exists before I write a single line of code. It's not about coverage percentages. It's about guarantees.
 
 ![VS Code Test Explorer](/Blogs/blog-why-475-tests/test_explorer.png)
-*SCREENSHOT 3 — VS Code test explorer showing all 20 test files with their describe blocks*
+*SCREENSHOT 3 - VS Code test explorer showing all 20 test files with their describe blocks*
 
 ---
 
 ## What Surprised Me
 
-### 1. The test taught me how the system worked — not the other way around
+### 1. The test taught me how the system worked - not the other way around
 
-I assumed I'd write the code first, then write tests to verify it. Instead, I'd write a test for a scenario I *thought* was handled, watch it fail, and discover behavior I didn't know existed. The partial commit bug was uncovered this way — I wrote the test expecting the API to reject negative amounts cleanly. The test showed me the API *did* reject it, but the database was already corrupted. The test knew the system better than I did.
+I assumed I'd write the code first, then write tests to verify it. Instead, I'd write a test for a scenario I *thought* was handled, watch it fail, and discover behavior I didn't know existed. The partial commit bug was uncovered this way - I wrote the test expecting the API to reject negative amounts cleanly. The test showed me the API *did* reject it, but the database was already corrupted. The test knew the system better than I did.
 
-Now I write the test first whenever I touch financial logic. Not for TDD purity — because the test reveals assumptions I didn't know I was making.
+Now I write the test first whenever I touch financial logic. Not for TDD purity - because the test reveals assumptions I didn't know I was making.
 
 ### 2. The most dangerous code is the simplest code
 
-The one-line `UPDATE sales SET is_deleted = 1` that caused the ghost balance bug? It looked correct. It *was* correct — at doing the one thing it said. The problem was everything it *didn't* say. It didn't mention customer balances. It didn't mention linked transactions. It didn't mention payments. The code was simple because it was incomplete.
+The one-line `UPDATE sales SET is_deleted = 1` that caused the ghost balance bug? It looked correct. It *was* correct - at doing the one thing it said. The problem was everything it *didn't* say. It didn't mention customer balances. It didn't mention linked transactions. It didn't mention payments. The code was simple because it was incomplete.
 
 I've started reading simple functions with suspicion now. Simple often means "doesn't account for the other five things that need to happen."
 
 ### 3. You can't audit your way to confidence
 
-Before the test suite, I audited. I'd manually check a few records after a change. "Looks good." But manual audit is sampling — you check five records and assume the other thousand are fine. The ghost balance bug affected *every* deleted sale going back weeks. A manual audit might have caught it on the third check, or the thirtieth, or never.
+Before the test suite, I audited. I'd manually check a few records after a change. "Looks good." But manual audit is sampling - you check five records and assume the other thousand are fine. The ghost balance bug affected *every* deleted sale going back weeks. A manual audit might have caught it on the third check, or the thirtieth, or never.
 
 The test doesn't sample. The test checks every transaction, every time, in 0.3 seconds.
 

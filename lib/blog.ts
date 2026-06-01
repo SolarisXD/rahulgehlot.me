@@ -24,7 +24,7 @@ function parseFrontmatter(
 
   // Check if file starts with ---
   if (lines[0]?.trim() !== "---") {
-    // No frontmatter — fall back to heading-based extraction
+    // No frontmatter - fall back to heading-based extraction
     const title = extractTitle(content);
     const description = extractDescription(content);
     return { title, description, date: "", body: content };
@@ -39,7 +39,7 @@ function parseFrontmatter(
   }
 
   if (endIndex === -1) {
-    // Unclosed frontmatter — treat entire file as body
+    // Unclosed frontmatter - treat entire file as body
     return { title: "", description: "", date: "", body: content };
   }
 
@@ -124,7 +124,7 @@ export function getAllPosts(): Omit<BlogPost, "content">[] {
       return { slug, title, description, date, readTime, medium, devto };
     })
     .sort((a, b) => {
-      // Sort by date descending — files without dates go last
+      // Sort by date descending - files without dates go last
       if (a.date && b.date) return b.date.localeCompare(a.date);
       if (a.date) return -1;
       if (b.date) return 1;

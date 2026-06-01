@@ -1,4 +1,4 @@
-# Backend Schema — Content and RAG Data Model
+# Backend Schema - Content and RAG Data Model
 
 ## 1. Purpose
 

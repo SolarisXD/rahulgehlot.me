@@ -1,6 +1,6 @@
 import { TechBadge } from "@/components/ui/TechBadge";
 import type { Project } from "@/content/projects";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const statusGradients: Record<string, string> = {
@@ -28,13 +28,13 @@ const statusBorder: Record<string, string> = {
   archived: "#a3a3a3",
 };
 
-export function CaseStudyCard({ project }: { project: Project }) {
+export function SemiFeaturedCard({ project }: { project: Project }) {
   return (
     <div
       className={cn(
-        "rounded-lg border p-6 transition-colors hover:border-amber-500/50",
-        "border-border/0 border-b-[rgba(246,186,4,0.3)]",
-        "bg-[linear-gradient(to_right_bottom_in_oklab,_rgba(246,186,4,0.15)_0%,_rgba(0,0,0,0)_100%)]"
+        "rounded-lg border p-6 transition-colors hover:border-sky-400/50",
+        "border-border/0 border-b-[rgba(56,189,248,0.3)]",
+        "bg-[linear-gradient(to_right_bottom_in_oklab,_rgba(56,189,248,0.12)_0%,_rgba(0,0,0,0)_100%)]"
       )}
     >
       <div className="flex items-start justify-between gap-4 mb-1">
@@ -51,13 +51,17 @@ export function CaseStudyCard({ project }: { project: Project }) {
         </span>
       </div>
       {project.period && (
-        <p className="text-xs font-mono text-amber-600 dark:text-amber-300 mb-4">{project.period}</p>
+        <p className="text-xs font-mono text-sky-600 dark:text-sky-300 mb-3">{project.period}</p>
       )}
 
-      {project.caseStudy && (
+      <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+        {project.description}
+      </p>
+
+      {project.showCaseStudy && project.caseStudy ? (
         <div className="space-y-4 mb-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#A8A3E3] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-sky-500 mb-1">
               Why it exists
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
@@ -65,7 +69,7 @@ export function CaseStudyCard({ project }: { project: Project }) {
             </p>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#A8A3E3] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-sky-500 mb-1">
               The key decision
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
@@ -74,7 +78,7 @@ export function CaseStudyCard({ project }: { project: Project }) {
           </div>
           {project.caseStudy.outcome && (
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#A8A3E3] mb-1">
+              <p className="text-xs font-semibold uppercase tracking-wider text-sky-500 mb-1">
                 Outcome
               </p>
               <p className="text-sm text-foreground/80 leading-relaxed">
@@ -82,6 +86,14 @@ export function CaseStudyCard({ project }: { project: Project }) {
               </p>
             </div>
           )}
+        </div>
+      ) : project.caseStudy?.decision && (
+        <div className="flex gap-3 px-3 py-2.5 rounded-md bg-sky-500/5 border border-sky-500/10 mb-4">
+          <Sparkles size={14} className="mt-0.5 shrink-0 text-sky-500" />
+          <p className="text-xs leading-relaxed text-foreground/70">
+            <span className="font-semibold text-sky-600 dark:text-sky-400">Key call: </span>
+            {project.caseStudy.decision}
+          </p>
         </div>
       )}
 

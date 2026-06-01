@@ -111,7 +111,7 @@ function renderInline(text: string): React.ReactNode {
     } else if (match[7]) {
       tokens.push({ type: "link", value: match[8]!, href: match[9]! });
     } else if (match[10]) {
-      // Bare URL — trim trailing punctuation
+      // Bare URL - trim trailing punctuation
       let url = match[10]!;
       url = url.replace(/[.,;:!?)]+$/, "");
       tokens.push({ type: "link", value: url, href: url });
@@ -152,10 +152,10 @@ function renderInline(text: string): React.ReactNode {
             onClick={
               isAnchor
                 ? (e) => {
-                    e.preventDefault();
-                    const el = document.querySelector(t.href!);
-                    el?.scrollIntoView({ behavior: "smooth" });
-                  }
+                  e.preventDefault();
+                  const el = document.querySelector(t.href!);
+                  el?.scrollIntoView({ behavior: "smooth" });
+                }
                 : undefined
             }
             className="underline decoration-1 underline-offset-2 text-[#3b82f6] dark:text-[#60a5fa] hover:text-[#2563eb] dark:hover:text-[#93c5fd] transition-colors cursor-pointer font-medium"
@@ -453,7 +453,7 @@ export default function FloatingChat() {
 
                 {/* ─── Content area ─────────────────────────── */}
                 {messages.length === 0 ? (
-                  /* Initial state — welcome + guide chips */
+                  /* Initial state - welcome + guide chips */
                   <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
                     <div className="w-12 h-12 rounded-full bg-[#3b82f6]/10 dark:bg-[#b0d4e8]/10 flex items-center justify-center mb-4 ring-1 ring-[#3b82f6]/20 dark:ring-[#b0d4e8]/20">
                       <MessageCircle size={22} className="text-[#3b82f6] dark:text-[#b0d4e8]" />
@@ -478,7 +478,7 @@ export default function FloatingChat() {
                     </div>
                   </div>
                 ) : (
-                  /* Chat state — message list */
+                  /* Chat state - message list */
                   <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 chat-scrollbar">
                     {messages.map((msg) => (
                       <motion.div

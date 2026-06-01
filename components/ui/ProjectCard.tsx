@@ -8,6 +8,8 @@ const statusGradients: Record<string, string> = {
     "transparent padding-box, linear-gradient(to right, #4ade80, #059669) border-box",
   "in-development":
     "transparent padding-box, linear-gradient(to right, #fbbf24, #ea580c) border-box",
+  halt:
+    "transparent padding-box, linear-gradient(to right, #94a3b8, #64748b) border-box",
   archived:
     "transparent padding-box, linear-gradient(to right, #a3a3a3, #525252) border-box",
 };
@@ -15,12 +17,14 @@ const statusGradients: Record<string, string> = {
 const statusText: Record<string, string> = {
   live: "text-green-400",
   "in-development": "text-amber-400",
+  halt: "text-slate-400",
   archived: "text-neutral-400",
 };
 
 const statusBorder: Record<string, string> = {
   live: "#4ade80",
   "in-development": "#fbbf24",
+  halt: "#94a3b8",
   archived: "#a3a3a3",
 };
 

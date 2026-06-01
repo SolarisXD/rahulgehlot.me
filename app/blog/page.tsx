@@ -8,13 +8,13 @@ import { getAllPosts } from "@/lib/blog";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Blog — Rahul Gehlot",
+  title: "Blog - Rahul Gehlot",
   description: "Articles about building with AI, full-stack decisions, testing, and more.",
   alternates: {
     canonical: "https://rahulgehlot.me/blog",
   },
   openGraph: {
-    title: "Blog — Rahul Gehlot",
+    title: "Blog - Rahul Gehlot",
     description: "Articles about building with AI, full-stack decisions, and more.",
     images: [{ url: "/og?subtitle=Blog", width: 1200, height: 630 }],
   },

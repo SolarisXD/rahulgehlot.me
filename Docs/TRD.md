@@ -1,4 +1,4 @@
-# TRD — Technical Requirements Document
+# TRD - Technical Requirements Document
 
 ## 1. Overview
 

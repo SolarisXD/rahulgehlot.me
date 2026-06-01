@@ -5,12 +5,12 @@ import { ThemeToggle } from "@/components/ui/curtain-theme-toggle";
 import { ResumeDropdown } from "@/components/ui/resume-dropdown";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Rahul Gehlot",
+  title: "Privacy Policy - Rahul Gehlot",
   alternates: {
     canonical: "https://rahulgehlot.me/privacy",
   },
   openGraph: {
-    title: "Privacy Policy — Rahul Gehlot",
+    title: "Privacy Policy - Rahul Gehlot",
     description: "Privacy policy for Rahul Gehlot's personal portfolio.",
     images: [{ url: "/og?subtitle=Privacy+Policy", width: 1200, height: 630 }],
   },
@@ -69,10 +69,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">Third-Party Services</h2>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Supabase</strong> — visitor count storage and RAG knowledge base embeddings.</li>
-              <li><strong>Resend</strong> — delivers contact form submissions via email.</li>
-              <li><strong>Google AI (Gemini)</strong> — powers the portfolio chat assistant.</li>
-              <li><strong>Langfuse</strong> — optional observability for chat interactions (no personal data collected).</li>
+              <li><strong>Supabase</strong> - visitor count storage and RAG knowledge base embeddings.</li>
+              <li><strong>Resend</strong> - delivers contact form submissions via email.</li>
+              <li><strong>Google AI (Gemini)</strong> - powers the portfolio chat assistant.</li>
+              <li><strong>Langfuse</strong> - optional observability for chat interactions (no personal data collected).</li>
             </ul>
           </section>
 

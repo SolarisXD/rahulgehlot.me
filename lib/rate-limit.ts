@@ -4,7 +4,7 @@
  * After a successful submission, the same IP must wait
  * COOLDOWN_MS before sending another message.
  *
- * NOTE: In-memory only — resets on server restart / cold start.
+ * NOTE: In-memory only - resets on server restart / cold start.
  * For a portfolio this is adequate. If you need persistence
  * across deploys, swap in a DB (e.g. Supabase).
  */
@@ -35,7 +35,7 @@ export function checkCooldown(key: string): {
   const elapsed = Date.now() - entry.lastSubmission;
 
   if (elapsed >= COOLDOWN_MS) {
-    // Cooldown expired — clean up and allow
+    // Cooldown expired - clean up and allow
     store.delete(key);
     return { allowed: true, retryAfter: null };
   }

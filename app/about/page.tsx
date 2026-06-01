@@ -9,14 +9,14 @@ import { certifications } from "@/content/education";
 import { skillsContent } from "@/content/skills";
 
 export const metadata: Metadata = {
-  title: "About Rahul Gehlot — Full-stack & AI Developer",
+  title: "About Rahul Gehlot - Full-stack & AI Developer",
   alternates: {
     canonical: "https://rahulgehlot.me/about",
   },
   openGraph: {
-    title: "About Rahul Gehlot — Full-stack & AI Developer",
+    title: "About Rahul Gehlot - Full-stack & AI Developer",
     description:
-      "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems — Hisaab Pro, Skillence, and more.",
+      "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems - Hisaab Pro, Skillence, and more.",
     images: [{ url: "/og?subtitle=About+Rahul+Gehlot", width: 1200, height: 630 }],
   },
   twitter: {
@@ -211,7 +211,7 @@ export default function AboutPage() {
             {[
               { q: "Are you available for freelance or full-time work?", a: "Yes. Open to internships, freelance projects, and full-time roles after graduating July 2026. I build full-stack web apps and ML systems." },
               { q: "What's your preferred stack?", a: "Backend: Node.js, Express, FastAPI, SQLite, MongoDB. Frontend: React, Next.js, Tailwind CSS. ML: PyTorch (training), custom NumPy inference (production), Gemini API for AI features." },
-              { q: "Do you write tests?", a: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes — especially for financial data." },
+              { q: "Do you write tests?", a: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes - especially for financial data." },
             ].map((faq, i) => (
               <details key={i} className="group p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex items-center justify-between font-semibold cursor-pointer text-foreground">
@@ -294,7 +294,7 @@ export default function AboutPage() {
               name: "Do you write tests?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes — especially for financial data.",
+                text: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes - especially for financial data.",
               },
             },
           ],

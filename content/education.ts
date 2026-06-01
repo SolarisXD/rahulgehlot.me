@@ -78,7 +78,7 @@ export const certifications: Certification[] = [
     link: 'https://courses.ibmcep.cognitiveclass.ai/certificates/604dc8a488ff46ad83b5ae72dbf0b5bb',
   },
   {
-    name: 'Adobe UI & UX — Graphic Design',
+    name: 'Adobe UI & UX - Graphic Design',
     issuer: 'Ethnus via Codemithra',
     year: '2024',
     link: 'https://drive.google.com/file/d/1wdYV4wxlgb92Duawd3zZ2H7sh54xPZqT/view',

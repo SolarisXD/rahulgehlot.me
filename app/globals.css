@@ -16,7 +16,7 @@
   --theme-dot: #ced0d2;
 }
 
-/* Dark theme — applied when next-themes adds class="dark" to <html> */
+/* Dark theme - applied when next-themes adds class="dark" to <html> */
 :root.dark {
   --theme-bg: #1b1b1e;
   --theme-fg: #ededed;
@@ -27,7 +27,7 @@
   --theme-dot: #28292c;
 }
 
-/* ── Tailwind theme — registers runtime vars as Tailwind utilities ── */
+/* ── Tailwind theme - registers runtime vars as Tailwind utilities ── */
 @theme inline {
   --color-background: var(--theme-bg);
   --color-foreground: var(--theme-fg);

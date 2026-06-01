@@ -14,10 +14,10 @@ Rahul responds same day to emails about work opportunities, collaboration, and p
 ## Availability
 
 Rahul is currently open to:
-- **Internships** — actively looking through to July 2026 graduation. Open to remote internships.
-- **Freelance projects** — available now. Has experience delivering full-stack web projects end-to-end.
-- **Full-time roles** — open after July 2026 graduation.
-- **Collaboration** — open to working with other students or developers on interesting projects.
+- **Internships** - actively looking through to July 2026 graduation. Open to remote internships.
+- **Freelance projects** - available now. Has experience delivering full-stack web projects end-to-end.
+- **Full-time roles** - open after July 2026 graduation.
+- **Collaboration** - open to working with other students or developers on interesting projects.
 
 He is not currently employed full-time.
 
@@ -48,22 +48,22 @@ JavaScript and Python as primary languages. Frontend: React, Next.js, TailwindCS
 Yes. Trained a PyTorch skill-to-occupation recommendation model for Skillence. Built a custom NumPy inference layer for production serving. Built an algorithmic placement engine with zero LLM dependency. Built a CNN + Transformer image captioning model. Currently learning RAG pipeline architecture, LLM evaluation (Langfuse, RAGAS), and production LLMOps. The chatbot on this portfolio is a live example of that.
 
 **Why did you write a custom NumPy inference layer for Skillence instead of serving PyTorch directly?**
-PyTorch runtime overhead was causing backend crashes under load. The trained model's forward pass is just matrix multiplications and activations — NumPy can do this without any of PyTorch's runtime overhead, faster and with near-zero crashes. The tradeoff was extra implementation work upfront. Worth it.
+PyTorch runtime overhead was causing backend crashes under load. The trained model's forward pass is just matrix multiplications and activations - NumPy can do this without any of PyTorch's runtime overhead, faster and with near-zero crashes. The tradeoff was extra implementation work upfront. Worth it.
 
 **Why does Hisaab Pro have 475 tests?**
-Because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice might not be noticed until the client reviews their books. Every payroll path, ledger transaction, and duplicate-processing case is covered. Not a requirement — a decision. Read the full story behind this decision in the blog post: [Why I Wrote 475 Tests for a Desktop Accounting App](https://rahulgehlot.me/blog/blog-why-475-tests).
+Because silent wrong accounting is worse than a visible crash. A crash gets reported. A ledger that silently processes a payroll transaction twice might not be noticed until the client reviews their books. Every payroll path, ledger transaction, and duplicate-processing case is covered. Not a requirement - a decision. Read the full story behind this decision in the blog post: [Why I Wrote 475 Tests for a Desktop Accounting App](https://rahulgehlot.me/blog/blog-why-475-tests).
 
 **What are you currently working on?**
-Building this portfolio with a RAG chatbot (Gemini Flash, Supabase pgvector, Langfuse tracing). Also reflecting on Skillence's architecture — what worked and what he'd do differently. Learning LLM evaluation frameworks.
+Building this portfolio with a RAG chatbot (Gemini Flash, Supabase pgvector, Langfuse tracing). Also reflecting on Skillence's architecture - what worked and what he'd do differently. Learning LLM evaluation frameworks.
 
 **What kind of projects do you enjoy most?**
-Projects where AI and full-stack engineering overlap. Building systems that need to be both correct and deployed — not just technically interesting, but actually reliable in real use. Hisaab Pro and Skillence are examples: both had real correctness requirements (financial data, ML serving reliability) not just feature lists.
+Projects where AI and full-stack engineering overlap. Building systems that need to be both correct and deployed - not just technically interesting, but actually reliable in real use. Hisaab Pro and Skillence are examples: both had real correctness requirements (financial data, ML serving reliability) not just feature lists.
 
 **What is your CGPA?**
 8.67 out of 10.0 at VIT Bhopal.
 
 **Do you have a GitHub?**
-Yes. github.com/SolarisXD — 16 public repositories including Hisaab-Pro, Skillence, and SwapHub.
+Yes. github.com/SolarisXD - 16 public repositories including Hisaab-Pro, Skillence, and SwapHub.
 
 **What certifications do you have?**
 IBM Blockchain Developer Certification, Adobe UI & UX (Graphic Design) from Ethnus via Codemithra, and HTML/CSS/JavaScript for Web Developers from Johns Hopkins University via Coursera.

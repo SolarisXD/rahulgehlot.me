@@ -1,4 +1,4 @@
-# Implementation Plan — Portfolio + Chatbot
+# Implementation Plan - Portfolio + Chatbot
 
 ## 1. Goal
 

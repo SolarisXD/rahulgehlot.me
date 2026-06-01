@@ -6,11 +6,11 @@
 ## File Location
 `public/og-image.png`
 
-Already referenced in `app/layout.tsx` — no code changes needed.
+Already referenced in `app/layout.tsx` - no code changes needed.
 
 ---
 
-## Design: Option A — Name + Photo
+## Design: Option A - Name + Photo
 
 ### Layout
 ```
@@ -28,7 +28,7 @@ Already referenced in `app/layout.tsx` — no code changes needed.
   Left (x≈80)                                       Right (x≈920)
 ```
 
-### Left Side — Name
+### Left Side - Name
 - **Font**: Inter (from `next/font/google` in the site)
 - **Text**: `Rahul Gehlot`
 - **Size**: ~56–64px
@@ -36,7 +36,7 @@ Already referenced in `app/layout.tsx` — no code changes needed.
 - **Color**: `#ffffff`
 - **Position**: Vertically centered
 
-### Right Side — Profile Photo
+### Right Side - Profile Photo
 - **Source**: `public/profic_pic.png`
 - **Size**: ~180×180px
 - **Shape**: Circle (border-radius: 50%)
@@ -45,7 +45,7 @@ Already referenced in `app/layout.tsx` — no code changes needed.
 
 ### Background
 - **Color**: `#1b1b1e` (carbon black, matches site dark theme)
-- **Glow**: Faint radial gradient at top-center — cyan `(rgba(6,182,212,0.08))` fading to purple `(rgba(168,85,247,0.05))`
+- **Glow**: Faint radial gradient at top-center - cyan `(rgba(6,182,212,0.08))` fading to purple `(rgba(168,85,247,0.05))`
 - **Dot pattern**: Sparse grid of `#28292c` dots at ~50% opacity (replicates `bg-pattern.tsx`)
 
 ### Fonts Used

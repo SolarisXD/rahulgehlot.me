@@ -2,12 +2,12 @@
  * Langfuse observability client wrapper.
  *
  * Gracefully no-ops when Langfuse env vars are not configured.
- * Safe to call even without a Langfuse account — all calls are optional-chained.
+ * Safe to call even without a Langfuse account - all calls are optional-chained.
  */
 
 import { Langfuse } from "langfuse";
 
-// Lazy singleton — Langfuse client is created once on first use.
+// Lazy singleton - Langfuse client is created once on first use.
 let _client: Langfuse | null = null;
 
 function createClient(): Langfuse | null {
@@ -43,7 +43,7 @@ export async function flushLangfuse(client: Langfuse | null): Promise<void> {
       setTimeout(() => reject(new Error("Langfuse flush timeout")), 2000)
     ),
   ]).catch(() => {
-    // Silently ignore — observability failure shouldn't affect the user
+    // Silently ignore - observability failure shouldn't affect the user
   });
 }
 

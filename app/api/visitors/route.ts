@@ -1,7 +1,7 @@
 import { getCount, incrementCount } from "@/lib/visitors";
 
 /**
- * GET /api/visitors — returns the current visitor count (no increment).
+ * GET /api/visitors - returns the current visitor count (no increment).
  */
 export async function GET() {
   try {
@@ -14,7 +14,7 @@ export async function GET() {
 }
 
 /**
- * POST /api/visitors — increments the count and returns the new value.
+ * POST /api/visitors - increments the count and returns the new value.
  */
 export async function POST() {
   try {

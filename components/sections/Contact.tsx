@@ -59,7 +59,7 @@ export default function Contact() {
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Silent cooldown — no UI change, just blocks submission
+  // Silent cooldown - no UI change, just blocks submission
   const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
 
   // Shown only when user tries to submit during cooldown
@@ -164,7 +164,7 @@ export default function Contact() {
 
       if (!res.ok) {
         if (res.status === 429) {
-          // Server says cooldown — use server's remaining time
+          // Server says cooldown - use server's remaining time
           const retry = data.retryAfter ?? COOLDOWN_S;
           const until = Date.now() + retry * 1000;
           saveCooldown(until);
@@ -177,7 +177,7 @@ export default function Contact() {
         return;
       }
 
-      // ── Success — start silent cooldown ───────────────
+      // ── Success - start silent cooldown ───────────────
       setName("");
       setEmail("");
       setMessage("");
@@ -210,7 +210,7 @@ export default function Contact() {
         {copy.contact.body}
       </p>
 
-      {/* ─── Cooldown warning — only shows when user tries too fast ── */}
+      {/* ─── Cooldown warning - only shows when user tries too fast ── */}
       {cooldownWarning !== null && (
         <div className="mb-4 inline-flex rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-foreground">
           <p className="flex items-center gap-2">

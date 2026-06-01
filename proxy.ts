@@ -1,5 +1,5 @@
 /**
- * Edge middleware — rate limiting for /api/chat.
+ * Edge middleware - rate limiting for /api/chat.
  *
  * Uses a simple in-memory sliding-window counter.
  * On Vercel Hobby (single-region default) this is sufficient.
@@ -55,13 +55,13 @@ export function proxy(request: NextRequest) {
 
   let entry = windows.get(ip);
 
-  // No existing entry or window expired — start new window
+  // No existing entry or window expired - start new window
   if (!entry || now - entry.windowStart > WINDOW_MS) {
     windows.set(ip, { count: 1, windowStart: now });
     return NextResponse.next();
   }
 
-  // Within window — check count
+  // Within window - check count
   if (entry.count >= MAX_REQUESTS) {
     const retryAfter = Math.ceil((entry.windowStart + WINDOW_MS - now) / 1000);
     return new NextResponse(

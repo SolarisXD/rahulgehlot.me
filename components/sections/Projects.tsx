@@ -2,13 +2,15 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { SemiFeaturedCard } from "@/components/ui/SemiFeaturedCard";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { projects } from "@/content/projects";
 import { FolderGit2 } from "lucide-react";
 
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
-  const standard = projects.filter((p) => !p.featured);
+  const semiFeatured = projects.filter((p) => p.semiFeatured);
+  const standard = projects.filter((p) => !p.featured && !p.semiFeatured);
 
   return (
     <div>
@@ -61,6 +63,26 @@ export default function Projects() {
           </motion.div>
         ))}
       </motion.div>
+
+      {semiFeatured.length > 0 && (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          className="space-y-4 mb-6"
+        >
+          {semiFeatured.map((project) => (
+            <motion.div
+              key={project.id}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <SemiFeaturedCard project={project} />
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
 
       {standard.length > 0 && (
         <motion.div

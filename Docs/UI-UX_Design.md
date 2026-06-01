@@ -1,4 +1,4 @@
-# UI/UX Design — Portfolio and Chatbot
+# UI/UX Design - Portfolio and Chatbot
 
 ## 1. Design intent
 
