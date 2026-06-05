@@ -12,7 +12,7 @@ export default function About() {
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-semibold">
             B.Tech CSE student at Vellore Institute of Technology, Bhopal
-          </span>{" "}
+          </span>{" with specialization in AI & ML "}
         </p>
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
           I build full-stack web apps and machine learning systems.
