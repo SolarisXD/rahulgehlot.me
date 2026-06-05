@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahulgehlot.me"),
   title: "Rahul Gehlot - Full-stack Developer & ML Engineer",
   description:
-    "Full-stack developer and ML engineer. B.Tech CSE at VIT Bhopal. I build full-stack web apps and ML systems. Open to freelance work and internships.",
+    "Full-stack developer and ML engineer. B.Tech CSE at Vellore Institute of Technology, Bhopal. I build full-stack web apps and ML systems. Open to freelance work and internships.",
   icons: [{ rel: "icon", url: "/favicon.png", type: "image/png" }],
   alternates: {
     canonical: "https://rahulgehlot.me",
@@ -138,7 +138,7 @@ export default function RootLayout({
             jobTitle: "Full-stack Developer & ML Engineer",
             alumniOf: {
               "@type": "CollegeOrUniversity",
-              name: "VIT Bhopal University",
+              name: "Vellore Institute of Technology, Bhopal",
             },
             sameAs: [
               "https://github.com/SolarisXD",

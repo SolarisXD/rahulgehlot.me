@@ -2,7 +2,7 @@
 
 ## What it is
 
-Skillence is an AI-powered career platform built as a capstone project at VIT Bhopal. It was built between July 2025 and March 2026.
+Skillence is an AI-powered career platform built as a capstone project at Vellore Institute of Technology, Bhopal. It was built between July 2025 and March 2026.
 
 The GitHub repository is at github.com/SolarisXD/Skillence. It has a live site linked from the resume.
 

@@ -48,7 +48,7 @@ export const projects: Project[] = [
     demo: 'https://skillence-pi.vercel.app',
     status: 'live',
     tags: ['AI', 'full-stack', 'ML'],
-    featured: true,
+    featured: false,
     caseStudy: {
       why: 'Campus placement processes are slow, manual, and disconnected from actual job market data. I wanted a platform that could match students to occupations based on real skill gaps - not just keyword matching.',
       decision: 'Replaced the PyTorch inference layer with a custom pure NumPy implementation for production. PyTorch adds significant overhead for serving a trained model - the NumPy layer reduced backend crashes to near-zero while keeping inference accurate and adding ~0ms latency (~1ms total). Most people wouldn\'t write their own inference layer. I did because deployment reliability mattered more than convenience.',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     status: 'halt',
     tags: ['voice', 'desktop', 'python', 'AI'],
     featured: false,
-    semiFeatured: true,
+    semiFeatured: false,
     caseStudy: {
       why: 'Desktop voice control is either cloud-dependent, limited to specific apps, or requires constant manual activation. FORGE was built as a fully local voice-first system - wake-word activated, directly executing system actions, with no cloud dependency beyond optional AI fallback.',
       decision: 'Used sliding-window Whisper for wake-word detection instead of a dedicated engine (Porcupine/Snowboy). This keeps the entire pipeline on a single model - Whisper handles both wake-word and transcription, avoiding two separate audio ML pipelines. Trade-off: higher power usage for simpler architecture.',

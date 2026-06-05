@@ -30,7 +30,7 @@ Yes. Actively looking for internships through July 2026. Open to both in-person 
 Yes. He has experience building and delivering full-stack web projects. Contact via email with a brief project description.
 
 **When do you graduate?**
-July 2026. B.Tech in Computer Science and Engineering with AI-ML specialisation from VIT Bhopal.
+July 2026. B.Tech in Computer Science and Engineering with AI-ML specialisation from Vellore Institute of Technology, Bhopal.
 
 **Are you open to full-time roles?**
 After graduation in July 2026, yes. Open to full-stack engineering, ML engineering, and AI product development roles.
@@ -60,7 +60,7 @@ Building this portfolio with a RAG chatbot (Gemini Flash, Supabase pgvector, Lan
 Projects where AI and full-stack engineering overlap. Building systems that need to be both correct and deployed - not just technically interesting, but actually reliable in real use. Hisaab Pro and Skillence are examples: both had real correctness requirements (financial data, ML serving reliability) not just feature lists.
 
 **What is your CGPA?**
-8.67 out of 10.0 at VIT Bhopal.
+8.67 out of 10.0 at Vellore Institute of Technology, Bhopal.
 
 **Do you have a GitHub?**
 Yes. github.com/SolarisXD - 16 public repositories including Hisaab-Pro, Skillence, and SwapHub.

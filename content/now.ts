@@ -28,7 +28,7 @@ export const now: NowItem[] = [
   },
   {
     label: 'Available for',
-    value: 'Internships and freelance projects. I respond same day.',
+    value: 'Full-time roles, remote opportunities, internships, and freelance projects. I respond same day.',
   },
 ];
 

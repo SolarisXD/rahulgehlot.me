@@ -3,7 +3,6 @@ export const copy = {
     greeting: "Hi, I'm Rahul.",
     roles: [
       "Product Builder",
-      "Hisaab-Pro Creator",
       "Applied AI Architect",
       "Developer",
       "Problem Solver",
@@ -12,9 +11,9 @@ export const copy = {
   },
 
   about: [
-    `B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems - sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.`,
+    `B.Tech CSE student at Vellore Institute of Technology, Bhopal (AI-ML specialisation). I build full-stack web apps and machine learning systems - sometimes separately, increasingly together. Hisaab Pro is an offline accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero.`,
 
-    `I write a lot of tests. Hisaab Pro has 475 Jest tests - not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.`,
+    `I write a lot of tests because I've seen how silent logic errors ruin products. I design strict validation gates and automated test suites for everything I build, ensuring client data remains correct under all conditions.`,
   ],
 
   process: [
@@ -26,7 +25,7 @@ export const copy = {
     {
       number: "02",
       title: "Write tests before they're required",
-      body: "I don't write tests because someone told me to. I write them because I've worked on enough systems to know that silent bugs in business logic are worse than visible crashes. Hisaab Pro has 475 tests. Every payroll and ledger path is covered.",
+      body: "I don't write tests because someone told me to. I write them because I've worked on enough systems to know that silent bugs in business logic are worse than visible crashes. Every payroll, database, and ledger path gets fully covered.",
     },
     {
       number: "03",

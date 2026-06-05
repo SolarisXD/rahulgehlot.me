@@ -21,7 +21,7 @@ export type Certification = {
 
 export const education: EducationEntry[] = [
   {
-    institution: 'VIT Bhopal University',
+    institution: 'Vellore Institute of Technology, Bhopal',
     degree: 'B.Tech',
     field: 'Computer Science & Engineering (AI-ML Specialisation)',
     period: 'July 2026',

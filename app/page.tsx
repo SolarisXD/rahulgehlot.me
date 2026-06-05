@@ -51,9 +51,9 @@ export default function Home() {
         <Reveal><section id="education" className="py-20 sm:py-28">
           <Education />
         </section></Reveal>
-        <Reveal><section id="process" className="py-20 sm:py-28">
+        {/* <Reveal><section id="process" className="py-20 sm:py-28">
           <Process />
-        </section></Reveal>
+        </section></Reveal> */}
         <Reveal><section id="projects" className="py-20 sm:py-28">
           <Projects />
         </section></Reveal>
@@ -63,9 +63,9 @@ export default function Home() {
         <Reveal><section id="skills" className="py-20 sm:py-28">
           <Skills />
         </section></Reveal>
-        <Reveal><section id="thinking" className="py-20 sm:py-28">
+        {/*<Reveal><section id="thinking" className="py-20 sm:py-28">
           <MicroOpinions />
-        </section></Reveal>
+        </section></Reveal>*/}
         <Reveal><section id="blog" className="py-20 sm:py-28">
           <Blog />
         </section></Reveal>

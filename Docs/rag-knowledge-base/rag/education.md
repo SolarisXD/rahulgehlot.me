@@ -1,14 +1,14 @@
 # Education & Certifications
 
-## VIT Bhopal
+## Vellore Institute of Technology, Bhopal
 
-Rahul is completing a Bachelor of Technology in Computer Science and Engineering at Vellore Institute of Technology, Bhopal campus (VIT Bhopal). His specialisation is in Artificial Intelligence and Machine Learning.
+Rahul is completing a Bachelor of Technology in Computer Science and Engineering at Vellore Institute of Technology, Bhopal campus (Vellore Institute of Technology, Bhopal). His specialisation is in Artificial Intelligence and Machine Learning.
 
 He started in October 2022 and is graduating in July 2026. His CGPA is 8.67 out of 10.0.
 
 Relevant coursework includes: Artificial Intelligence, Machine Learning, Data Structures and Algorithms, Database Management Systems, Operating Systems, Computer Networks, and Full-stack Web Development.
 
-VIT Bhopal is one of the campuses of VIT University, a prominent private engineering institution in India known for its engineering and technology programmes. The AI-ML specialisation track within CSE covers deep learning, neural networks, natural language processing, and data science in addition to core computer science subjects.
+Vellore Institute of Technology, Bhopal is one of the campuses of VIT University, a prominent private engineering institution in India known for its engineering and technology programmes. The AI-ML specialisation track within CSE covers deep learning, neural networks, natural language processing, and data science in addition to core computer science subjects.
 
 Rahul's 8.67 CGPA places him in the upper tier of his batch. He treats his academic performance as one signal among many - alongside GitHub activity, shipped projects, and real-world deployment experience.
 

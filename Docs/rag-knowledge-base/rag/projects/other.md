@@ -32,7 +32,7 @@ The chatbot answers questions about Rahul's work, technical decisions, skills, a
 
 ## GitHub Profile
 
-Rahul's GitHub username is SolarisXD. He has 16 public repositories. The profile bio notes he is a senior at VIT Bhopal University.
+Rahul's GitHub username is SolarisXD. He has 16 public repositories. The profile bio notes he is a senior at Vellore Institute of Technology, Bhopal.
 
 His primary public repositories are Hisaab-Pro and Skillence. SwapHub is also public. The profile can be found at github.com/SolarisXD.
 

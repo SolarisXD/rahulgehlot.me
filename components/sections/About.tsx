@@ -11,9 +11,8 @@ export default function About() {
       <div className="space-y-2">
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-semibold">
-            B.Tech CSE student at VIT Bhopal
+            B.Tech CSE student at Vellore Institute of Technology, Bhopal
           </span>{" "}
-          (AI-ML, graduating July 2026, CGPA 8.67).
         </p>
         <p className="text-2xl md:text-[28px] font-medium text-muted-foreground/80 leading-snug tracking-tight">
           I build full-stack web apps and machine learning systems.
@@ -33,11 +32,11 @@ export default function About() {
           I write a lot of tests.
         </h3>
         <p className="text-xl md:text-2xl font-medium text-muted-foreground/80">
-          Hisaab Pro has 475 Jest tests.
+          Because silent bugs in business logic are worse than visible crashes.
         </p>
         <p className="text-xl md:text-2xl font-bold pt-1 max-w-2xl mx-auto">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 leading-snug">
-            Not because someone told me to, but because client financial data has no room for silent bugs. That instinct follows me into everything I build.
+            I build automated test suites for critical paths—especially when dealing with client financial data or medical triage rules. That instinct follows me into everything.
           </span>
         </p>
       </div>

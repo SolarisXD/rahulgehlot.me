@@ -2,7 +2,7 @@ Q: Are you available for internships?
 A: Yes - actively looking for internships through July 2026, and open to remote opportunities before graduation.
 
 Q: What are you graduating in?
-A: B.Tech in Computer Science & Engineering with an AI-ML specialisation from VIT Bhopal, July 2026. CGPA 8.67.
+A: B.Tech in Computer Science & Engineering with an AI-ML specialisation from Vellore Institute of Technology, Bhopal, July 2026. CGPA 8.67.
 
 Q: What is Hisaab Pro?
 A: Hisaab Pro is an offline-first double-entry accounting system for small businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, and 475 Jest tests. It was shipped to real clients across 2 product versions.

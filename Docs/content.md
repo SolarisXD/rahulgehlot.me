@@ -45,7 +45,7 @@ Secondary: "Ask the bot →"    → opens FloatingChat
 
 ```
 Paragraph 1:
-"B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026,
+"B.Tech CSE student at Vellore Institute of Technology, Bhopal (AI-ML specialisation, graduating July 2026,
 CGPA 8.67). I build full-stack web apps and machine learning systems - sometimes
 separately, increasingly together. Hisaab Pro is an offline accounting system I
 built and shipped to real clients. Skillence is a career platform with a
@@ -135,7 +135,7 @@ export const experience: ExperienceEntry[] = [
 ```ts
 export const education: EducationEntry[] = [
   {
-    institution: 'VIT Bhopal',
+    institution: 'Vellore Institute of Technology, Bhopal',
     degree: 'B.Tech',
     field: 'Computer Science & Engineering (AI-ML Specialisation)',
     period: 'October 2022 – July 2026',
@@ -392,7 +392,7 @@ Q: Are you available for internships?
 A: Yes - actively looking for internships through July 2026, and open to remote opportunities before graduation.
 
 Q: What are you graduating in?
-A: B.Tech in Computer Science & Engineering with an AI-ML specialisation from VIT Bhopal, July 2026. CGPA 8.67.
+A: B.Tech in Computer Science & Engineering with an AI-ML specialisation from Vellore Institute of Technology, Bhopal, July 2026. CGPA 8.67.
 
 Q: What is Hisaab Pro?
 A: Hisaab Pro is an offline-first double-entry accounting system for small businesses. It has 9 business modules, AES-256 encrypted SQLite storage, GST-ready invoicing, payroll automation, and 475 Jest tests. It was shipped to real clients across 2 product versions.

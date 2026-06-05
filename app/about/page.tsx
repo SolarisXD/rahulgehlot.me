@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Rahul Gehlot - Full-stack & AI Developer",
     description:
-      "B.Tech CSE at VIT Bhopal. Building full-stack web apps & ML systems - Hisaab Pro, Skillence, and more.",
+      "B.Tech CSE at Vellore Institute of Technology, Bhopal. Building full-stack web apps & ML systems - Hisaab Pro, Skillence, and more.",
     images: [{ url: "/og?subtitle=About+Rahul+Gehlot", width: 1200, height: 630 }],
   },
   twitter: {
@@ -77,17 +77,17 @@ export default function AboutPage() {
         {/* Quote Section */}
         <div className="bg-[#006d77]/5 border-l-4 border-[#006d77] p-5 rounded-r-lg mb-10">
           <p className="text-lg italic font-medium text-[#006d77] dark:text-[#4fd1c5]">
-            &ldquo;B.Tech CSE at VIT Bhopal. I build full-stack web apps and ML systems&mdash;sometimes separately, increasingly together.&rdquo;
+            &ldquo;B.Tech CSE at Vellore Institute of Technology, Bhopal. I build full-stack web apps and ML systems&mdash;sometimes separately, increasingly together.&rdquo;
           </p>
         </div>
 
         {/* Intro Text */}
         <div className="prose prose-sm dark:prose-invert max-w-none mb-12 text-muted-foreground leading-relaxed">
           <p>
-            B.Tech CSE student at VIT Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems &mdash; sometimes separately, increasingly together.
+            B.Tech CSE student at Vellore Institute of Technology, Bhopal (AI-ML specialisation, graduating July 2026, CGPA 8.67). I build full-stack web apps and machine learning systems &mdash; sometimes separately, increasingly together.
           </p>
           <p>
-            Hisaab Pro is an offline-first double-entry accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero. I write a lot of tests &mdash; Hisaab Pro has 475 Jest tests, not because someone told me to, but because client financial data has no room for silent bugs.
+            Hisaab Pro is an offline-first double-entry accounting system I built and shipped to real clients. Skillence is a career platform with a custom PyTorch model and a pure NumPy inference layer I wrote to cut backend deployment crashes to near-zero. I write tests because silently wrong business logic is worse than visible crashes &mdash; especially when managing ledger entries and GST-ready invoicing.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export default function AboutPage() {
           </h2>
           <div className="p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm">
             <h3 className="font-semibold text-foreground">B.Tech Computer Science &mdash; AI-ML Specialisation</h3>
-            <p className="text-sm text-muted-foreground">VIT Bhopal University</p>
+            <p className="text-sm text-muted-foreground">Vellore Institute of Technology, Bhopal</p>
             <div className="mt-3 flex items-center gap-3">
               <span className="text-xs font-medium bg-[#006d77]/10 text-[#006d77] px-2.5 py-1 rounded-md border border-[#006d77]/20">CGPA: 8.67</span>
               <span className="text-xs font-medium text-muted-foreground">Graduating July 2026</span>
@@ -211,7 +211,7 @@ export default function AboutPage() {
             {[
               { q: "Are you available for freelance or full-time work?", a: "Yes. Open to internships, freelance projects, and full-time roles after graduating July 2026. I build full-stack web apps and ML systems." },
               { q: "What's your preferred stack?", a: "Backend: Node.js, Express, FastAPI, SQLite, MongoDB. Frontend: React, Next.js, Tailwind CSS. ML: PyTorch (training), custom NumPy inference (production), Gemini API for AI features." },
-              { q: "Do you write tests?", a: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes - especially for financial data." },
+              { q: "Do you write tests?", a: "Absolutely. I write tests because silently wrong business logic is worse than visible crashes—especially for financial applications. Hisaab Pro is backed by comprehensive automated test coverage." },
             ].map((faq, i) => (
               <details key={i} className="group p-4 bg-white dark:bg-card border border-border rounded-xl shadow-sm [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex items-center justify-between font-semibold cursor-pointer text-foreground">
@@ -294,7 +294,7 @@ export default function AboutPage() {
               name: "Do you write tests?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Absolutely. Hisaab Pro has 475 Jest tests. I write tests because silently wrong business logic is worse than visible crashes - especially for financial data.",
+                text: "Absolutely. I write tests because silently wrong business logic is worse than visible crashes—especially for financial applications. Hisaab Pro is backed by comprehensive automated test coverage.",
               },
             },
           ],

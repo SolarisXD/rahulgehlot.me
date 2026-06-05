@@ -1,6 +1,6 @@
 # Rahul Gehlot - Bio & Identity
 
-Rahul Gehlot is a final-year B.Tech Computer Science and Engineering student at VIT Bhopal (Vellore Institute of Technology, Bhopal campus), with a specialisation in Artificial Intelligence and Machine Learning. He is graduating in July 2026 with a CGPA of 8.67 out of 10.
+Rahul Gehlot is a final-year B.Tech Computer Science and Engineering student at Vellore Institute of Technology, Bhopal (Vellore Institute of Technology, Bhopal campus), with a specialisation in Artificial Intelligence and Machine Learning. He is graduating in July 2026 with a CGPA of 8.67 out of 10.
 
 His GitHub username is SolarisXD. His email is rahulgehlot6044@gmail.com. His LinkedIn is linkedin.com/in/rahulgehlot. His portfolio site is rahulgehlot.me. His Medium profile is medium.com/@rahulgehlotxsd. His Dev.to profile is dev.to/rahulgehlot.
 

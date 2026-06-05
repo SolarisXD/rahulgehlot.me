@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Resume - Rahul Gehlot",
-    description: "Full-stack & AI developer. B.Tech CSE at VIT Bhopal.",
+    description: "Full-stack & AI developer. B.Tech CSE at Vellore Institute of Technology, Bhopal.",
     images: [{ url: "/og?subtitle=Resume", width: 1200, height: 630 }],
   },
   twitter: {
