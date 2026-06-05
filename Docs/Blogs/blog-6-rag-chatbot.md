@@ -2,9 +2,9 @@
 title: "How to Build a Portfolio Chatbot With RAG on the Free Tier"
 description: "Gemini Flash + Supabase pgvector + Langfuse = a fully functional RAG chatbot with observability that costs exactly zero dollars. Here's the architecture, the hybrid search tuning, and what I'd do differently."
 date: "2026-05-29"
+medium: https://medium.com/@rahulgehlotxsd/how-to-build-a-portfolio-chatbot-with-rag-on-the-free-tier-3eea0357046d
+devto: https://dev.to/rahulgehlot/how-to-build-a-portfolio-chatbot-with-rag-on-the-free-tier-5did
 ---
-
-# How to Build a Portfolio Chatbot With RAG on the Free Tier
 
 > *Gemini Flash + Supabase pgvector + Langfuse = a fully functional RAG chatbot with observability that costs exactly zero dollars.*
 

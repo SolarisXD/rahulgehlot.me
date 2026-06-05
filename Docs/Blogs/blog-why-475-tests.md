@@ -6,8 +6,6 @@ medium: https://medium.com/@rahulgehlotxsd/why-i-wrote-475-tests-for-a-desktop-a
 devto: https://dev.to/rahulgehlot/why-i-wrote-475-tests-for-a-desktop-accounting-app-4laj
 ---
 
-# Why I Wrote 475 Tests for a Desktop Accounting App
-
 > *When the books are wrong, the app doesn't crash. It just lies to you. That's what makes testing financial software different.*
 
 ---
