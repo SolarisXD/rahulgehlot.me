@@ -48,7 +48,7 @@ export const education: EducationEntry[] = [
     institution: "St. Paul's Sr. Sec. School, Falna",
     degree: 'Higher Secondary Education (Xth)',
     period: 'May 2019',
-    grade: 'CGPA 9.46 / 10.0',
+    grade: 'CGPA 8.90 / 10.0',
   },
 ];
 
